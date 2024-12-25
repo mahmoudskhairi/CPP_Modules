@@ -35,11 +35,19 @@ std::string Contact::SetField(std::string str)
 // 	return (this->_NeackName);
 // }
 
+std::string Contact::RespectLength(std::string str)
+{
+	if (str.length() >= 10)
+	{
+		return (str.substr(0, 9) + ".");
+	}
+	return (str);
+}
 void Contact::GetContact()
 {
-	std::cout << "  " << this->_FirstName << "  |";
-	std::cout << "  " << this->_LastName << "  |";
-	std::cout << "  " << this->_NeackName << "  " << std::endl;
+	std::cout << "|" << std::setw(10) << this->RespectLength(this->_FirstName);
+	std::cout << "|" << std::setw(10) << this->RespectLength(this->_LastName);
+	std::cout << "|" << std::setw(10) << this->RespectLength(this->_NeackName) + "|" << std::endl;
 }
 void Contact::DisplayContact(int Index)
 {

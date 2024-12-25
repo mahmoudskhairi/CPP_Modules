@@ -9,7 +9,8 @@ all: $(OBJECTS) $(HEADERS)
 %.o:%.cpp $(HEADERS)
 	$(CC) -c $(CPPFLAGS) $< -o $@
 clean:
-	rm -rf $(NAME)
+	rm -rf $(OBJECTS)
 fclean: clean
+	rm -rf $(NAME)
 re : fclean all
   
