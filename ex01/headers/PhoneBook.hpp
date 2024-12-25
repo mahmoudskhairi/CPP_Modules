@@ -7,6 +7,7 @@ class PhoneBook
 {
 public:
 	Contact MyContact[8];
+	void SayHello();
 	void DisplayPhoneBook();
 	void GetChoosedContact();
 };
