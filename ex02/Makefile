@@ -1,11 +1,9 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = PhoneBook
-SOURSESDIR = sources
-HEADERSDIR = headers
-SOURCES = $(addprefix $(SOURSESDIR)/, main.cpp PhoneBook.cpp Contact.cpp)
+NAME = Account
+SOURCES = tests.cpp Account.cpp
 OBJECTS = ${SOURCES:.cpp=.o}
-HEADERS = $(addprefix $(HEADERSDIR)/, Contact.hpp PhoneBook.hpp)
+HEADERS = Account.hpp
 all: $(NAME)
 
 $(NAME) : $(OBJECTS) $(HEADERS)
@@ -17,4 +15,3 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 re : fclean all
-  
