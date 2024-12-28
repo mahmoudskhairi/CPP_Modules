@@ -1,7 +1,7 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = Account
-SOURCES = tests.cpp Account.cpp
+SOURCES = tests.cpp  Account.cpp
 OBJECTS = ${SOURCES:.cpp=.o}
 HEADERS = Account.hpp
 all: $(NAME)
