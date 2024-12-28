@@ -27,6 +27,7 @@ public:
 	void GetContact();
 	std::string RespectLength(std::string str);
 	std::string SetField(std::string str);
+	void trim(std::string &str);
 };
 
 #endif

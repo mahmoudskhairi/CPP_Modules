@@ -1,4 +1,5 @@
 #include "../headers/Contact.hpp"
+#include <unistd.h>
 
 void Contact::SetContact()
 {
@@ -9,15 +10,30 @@ void Contact::SetContact()
 	this->_DarkestSecret = this->SetField("DarkestSecret: ");
 }
 
+void Contact::trim(std::string &str)
+{
+	size_t start = 0;
+	size_t end = str.length();
+
+	while (start < end && std::isspace(str[start]))
+		start++;
+	while (start < end && std::isspace(str[end]))
+		end--;
+	str = str.substr(start, end - start);
+}
+
 std::string Contact::SetField(std::string str)
 {
 	std::string FieldValue = "";
+	std::string &RefStr = FieldValue;
+
 	bool TryAgain;
 	do
 	{
 		TryAgain = true;
 		std::cout << "❓ " << str;
 		std::getline(std::cin, FieldValue);
+		this->trim(RefStr);
 		if (FieldValue.empty())
 		{
 			std::cout << "❌ No Input Try Again!" << std::endl;
