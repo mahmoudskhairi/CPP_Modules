@@ -5,7 +5,7 @@ void Contact::SetContact()
 {
 	this->_FirstName = this->SetField("FirstName: ");
 	this->_LastName = this->SetField("LastName: ");
-	this->_NeackName = this->SetField("NeackName: ");
+	this->_NickName = this->SetField("NickName: ");
 	this->_PhoneNumber = this->SetField("PhoneNumber: ");
 	this->_DarkestSecret = this->SetField("DarkestSecret: ");
 }
@@ -55,14 +55,16 @@ void Contact::GetContact()
 {
 	std::cout << "|" << std::setw(10) << this->RespectLength(this->_FirstName);
 	std::cout << "|" << std::setw(10) << this->RespectLength(this->_LastName);
-	std::cout << "|" << std::setw(10) << this->RespectLength(this->_NeackName) + "|" << std::endl;
+	std::cout << "|" << std::setw(10) << this->RespectLength(this->_NickName) + "|" << std::endl;
 }
 void Contact::DisplayContact(int Index)
 {
-	std::cout << "✅ Contact [" << Index << "]" << std::endl;
+	std::cout << "\n🔢 Contact [" << Index << "]" << std::endl;
 	std::cout << "✅ First Name: " << this->_FirstName << std::endl;
 	std::cout << "✅ Last Name: " << this->_LastName << std::endl;
-	std::cout << "✅ Neack Name: " << this->_NeackName << std::endl;
+	std::cout << "✅ Nick Name: " << this->_NickName << std::endl;
+	std::cout << "✅ Phone Number: " << this->_PhoneNumber << std::endl;
+	std::cout << "✅ Darkest Secret: " << this->_DarkestSecret << std::endl;
 }
 
 bool Contact::GetIsEmpty()

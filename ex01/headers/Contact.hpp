@@ -9,7 +9,7 @@ class Contact
 private:
 	std::string _FirstName;
 	std::string _LastName;
-	std::string _NeackName;
+	std::string _NickName;
 	std::string _PhoneNumber;
 	std::string _DarkestSecret;
 	bool _IsEmpty;

@@ -6,7 +6,7 @@ void PhoneBook::SayHello()
 			  << std::endl;
 	std::cout << "----------------------------------------------\n"
 			  << std::endl;
-	std::cout << "   ☎️  Tell Use commands Bellow:" << std::endl;
+	std::cout << "   📞  Tell Use commands Bellow:" << std::endl;
 	std::cout << "	#ADD : save a new contact" << std::endl;
 	std::cout << "	#SEARCH : display a specific contact" << std::endl;
 	std::cout << "	#EXIT : The program quits" << std::endl;
@@ -16,8 +16,8 @@ void PhoneBook::SayHello()
 
 void PhoneBook::DisplayPhoneBook()
 {
-	// std::cout << "|   index   |   first name   |   last name   |   neack name   |";
-	std::cout << "|🟰🟰🟰🟰🟰🟰🟰🟰 ☎️	PhoneBook	☎️  🟰🟰🟰🟰🟰🟰🟰🟰|"
+	// std::cout << "|   index   |   first name   |   last name   |   Nick name   |";
+	std::cout << "|📰📰     📱	PhoneBook	📱     📰📰|"
 			  << std::endl;
 	int i = 0;
 	while (!MyContact[i].GetIsEmpty())
@@ -38,7 +38,7 @@ void PhoneBook::GetChoosedContact()
 	do
 	{
 		TryAgain = false;
-		std::cout << "🔢 Please enter your contact index: ";
+		std::cout << "⏳ Please enter your contact index: ";
 		std::getline(std::cin, Input);
 		// std::cin.ignore();
 		if (Input.length() != 1 && isdigit(Input[0]))
