@@ -23,7 +23,6 @@ public:
 	bool GetIsEmpty();
 	void SetContact();
 	void DisplayContact(int Index);
-	// std::string GetField(std::string str);
 	void GetContact();
 	std::string RespectLength(std::string str);
 	std::string SetField(std::string str);

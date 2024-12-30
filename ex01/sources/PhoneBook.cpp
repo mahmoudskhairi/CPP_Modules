@@ -16,7 +16,6 @@ void PhoneBook::SayHello()
 
 void PhoneBook::DisplayPhoneBook()
 {
-	// std::cout << "|   index   |   first name   |   last name   |   Nick name   |";
 	std::cout << "|📰📰     📱	PhoneBook	📱     📰📰|"
 			  << std::endl;
 	int i = 0;
@@ -40,14 +39,13 @@ void PhoneBook::GetChoosedContact()
 		TryAgain = false;
 		std::cout << "⏳ Please enter your contact index: ";
 		std::getline(std::cin, Input);
-		// std::cin.ignore();
-		if (Input.length() != 1 && isdigit(Input[0]))
+		if (!std::cin.good() || Input.length() != 1 && isdigit(Input[0]))
 		{
 			std::cout << "❌ Invalid Input ,You Might Enter Just Numbers (From 0 To 7)!\n";
 			return;
 		}
 		Index = Input[0] - '0';
-		if (MyContact[0].GetIsEmpty()) // std::cin.good() ||
+		if (MyContact[0].GetIsEmpty())
 		{
 			std::cout << "❌ Please , Use ADD Command To Fill Contacts!\n";
 			return;

@@ -34,7 +34,7 @@ std::string Contact::SetField(std::string str)
 		std::cout << "❓ " << str;
 		std::getline(std::cin, FieldValue);
 		this->trim(RefStr);
-		if (FieldValue.empty())
+		if (!std::cin.good() || FieldValue.empty())
 		{
 			std::cout << "❌ No Input Try Again!" << std::endl;
 			TryAgain = false;
