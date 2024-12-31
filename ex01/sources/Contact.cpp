@@ -53,8 +53,8 @@ std::string Contact::RespectLength(std::string str)
 }
 void Contact::GetContact()
 {
-	std::cout << "|" << std::setw(10) << this->RespectLength(this->_FirstName);
-	std::cout << "|" << std::setw(10) << this->RespectLength(this->_LastName);
+	std::cout << "|" << std::setw(10) << this->RespectLength(this->_FirstName) << std::flush;
+	std::cout << "|" << std::setw(10) << this->RespectLength(this->_LastName) << std::flush;
 	std::cout << "|" << std::setw(10) << this->RespectLength(this->_NickName) + "|" << std::endl;
 }
 void Contact::DisplayContact(int Index)

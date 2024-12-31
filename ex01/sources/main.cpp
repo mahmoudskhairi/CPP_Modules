@@ -7,7 +7,7 @@ int main()
 	while (1)
 	{
 		std::string input;
-		std::cout << "Your PhoneBook> ";
+		std::cout << "Your PhoneBook> " << std::flush;
 		std::getline(std::cin, input);
 		if (!input.compare("ADD"))
 		{

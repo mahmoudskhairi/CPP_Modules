@@ -10,7 +10,7 @@ void PhoneBook::SayHello()
 	std::cout << "	#ADD : save a new contact" << std::endl;
 	std::cout << "	#SEARCH : display a specific contact" << std::endl;
 	std::cout << "	#EXIT : The program quits" << std::endl;
-	std::cout << "----------------------------------------------\n"
+	std::cout << "\n----------------------------------------------\n"
 			  << std::endl;
 }
 
@@ -21,7 +21,7 @@ void PhoneBook::DisplayPhoneBook()
 	int i = 0;
 	while (!MyContact[i].GetIsEmpty())
 	{
-		std::cout << "|" << std::setw(10) << i;
+		std::cout << "|" << std::setw(10) << i << std::flush;
 		MyContact[i].GetContact();
 		i++;
 		if (i == 8)
@@ -39,29 +39,29 @@ void PhoneBook::GetChoosedContact()
 		TryAgain = false;
 		std::cout << "⏳ Please enter your contact index: ";
 		std::getline(std::cin, Input);
-		if (!std::cin.good() || Input.length() != 1 && isdigit(Input[0]))
+		if (!std::cin.good() || (Input.length() != 1 && isdigit(Input[0])))
 		{
-			std::cout << "❌ Invalid Input ,You Might Enter Just Numbers (From 0 To 7)!\n";
+			std::cout << "❌ Invalid Input ,You Might Enter Just Numbers (From 0 To 7)!" << std::endl;
 			return;
 		}
 		Index = Input[0] - '0';
 		if (MyContact[0].GetIsEmpty())
 		{
-			std::cout << "❌ Please , Use ADD Command To Fill Contacts!\n";
+			std::cout << "❌ Please , Use ADD Command To Fill Contacts!" << std::endl;
 			return;
 		}
 		if (Index >= 0 && Index <= 7) // std::cin.good()
 		{
 			if (MyContact[Index].GetIsEmpty())
 			{
-				std::cout << "❌ Please , Use ADD Command To Fill More Contacts!\n";
+				std::cout << "❌ Please , Use ADD Command To Fill More Contacts!" << std::endl;
 				return;
 			}
 			MyContact[Index].DisplayContact(Index);
 		}
 		else
 		{
-			std::cout << "❌ Invalid Input ,You Might Enter Just Numbers (From 0 To 7)!\n";
+			std::cout << "❌ Invalid Input ,You Might Enter Just Numbers (From 0 To 7)!" << std::endl;
 			TryAgain = true;
 		}
 	} while (TryAgain);
