@@ -3,10 +3,16 @@
 #define N 3
 int main()
 {
-    Zombie *Horde = zombieHorde(N, "mahmoud");
-    for (int i = 0; i < N; i++)
+    if (N > 0)
     {
-        Horde[i].Announce();
-    };
-    delete[] Horde;
+        Zombie *Horde = zombieHorde(N, "mahmoud");
+        for (int i = 0; i < N; i++)
+        {
+            Horde[i].Announce();
+        };
+        delete[] Horde;
+    }
+    else
+        std::cout << "Please enter a valid number of Zombies"
+                  << std::endl;
 }
