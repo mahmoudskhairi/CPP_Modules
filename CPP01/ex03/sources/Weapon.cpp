@@ -13,11 +13,6 @@ Weapon::Weapon(std::string type) : _type(type)
 {
     std::cout << "Weapon paramiterize constructuor" << std::endl;
 }
-Weapon::Weapon(std::string type)
-{
-    this->_type = type;
-    std::cout << "Weapon paramiterize constructuor" << std::endl;
-}
 
 const std::string &Weapon::getType()
 {
