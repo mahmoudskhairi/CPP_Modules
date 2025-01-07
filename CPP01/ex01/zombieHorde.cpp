@@ -6,7 +6,7 @@ Zombie *zombieHorde(int N, std::string name)
     for (int i = 0; i < N; i++)
     {
         ZombieHorde[i].SetName(name);
-        // ZombieHorde[i] = Zombie(name);
+        // ZombieHorde[i] = Zombie(name);// by using this way, we have a temporary object that we will set it to Zombie[i] variable as a copy , after this statement it will be destroyed
     }
     return (ZombieHorde);
 }
