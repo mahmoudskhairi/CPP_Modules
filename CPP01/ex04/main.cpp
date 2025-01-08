@@ -15,13 +15,16 @@ int main(int ac, char *av[])
         {
             while (std::getline(SourceFile, line))
             {
-                while (index != -1)
+                if (s1.compare(s2))
                 {
-                    index = line.find(s1);
-                    if (index == -1) // std::string::npos == -1 means that s1 is not found!!
-                        break;
-                    line.erase(index, s1.length());
-                    line.insert(index, s2);
+                    while (index != -1)
+                    {
+                        index = line.find(s1);
+                        if (index == -1) // std::string::npos == -1 means that s1 is not found!!
+                            break;
+                        line.erase(index, s1.length());
+                        line.insert(index, s2);
+                    }
                 }
                 DestinationFile << line + "\n";
             }

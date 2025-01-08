@@ -15,7 +15,7 @@ $(NAME): $(OBJECTS)
 	$(CC) -c $(CPPFLAGS) $< -o $@
 
 clean:
-	$(RM) $(OBJECTS)
+	$(RM) $(OBJECTS) dest.replace
 
 fclean: clean
 	$(RM) $(NAME)
