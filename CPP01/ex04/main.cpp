@@ -8,15 +8,18 @@ int main(int ac, char *av[])
     std::string s1 = av[2];
     std::string s2 = av[3];
     std::string line;
+    ssize_t index = 0;
     if (ac == 4)
     {
         if (SourceFile.is_open() && SourceFile.is_open())
         {
             while (std::getline(SourceFile, line))
             {
-                ssize_t index = line.find(s1);
-                if (index != -1) // std::string::npos == -1 means that s1 is not found!!
+                while (index != -1)
                 {
+                    index = line.find(s1);
+                    if (index == -1) // std::string::npos == -1 means that s1 is not found!!
+                        break;
                     line.erase(index, s1.length());
                     line.insert(index, s2);
                 }
