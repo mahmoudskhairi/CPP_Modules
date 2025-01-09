@@ -1,6 +1,6 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = main
+NAME = Harl
 RM = rm -rf
 SOURCES = main.cpp
 OBJECTS = ${SOURCES:.cpp=.o}
