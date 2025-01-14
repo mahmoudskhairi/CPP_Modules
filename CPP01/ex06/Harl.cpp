@@ -36,19 +36,16 @@ void Harl::complain(std::string level)
     int i = 0;
     std::string input[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     ptrMethod methods[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-    while (level.compare(input[i]))
+    while (level.compare(input[i]) && i < 4)
         i++;
     switch (i)
     {
     case 0:
         (this->*methods[0])();
-        break;
     case 1:
         (this->*methods[1])();
-        break;
     case 2:
         (this->*methods[2])();
-        break;
     case 3:
         (this->*methods[3])();
         break;

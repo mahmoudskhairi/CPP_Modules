@@ -6,7 +6,7 @@
 // }
 Weapon::~Weapon()
 {
-    std::cout << "Weapon destructuor" << std::endl;
+    std::cout << "Weapon destructor" << std::endl;
 }
 
 Weapon::Weapon(std::string type) : _type(type)

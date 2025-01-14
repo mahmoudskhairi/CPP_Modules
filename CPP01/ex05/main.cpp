@@ -5,12 +5,15 @@ int main()
     Harl MyHarl;
     bool flag = true;
     std::string input;
-    if (!std::cin.good())
-        std::cerr << "Sorry, input error!" << std::endl;
     do
     {
         std::cout << "Enter ur input: " << std::flush;
         getline(std::cin, input);
+        if (!std::cin.good())
+        {
+            std::cerr << "\nSorry, input error!" << std::endl;
+            return(EXIT_FAILURE);
+        }
         if (!input.compare("EXIT") || !input.compare("exit"))
         {
             std::cout << "[EXIT]" << std::endl;

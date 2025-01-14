@@ -1,6 +1,6 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = Harl
+NAME = HarlFilter
 RM = rm -rf
 SOURCES = main.cpp Harl.cpp
 OBJECTS = ${SOURCES:.cpp=.o}

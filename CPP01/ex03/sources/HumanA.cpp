@@ -2,7 +2,7 @@
 
 // HumanA::HumanA()
 // {
-//     std::cout << "@ HumanA constructors !!" << std::endl;
+//     // std::cout << "@ HumanA constructors !!" << std::endl;
 // }
 HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _weapon(weapon)
 {
