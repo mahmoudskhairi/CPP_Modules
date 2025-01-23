@@ -12,7 +12,7 @@ private:
 public:
     Fixed();
     Fixed(const int FixedValue);
-    Fixed(const float FloitValue);
+    Fixed(const float FloatValue);
     Fixed(const Fixed &CopiedFixed);
 
     float toFloat(void) const;
@@ -25,4 +25,5 @@ public:
     ~Fixed();
 };
 
+std::ostream &operator<<(std::ostream &OutStraem, const Fixed &fixed);
 #endif
