@@ -12,7 +12,7 @@ Fixed::Fixed(const int FixedValue) : _FixedPoint(FixedValue << _FractionnalBits)
     std::cout << "Int constructor called" << std::endl;
     // this->_FixedPoint = FixedValue << this->_FractionnalBits;
 }
-Fixed::Fixed(const float FloatValue) : _FixedPoint(FloatValue * roundf(1 << _FractionnalBits))
+Fixed::Fixed(const float FloatValue) : _FixedPoint(roundf(FloatValue * (1 << _FractionnalBits)))
 {
     std::cout << "Float constructor called" << std::endl;
     // this->_FixedPoint = FloitValue * roundf(1 << this->_FractionnalBits);
@@ -32,8 +32,7 @@ void Fixed::setRawBits(int const raw)
 Fixed::Fixed(const Fixed &CopiedFixed)
 {
     std::cout << "Copy constructor called" << std::endl;
-    if (this != &CopiedFixed)
-        *this = CopiedFixed;
+    *this = CopiedFixed;
 }
 Fixed &Fixed::operator=(const Fixed &CopiedFixed)
 {

@@ -10,8 +10,7 @@ Fixed::Fixed(Fixed &OldFixed)
 {
     std::cout << "Copy constructor called" << std::endl;
     // this->_FixedPoint = OldFixed.getRawBits();
-    if (this != &OldFixed)
-        *this = OldFixed;
+    *this = OldFixed;
 }
 
 Fixed &Fixed::operator=(Fixed &fixed)
