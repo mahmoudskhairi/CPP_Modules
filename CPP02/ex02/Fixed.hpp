@@ -30,6 +30,8 @@ public:
 
     /* arithmetic operators */
     Fixed &operator=(Fixed const &fixed);
+    Fixed &operator+(Fixed const &fixed);
+    Fixed &operator-(Fixed const &fixed);
     ~Fixed();
 };
 /* insertion operator */

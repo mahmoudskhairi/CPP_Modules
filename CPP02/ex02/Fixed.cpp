@@ -51,7 +51,9 @@ Fixed::~Fixed()
 /* Arithmetic Operators*/
 Fixed &Fixed::operator=(const Fixed &fixed)
 {
-    if ()
+    if (this != &fixed)
+        this->setRawBits(fixed.getRawBits());
+    return (*this);
 }
 
 /* Insertion Operator */
