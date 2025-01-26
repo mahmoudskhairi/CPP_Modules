@@ -37,6 +37,7 @@ public:
     bool operator!=(const Fixed ComparedFixed);
     /* arithmetic operators */
     Fixed &operator=(Fixed const &fixed);
+    // Fixed &operator*=(const int x);
     Fixed operator+(Fixed const &fixed);
     Fixed operator-(Fixed const &fixed);
     Fixed operator*(Fixed const &fixed);

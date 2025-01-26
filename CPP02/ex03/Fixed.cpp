@@ -74,6 +74,11 @@ Fixed Fixed::operator/(const Fixed &fixed)
 {
     return (Fixed(this->toFloat() / fixed.toFloat()));
 }
+// Fixed &Fixed::operator*=(const int x)
+// {
+//     this->_FixedPoint *= (x << this->_FractionnalBits);
+//     return (*this);
+// }
 
 /* Comparison Operators*/
 bool Fixed::operator>(const Fixed ComparedFixed)
