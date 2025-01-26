@@ -28,10 +28,25 @@ public:
     int getRawBits(void) const;
     void setRawBits(int const raw);
 
+    /* comparison operators */
+    bool operator>(const Fixed ComparedFixed);
+    bool operator<(const Fixed ComparedFixed);
+    bool operator>=(const Fixed ComparedFixed);
+    bool operator<=(const Fixed ComparedFixed);
+    bool operator==(const Fixed ComparedFixed);
+    bool operator!=(const Fixed ComparedFixed);
     /* arithmetic operators */
     Fixed &operator=(Fixed const &fixed);
-    Fixed &operator+(Fixed const &fixed);
-    Fixed &operator-(Fixed const &fixed);
+    Fixed operator+(Fixed const &fixed);
+    Fixed operator-(Fixed const &fixed);
+    Fixed operator*(Fixed const &fixed);
+    Fixed operator/(Fixed const &fixed);
+    /* increment and decrement operators*/
+    Fixed &operator++(void);
+    Fixed &operator--(void);
+    Fixed operator++(int);
+    Fixed operator--(int);
+
     ~Fixed();
 };
 /* insertion operator */

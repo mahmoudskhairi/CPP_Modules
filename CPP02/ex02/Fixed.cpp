@@ -55,6 +55,48 @@ Fixed &Fixed::operator=(const Fixed &fixed)
         this->setRawBits(fixed.getRawBits());
     return (*this);
 }
+Fixed Fixed::operator+(const Fixed &fixed)
+{
+    return (Fixed(this->getRawBits() + fixed.getRawBits()));
+}
+Fixed Fixed::operator-(const Fixed &fixed)
+{
+    return (Fixed(this->getRawBits() - fixed.getRawBits()));
+}
+Fixed Fixed::operator*(const Fixed &fixed)
+{
+    return (Fixed(this->getRawBits() * fixed.getRawBits()));
+}
+Fixed Fixed::operator/(const Fixed &fixed)
+{
+    return (Fixed(this->getRawBits() / fixed.getRawBits()));
+}
+
+/* Comparison Operators*/
+bool Fixed::operator>(const Fixed ComparedFixed)
+{
+    return (this->getRawBits() > ComparedFixed.getRawBits());
+}
+bool Fixed::operator<(const Fixed ComparedFixed)
+{
+    return (this->getRawBits() < ComparedFixed.getRawBits());
+}
+bool Fixed::operator>=(const Fixed ComparedFixed)
+{
+    return (this->getRawBits() >= ComparedFixed.getRawBits());
+}
+bool Fixed::operator<=(const Fixed ComparedFixed)
+{
+    return (this->getRawBits() <= ComparedFixed.getRawBits());
+}
+bool Fixed::operator==(const Fixed ComparedFixed)
+{
+    return (this->getRawBits() == ComparedFixed.getRawBits());
+}
+bool Fixed::operator!=(const Fixed ComparedFixed)
+{
+    return (this->getRawBits() != ComparedFixed.getRawBits());
+}
 
 /* Insertion Operator */
 std::ostream &operator<<(std::ostream &OutStrem, Fixed &Fixed)
