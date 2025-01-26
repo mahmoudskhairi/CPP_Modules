@@ -1,5 +1,6 @@
 #include "Fixed.hpp"
 
+int Fixed::_FractionnalBits = 8;
 /* Default constructor*/
 Fixed::Fixed() : _FixedPoint(0)
 {
@@ -24,12 +25,13 @@ Fixed::Fixed(const Fixed &CopiedFixed)
 /* conversion methods */
 float Fixed::toFloat(void) const
 {
-    return (this->_FixedPoint / (1 >> this->_FractionnalBits));
+    // std::cout << "*" << (int)(1 << this->_FractionnalBits) << std::endl;
+    return ((float)this->_FixedPoint / (1 << this->_FractionnalBits));
 }
 
 int Fixed::toInt(void) const
 {
-    return (this->_FixedPoint >> this->_FractionnalBits);
+    return (this->_FixedPoint);
 }
 
 /* setters & getters */
@@ -57,19 +59,20 @@ Fixed &Fixed::operator=(const Fixed &fixed)
 }
 Fixed Fixed::operator+(const Fixed &fixed)
 {
-    return (Fixed(this->getRawBits() + fixed.getRawBits()));
+    return (Fixed(this->toFloat() + fixed.toFloat()));
 }
 Fixed Fixed::operator-(const Fixed &fixed)
 {
-    return (Fixed(this->getRawBits() - fixed.getRawBits()));
+    return (Fixed(this->toFloat() - fixed.toFloat()));
 }
 Fixed Fixed::operator*(const Fixed &fixed)
 {
-    return (Fixed(this->getRawBits() * fixed.getRawBits()));
+    return (Fixed(this->toFloat() * fixed.toFloat()));
 }
+
 Fixed Fixed::operator/(const Fixed &fixed)
 {
-    return (Fixed(this->getRawBits() / fixed.getRawBits()));
+    return (Fixed(this->toFloat() / fixed.toFloat()));
 }
 
 /* Comparison Operators*/
@@ -118,10 +121,11 @@ Fixed &Fixed::operator--(void)
     return (*this);
 }
 
-Fixed &Fixed::operator++(void)
+Fixed Fixed::operator--(int)
 {
-    ++this->_FixedPoint;
-    return (*this);
+    Fixed tmp(*this);
+    this->_FixedPoint--;
+    return (tmp);
 }
 
 /* max and min methods*/
@@ -140,7 +144,7 @@ const Fixed &Fixed::max(Fixed &a, const Fixed &b)
 }
 
 /* Insertion Operator */
-std::ostream &operator<<(std::ostream &OutStrem, Fixed &Fixed)
+std::ostream &operator<<(std::ostream &OutStrem, const Fixed &Fixed)
 {
     OutStrem << Fixed.toFloat();
     return (OutStrem);
