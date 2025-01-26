@@ -46,6 +46,9 @@ public:
     Fixed &operator--(void);
     Fixed operator++(int);
     Fixed operator--(int);
+    /* min and max methods*/
+    static const Fixed &min(Fixed &a, const Fixed &b);
+    static const Fixed &max(Fixed &a, const Fixed &b);
 
     ~Fixed();
 };
