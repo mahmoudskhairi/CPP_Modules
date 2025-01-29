@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 
-int Fixed::_FractionnalBits = 8;
+int Fixed::_FractionnalBits = 16;
 /* Default constructor*/
 Fixed::Fixed() : _FixedPoint(0)
 {
@@ -11,7 +11,7 @@ Fixed::Fixed(const int FixedValue) : _FixedPoint(FixedValue << _FractionnalBits)
 {
 }
 
-Fixed::Fixed(const float FloatValue) : _FixedPoint(roundf(FloatValue * (1 << _FractionnalBits)))
+Fixed::Fixed(const float FloatValue) : _FixedPoint((FloatValue * (1 << _FractionnalBits)))
 {
 }
 
@@ -26,7 +26,7 @@ Fixed::Fixed(const Fixed &CopiedFixed)
 float Fixed::toFloat(void) const
 {
     // std::cout << "*" << (int)(1 << this->_FractionnalBits) << std::endl;
-    return ((float)this->_FixedPoint / (1 << this->_FractionnalBits));
+    return (float)(this->_FixedPoint / (1 << this->_FractionnalBits));
 }
 
 int Fixed::toInt(void) const
