@@ -7,22 +7,22 @@ FragTrap::FragTrap(std::string Name) : ClapTrap(Name)
     this->_Energie = 100;
     this->_DamagePoints = 60;
 }
-
-FragTrap &FragTrap::operator=(FragTrap &New)
-{
-    if (this != &New)
-    {
-        this->SetName(New.GetName());
-        this->SetHealth(New.GetHealth());
-        this->SetEnergie(New.GetEnergie());
-        this->SetDamage(New.GetDamage());
-    }
-    return (*this);
-}
+/* unnecessary usage*/
+// FragTrap &FragTrap::operator=(FragTrap &New)
+// {
+//     if (this != &New)
+//     {
+//         this->SetName(New.GetName());
+//         this->SetHealth(New.GetHealth());
+//         this->SetEnergie(New.GetEnergie());
+//         this->SetDamage(New.GetDamage());
+//     }
+//     return (*this);
+// }
 
 FragTrap::FragTrap(FragTrap &New) : ClapTrap(New)
 {
-    *this = New;
+    /* unnecessary usage of // *this = New;// double initialization of ClapTrap data members */
 }
 
 void FragTrap::highFivesGuys(void)

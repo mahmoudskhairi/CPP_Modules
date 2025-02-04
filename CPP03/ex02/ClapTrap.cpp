@@ -1,5 +1,8 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+{
+}
 ClapTrap::ClapTrap(std::string Name) : _Name(Name), _Health(10), _Energie(10), _DamagePoints(0)
 {
     std::cout << "(Claptrap) : " << this->_Name << " is here" << std::endl;

@@ -3,14 +3,24 @@
 
 class Fixed
 {
-private:
+protected:
     // static int _FractionnalBits;
+    int _FixedPoint;
 
 public:
-    int _FixedPoint;
     /* default constructor*/
-    Fixed() : _FixedPoint(0) {}
-
+    Fixed() : _FixedPoint(0)
+    {
+        std::cout << "fixed constructor in here" << std::endl;
+    }
+    int getFixed()
+    {
+        return (this->_FixedPoint);
+    }
+    void setFixed(int n)
+    {
+        this->_FixedPoint = n;
+    }
     /* arithmetic operators */
     Fixed operator=(Fixed const fixed)
     {
@@ -18,29 +28,27 @@ public:
             this->_FixedPoint = fixed._FixedPoint;
         return (*this);
     }
-    Fixed operator++(int)
-    {
-        Fixed tmp(*this);
-        this->_FixedPoint++;
-        Fixed &tmp2 = tmp;
-        return (tmp2);
-    }
-    Fixed &operator++(void)
-    {
-        // Fixed tmp(*this);
-        ++this->_FixedPoint;
-        // Fixed &tmp2 = tmp;
-        return (*this);
-    }
-    // Fixed &operator-(Fixed const &fixed);
-    ~Fixed() {}
-};
 
-std::ostream &operator<<(std::ostream &OutStrem, Fixed &Fixed)
+    // Fixed &operator-(Fixed const &fixed);
+    ~Fixed()
+    {
+
+        std::cout << "fixed destructor in here" << std::endl;
+    }
+};
+class child : private Fixed
 {
-    OutStrem << Fixed._FixedPoint;
-    return (OutStrem);
-}
+public:
+    child()
+    {
+        std::cout << Fixed::getFixed() << "child constructor in here" << std::endl;
+    }
+    ~child()
+    {
+
+        std::cout << "child destructor in here" << std::endl;
+    }
+};
 
 int main()
 {
@@ -49,36 +57,7 @@ int main()
 
     // int &ref = b;
     // int &ref2 = ref;
-    Fixed a;
-    a._FixedPoint = 2;
-    Fixed b(a);
-    Fixed c(a);
-
-    // std::cout << "ref: " << ref << std::endl;
-    // std::cout << "ref2: " << ref2 << std::endl;
-    std::cout << "a: " << a._FixedPoint << std::endl;
-    std::cout << "b: " << b._FixedPoint << std::endl;
-    std::cout << "c: " << c._FixedPoint << std::endl;
-    a._FixedPoint = 3;
-    std::cout << "------------------------\n";
-    std::cout << "a: " << a._FixedPoint << std::endl;
-    std::cout << "b: " << b._FixedPoint << std::endl;
-    std::cout << "c: " << c._FixedPoint << std::endl;
-    c = b = a;
-    std::cout << "------------------------\n";
-    std::cout << "a: " << a._FixedPoint << std::endl;
-    std::cout << "b: " << b._FixedPoint << std::endl;
-    std::cout << "c: " << c._FixedPoint << std::endl;
-    std::cout << "------------------------\n";
-    std::cout << "c: " << c++ << std::endl;
-    std::cout << "c: " << c << std::endl;
-    std::cout << "------------------------\n";
-    std::cout << "c: " << ++c << std::endl;
-    std::cout << "c: " << c << std::endl;
-    // a._FixedPoint = 1;
-
-    // b = a = c;
-    // std::cout << "a: " << a._FixedPoint << std::endl;
-    // std::cout << "b: " << b._FixedPoint << std::endl;
-    // std::cout << "c: " << c._FixedPoint << std::endl;
+    // Fixed a;
+    child b;
+    // std::cout << b.g << std::endl;
 }
