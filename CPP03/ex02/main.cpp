@@ -9,8 +9,8 @@ int main()
     for (int i = 0; i < 8; i++)
         Frag.attack("Zombie");
     Frag.takeDamage(100);
-    Frag.highFivesGuys();
     Frag.takeDamage(1);
+    Frag.highFivesGuys();
     std::cout << "#Frag Health points: " << Frag.GetHealth() << std::endl;
     std::cout << "#Frag Energy points: " << Frag.GetEnergie() << std::endl;
 }

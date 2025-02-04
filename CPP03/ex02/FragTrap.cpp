@@ -27,7 +27,12 @@ FragTrap::FragTrap(FragTrap &New) : ClapTrap(New)
 
 void FragTrap::highFivesGuys(void)
 {
-    std::cout << "<Frag> : " << this->GetName() << " high fives to all friends" << std::endl;
+    if (this->GetEnergie() > 0 && this->GetHealth() > 0)
+    {
+        std::cout << "<Frag> : " << this->GetName() << " high fives to all friends" << std::endl;
+        return;
+    }
+    std::cout << "<Frag> : " << this->GetName() << " doesn't has power to high fives" << std::endl;
 }
 
 void FragTrap::attack(const std::string &target)
