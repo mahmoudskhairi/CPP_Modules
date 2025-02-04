@@ -2,7 +2,7 @@ CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = ScavTrap
 RM = rm -rf
-SOURCES = main.cpp ScavTrap.cpp ClapTrap.cpp
+SOURCES = main.cpp ScavTrap.cpp ClapTrap.cpp FragTrap.cpp
 OBJECTS = ${SOURCES:.cpp=.o}
 
 all: $(NAME)
@@ -11,7 +11,7 @@ $(NAME): $(OBJECTS)
 	$(CC) $(CPPFLAGS) $(OBJECTS) -o $(NAME)
 
 
-%.o: %.cpp ScavTrap.hpp ClapTrap.hpp
+%.o: %.cpp ScavTrap.hpp ClapTrap.hpp FragTrap.hpp
 	$(CC) -c $(CPPFLAGS) $< -o $@
 
 clean:
