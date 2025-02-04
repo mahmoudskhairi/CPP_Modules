@@ -1,6 +1,6 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = ScavTrap
+NAME = FragTrap
 RM = rm -rf
 SOURCES = main.cpp ScavTrap.cpp ClapTrap.cpp FragTrap.cpp
 OBJECTS = ${SOURCES:.cpp=.o}

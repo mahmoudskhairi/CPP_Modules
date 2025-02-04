@@ -30,16 +30,16 @@ void FragTrap::highFivesGuys(void)
     std::cout << "<Frag> : " << this->GetName() << " high fives to all friends" << std::endl;
 }
 
-// void FragTrap::attack(const std::string &target)
-// {
-//     if (this->_Energie && this->_Health)
-//     {
-//         this->_Energie--;
-//         std::cout << "<Frag> : " << this->_Name << " attacks " << target << " , causing " << this->_DamagePoints << " points of damage!" << std::endl;
-//         return;
-//     }
-//     std::cout << "<Frag> : " << this->_Name << " can't attacks anyone!" << std::endl;
-// }
+void FragTrap::attack(const std::string &target)
+{
+    if (this->_Energie && this->_Health)
+    {
+        this->_Energie--;
+        std::cout << "<Frag> : " << this->_Name << " attacks " << target << " , causing " << this->_DamagePoints << " points of damage!" << std::endl;
+        return;
+    }
+    std::cout << "<Frag> : " << this->_Name << " can't attacks anyone!" << std::endl;
+}
 
 FragTrap::~FragTrap()
 {
