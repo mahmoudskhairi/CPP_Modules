@@ -3,7 +3,7 @@
 DiamondTrap::DiamondTrap()
 {
 }
-DiamondTrap::DiamondTrap(std::string Name) : ScavTrap(Name), FragTrap(Name)
+DiamondTrap::DiamondTrap(std::string Name) : ClapTrap(Name + "_clap_name"), ScavTrap(Name), FragTrap(Name), _Name(Name)
 {
     this->_Health = FragTrap::GetHealth();
     this->_Energie = ScavTrap::GetEnergie();
@@ -35,6 +35,11 @@ void DiamondTrap::attack(const std::string &target)
 DiamondTrap::DiamondTrap(DiamondTrap &Diamond) : ScavTrap(Diamond), FragTrap(Diamond)
 {
     this->_Name = Diamond.GetName();
+}
+void DiamondTrap::whoAmI()
+{
+    std::cout << "DiamondTrap Name is : " << this->_Name << std::endl;
+    std::cout << "ClapTrap Name is : " << ClapTrap::GetName() << std::endl;
 }
 DiamondTrap::~DiamondTrap()
 {
