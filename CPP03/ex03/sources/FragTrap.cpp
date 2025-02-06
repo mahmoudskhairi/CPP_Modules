@@ -1,5 +1,6 @@
 #include "../includes/FragTrap.hpp"
 
+FragTrap::FragTrap() {}
 FragTrap::FragTrap(std::string Name) : ClapTrap(Name)
 {
     std::cout << "<Frag> : " << this->GetName() << " is here!" << std::endl;
@@ -22,6 +23,7 @@ FragTrap::FragTrap(std::string Name) : ClapTrap(Name)
 
 FragTrap::FragTrap(FragTrap &New) : ClapTrap(New)
 {
+    std::cout << "<Frag> : " << this->_Name << " Copy constructor called" << std::endl;
     /* unnecessary usage of // *this = New;// double initialization of ClapTrap data members */
 }
 
@@ -48,5 +50,5 @@ void FragTrap::attack(const std::string &target)
 
 FragTrap::~FragTrap()
 {
-    std::cout << "<Frag> : " << this->GetName() << "destructor called" << std::endl;
+    std::cout << "<Frag> : " << this->GetName() << " destructor called" << std::endl;
 }

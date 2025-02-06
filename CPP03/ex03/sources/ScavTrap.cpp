@@ -31,6 +31,8 @@ void ScavTrap::attack(const std::string &target)
 
 ScavTrap::ScavTrap(ScavTrap &New) : ClapTrap(New)
 {
+    std::cout << "<ScavTrap> : " << this->_Name << " Copy constructor called" << std::endl;
+
     //*this = New
 }
 

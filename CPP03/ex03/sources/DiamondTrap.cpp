@@ -3,8 +3,9 @@
 DiamondTrap::DiamondTrap()
 {
 }
-DiamondTrap::DiamondTrap(std::string Name) : ClapTrap(Name + "_clap_name"), ScavTrap(Name), FragTrap(Name), _Name(Name)
+DiamondTrap::DiamondTrap(std::string Name) : ClapTrap(Name + "_clap_name"), ScavTrap(Name + "_clap_name"), FragTrap(Name + "_clap_name"), _Name(Name)
 {
+    // this->_Name = Name;
     this->_Health = FragTrap::GetHealth();
     this->_Energie = ScavTrap::GetEnergie();
     this->_DamagePoints = FragTrap::GetDamage();
@@ -13,7 +14,7 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap &Assigned)
 {
     if (this != &Assigned)
     {
-        ClapTrap::SetName(Assigned.GetName());
+        this->ClapTrap::SetName(Assigned.GetName() + "_clap_name");
         this->SetName(Assigned.GetName());
         this->SetHealth(Assigned.GetHealth());
         this->SetEnergie(Assigned.GetEnergie());
@@ -27,14 +28,14 @@ void DiamondTrap::attack(const std::string &target)
     if (this->_Energie && this->_Health)
     {
         this->_Energie--;
-        std::cout << "<Diamond> : " << this->_Name << " attacks " << target << " , causing " << this->_DamagePoints << " points of damage!" << std::endl;
+        std::cout << "#Diamond# : " << this->_Name << " attacks " << target << " , causing " << this->_DamagePoints << " points of damage!" << std::endl;
         return;
     }
-    std::cout << "<Frag> : " << this->_Name << " can't attacks anyone!" << std::endl;
+    std::cout << "#Dimond# : " << this->_Name << " can't attacks anyone!" << std::endl;
 }
-DiamondTrap::DiamondTrap(DiamondTrap &Diamond) : ScavTrap(Diamond), FragTrap(Diamond)
+DiamondTrap::DiamondTrap(DiamondTrap &Diamond) : ClapTrap(Diamond.ClapTrap::GetName()), ScavTrap(Diamond.GetName()), FragTrap(Diamond.GetName()), _Name(Diamond.GetName())
 {
-    this->_Name = Diamond.GetName();
+    std::cout << "#Diamond# : " << this->_Name << " Copy constructor called" << std::endl;
 }
 void DiamondTrap::whoAmI()
 {

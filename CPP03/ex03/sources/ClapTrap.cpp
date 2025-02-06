@@ -11,7 +11,7 @@ ClapTrap::ClapTrap(std::string Name) : _Name(Name), _Health(10), _Energie(10), _
 ClapTrap::ClapTrap(ClapTrap &target)
 {
 
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "(ClapTrap) : " << this->_Name << " Copy constructor called" << std::endl;
     *this = target;
 }
 
