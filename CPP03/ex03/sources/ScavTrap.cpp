@@ -1,5 +1,8 @@
-#include "ScavTrap.hpp"
+#include "../includes/ScavTrap.hpp"
 
+ScavTrap::ScavTrap()
+{
+}
 ScavTrap::ScavTrap(std::string Name) : ClapTrap(Name)
 {
     std::cout << "<Scav> : " << this->GetName() << " is here" << std::endl;
@@ -26,6 +29,22 @@ void ScavTrap::attack(const std::string &target)
     std::cout << "<Scav> : " << this->_Name << " can't attacks anyone!" << std::endl;
 }
 
+ScavTrap::ScavTrap(ScavTrap &New) : ClapTrap(New)
+{
+    //*this = New
+}
+
+ScavTrap &ScavTrap::operator=(ScavTrap &scav)
+{
+    if (this != &scav)
+    {
+        this->_Name = scav._Name;
+        this->_Health = scav._Health;
+        this->_Energie = scav._Energie;
+        this->_DamagePoints = scav._DamagePoints;
+    }
+    return (*this);
+}
 ScavTrap::~ScavTrap()
 {
     std::cout << "<Scav> : " << this->GetName() << " Destructor called" << std::endl;

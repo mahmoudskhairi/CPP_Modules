@@ -1,5 +1,6 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+SHADOWFLAGS = -Wshadow -Wno-shadow
 NAME = DiamondTrap
 RM = rm -rf
 SRCDIR = sources
@@ -11,11 +12,11 @@ Headers = $(addprefix $(INCDIR)/,ScavTrap.hpp ClapTrap.hpp FragTrap.hpp DiamondT
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	$(CC) $(CPPFLAGS) $(OBJECTS) -o $(NAME)
+	$(CC) $(CPPFLAGS) $(SHADOWFLAGS) $(OBJECTS) -o $(NAME)
 
 
 %.o: %.cpp $(HEADERS)
-	$(CC) -c $(CPPFLAGS) $< -o $@
+	$(CC) -c $(CPPFLAGS) $(SHADOWFLAGS) $< -o $@
 
 clean:
 	$(RM) $(OBJECTS)
