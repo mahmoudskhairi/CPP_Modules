@@ -10,6 +10,9 @@ DiamondTrap::DiamondTrap(std::string Name) : ClapTrap(Name + "_clap_name"), Scav
     this->_Energie = ScavTrap::GetEnergie();
     this->_DamagePoints = FragTrap::GetDamage();
 }
+
+/* necessary usage is this case ,because FragTrap have its own data members*/
+
 DiamondTrap &DiamondTrap::operator=(DiamondTrap &Assigned)
 {
     if (this != &Assigned)
