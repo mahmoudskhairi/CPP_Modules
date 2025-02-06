@@ -11,7 +11,7 @@ int main(void)
     Point c(0, 0);
     // // std::cout << "c--->" << c.GetX() << std::endl;
     // // std::cout << "c--->" << c.GetY() << std::endl;
-    Point s(1.2f, 1.2f);
+    Point s(-0.5f, -0.5f);
     bsp(a, b, c, s);
     // Fixed s1(1.9999f);
     // std::cout << s1.toFloat() << std::endl;

@@ -11,8 +11,11 @@ Fixed::Fixed(const int FixedValue) : _FixedPoint(FixedValue << _FractionnalBits)
 {
 }
 
-Fixed::Fixed(const float FloatValue) : _FixedPoint((FloatValue * (1 << _FractionnalBits)))
+Fixed::Fixed(const float FloatValue) : _FixedPoint((roundf(FloatValue * (1 << _FractionnalBits))))
 {
+    // std::cout << "q=" << this->_Y << std::endl;
+    // std::cout << "-=" << x << std::endl;
+    // std::cout << "-=" << y << std::endl;
 }
 
 /* Copy Constructor*/

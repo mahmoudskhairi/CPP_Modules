@@ -6,8 +6,10 @@ Point::Point() : _X(0), _Y(0)
 
 Point::Point(const float x, const float y) : _X(x), _Y(y)
 {
-    std::cout << "=" << x << std::endl;
-    std::cout << "=" << y << std::endl;
+    // std::cout << "q=" << this->_X << std::endl;
+    // std::cout << "q=" << this->_Y << std::endl;
+    // std::cout << "-=" << x << std::endl;
+    // std::cout << "-=" << y << std::endl;
 }
 
 Point::Point(Point &point) : _X(point.GetX()), _Y(point.GetY())
