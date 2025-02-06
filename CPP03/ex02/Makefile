@@ -1,6 +1,5 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-SHADOWFLAGS = -Wshadow -Wno-shadow
 NAME = FragTrap
 RM = rm -rf
 SRCDIR = sources
@@ -12,11 +11,11 @@ Headers = $(addprefix $(INCDIR)/, ClapTrap.hpp  ScavTrap.hpp FragTrap.hpp)
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	$(CC) $(CPPFLAGS) $(SHADOWFLAGS) $(OBJECTS) -o $(NAME)
+	$(CC) $(CPPFLAGS) $(OBJECTS) -o $(NAME)
 
 
 %.o: %.cpp $(HEADERS)
-	$(CC) -c $(CPPFLAGS) $(SHADOWFLAGS) $< -o $@
+	$(CC) -c $(CPPFLAGS)  $< -o $@
 
 clean:
 	$(RM) $(OBJECTS)

@@ -2,8 +2,11 @@ CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = ScavTrap
 RM = rm -rf
-SOURCES = main.cpp ScavTrap.cpp ClapTrap.cpp
+SRCDIR = sources
+INCDIR = includes
+SOURCES = $(addprefix $(SRCDIR)/,main.cpp ClapTrap.cpp ScavTrap.cpp)
 OBJECTS = ${SOURCES:.cpp=.o}
+Headers = $(addprefix $(INCDIR)/,ClapTrap.hpp ScavTrap.hpp)
 
 all: $(NAME)
 
@@ -11,7 +14,7 @@ $(NAME): $(OBJECTS)
 	$(CC) $(CPPFLAGS) $(OBJECTS) -o $(NAME)
 
 
-%.o: %.cpp ScavTrap.hpp ClapTrap.hpp
+%.o: %.cpp $(HEADERS)
 	$(CC) -c $(CPPFLAGS) $< -o $@
 
 clean:
