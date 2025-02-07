@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:47:47 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/02/07 20:26:38 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/02/07 21:15:00 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,10 @@
 
 int main(void)
 {
-    Point a(0, 1.5f);
-    Point b(1, 0);
-    Point c(-1, -1);
-    Point point(0.27f, 1.1f);
-
-    if (bsp(a, b, c, point))
-        std::cout << "Inside" << std::endl;
-    else
-        std::cout << "outside" << std::endl;
+    Point a(0, 0);
+    Point b(2, 0);
+    Point c(0, 2);
+    Point point(0.001f, 0.001f);
+    bsp(a, b, c, point);
     return (0);
 }
