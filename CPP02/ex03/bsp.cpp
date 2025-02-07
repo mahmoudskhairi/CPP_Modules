@@ -1,20 +1,20 @@
 
 #include "Point.hpp"
 
-static Fixed abs(Fixed x)
+Fixed abs(Fixed x)
 {
-    if (x >= 0)
-        std::cout << "x  :" << x << std::endl;
+    // if (x >= 0)
+    //     std::cout << "x  :" << x << std::endl;
 
-    else
-        std::cout << "x  :" << x * -1 << std::endl;
+    // else
+    //     std::cout << "x  :" << x * -1 << std::endl;
     if (x < 0)
         return (x * -1);
-    std::cout << "---------------------------\n";
+    // std::cout << "---------------------------\n";
     return (x);
 }
 
-static Fixed area(Point const &a, Point const &b, Point const &c)
+Fixed area(Point const &a, Point const &b, Point const &c)
 {
     return ((a.GetX() * (b.GetY() - c.GetY())) + b.GetX() * (c.GetY() - a.GetY()) + c.GetX() * (a.GetY() - b.GetY()));
 }

@@ -1,6 +1,6 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = Fixed
+NAME = Bsp
 RM = rm -rf
 SOURCES = main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJECTS = ${SOURCES:.cpp=.o}

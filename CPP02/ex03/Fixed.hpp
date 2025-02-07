@@ -1,3 +1,4 @@
+
 #ifndef _FIXED_HPP_
 #define _FIXED_HPP_
 #include <iostream>
@@ -35,13 +36,13 @@ public:
     bool operator<=(const Fixed ComparedFixed);
     bool operator==(const Fixed ComparedFixed);
     bool operator!=(const Fixed ComparedFixed);
-    /* arithmetic operators */
+    /* assignment operators */
     Fixed &operator=(Fixed const &fixed);
     // Fixed &operator*=(const int x);
-    Fixed operator+(Fixed const &fixed);
-    Fixed operator-(Fixed const &fixed);
-    Fixed operator*(Fixed const &fixed);
-    Fixed operator/(Fixed const &fixed);
+    Fixed operator+(Fixed const &fixed) const;
+    Fixed operator-(Fixed const &fixed) const;
+    Fixed operator*(Fixed const &fixed) const;
+    Fixed operator/(Fixed const &fixed) const;
     /* increment and decrement operators*/
     Fixed &operator++(void);
     Fixed &operator--(void);
