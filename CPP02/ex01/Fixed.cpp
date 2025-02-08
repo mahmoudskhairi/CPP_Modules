@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:49:13 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/02/07 18:49:18 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/02/08 16:14:13 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int Fixed::toInt(void) const
 
 float Fixed::toFloat(void) const
 {
-    return (float(this->_FixedPoint) / (1 << this->_FractionnalBits));
+    return ((float)(this->_FixedPoint) / (1 << this->_FractionnalBits));
 }
 
 // overload of insertion operation

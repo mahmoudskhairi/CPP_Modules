@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:49:03 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/02/07 18:49:04 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/02/08 16:32:12 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ float Fixed::toFloat(void) const
 
 int Fixed::toInt(void) const
 {
-    return (this->_FixedPoint);
+    return (this->_FixedPoint >> this->_FractionnalBits);
 }
 
 /* setters & getters */
@@ -122,7 +122,10 @@ Fixed &Fixed::operator++(void)
 Fixed Fixed::operator++(int)
 {
     Fixed tmp(*this);
+    std::cout << "after" << _FixedPoint << std::endl;
     this->_FixedPoint++;
+    std::cout << "before" << _FixedPoint << std::endl;
+    std::cout << "before" << (toInt()) << std::endl;
     return (tmp);
 }
 

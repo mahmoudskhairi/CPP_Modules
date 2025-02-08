@@ -14,10 +14,11 @@
 
 int main(void)
 {
-    Point a(0, 0);
-    Point b(2, 0);
-    Point c(0, 2);
-    Point point(0.001f, 0.001f);
-    bsp(a, b, c, point);
+    // Point a(0, 0);
+    // Point b(2, 0);
+    // Point c(0, 2);
+    // Point point(0.001f, 0.001f);
+    // bsp(a, b, c, point);
+    
     return (0);
 }
