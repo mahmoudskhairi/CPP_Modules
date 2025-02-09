@@ -47,6 +47,7 @@
 <footer>
     <p>For more information, visit the <a href="https://www.42.fr/en/home" target="_blank">42 Network</a> official website.</p>
 
+<h2>Contact</h2>
 <p>For any questions, feedback, or issues, feel free to reach out:</p>
 <ul>
 <li>Email: <a href="mailto:mahmoud.skhairi@gmail.com">mahmoud.skhairi@gmail.com</a></li>
