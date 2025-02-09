@@ -46,4 +46,12 @@
 
 <footer>
     <p>For more information, visit the <a href="https://www.42.fr/en/home" target="_blank">42 Network</a> official website.</p>
+
+<p>For any questions, feedback, or issues, feel free to reach out:</p>
+<ul>
+<li>Email: <a href="mailto:mahmoud.skhairi@gmail.com">mahmoud.skhairi@gmail.com</a></li>
+<li>LinkedIn: <a href="https://www.linkedin.com/in/mahmoud-skhairi" target="_blank">mahmoud skhairi</a></li>
+</ul>
+
+<h2>Happy Coding!</h2>
 </footer>
