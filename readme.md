@@ -10,42 +10,21 @@
 <p>Here is a breakdown of the modules included in the 42 C++ program:</p>
 
 <ol>
-    <li><strong>Module 01: Introduction to C++</strong>
-        <p>This module introduces you to the basic syntax and structure of a C++ program. You will learn about variables, functions, and basic I/O operations.</p>
-    </li>
-    <li><strong>Module 02: Control Flow</strong>
-        <p>Learn about control flow structures like conditionals (if, else), loops (for, while), and switch statements. You'll also understand how to handle errors and exceptions.</p>
-    </li>
-    <li><strong>Module 03: Functions and Recursion</strong>
-        <p>Get comfortable with creating and calling functions, understanding scope, and practicing recursion for problem-solving.</p>
-    </li>
-    <li><strong>Module 04: Object-Oriented Programming (OOP)</strong>
-        <p>This is a core module where you will dive into the fundamentals of OOP, including classes, objects, inheritance, polymorphism, and encapsulation.</p>
-    </li>
-    <li><strong>Module 05: Memory Management</strong>
-        <p>Learn about pointers, dynamic memory allocation (new, delete), and memory management techniques that are crucial in C++ programming.</p>
-    </li>
-    <li><strong>Module 06: Data Structures</strong>
-        <p>This module introduces essential data structures like arrays, linked lists, stacks, queues, and hash tables.</p>
-    </li>
-    <li><strong>Module 07: Algorithms</strong>
-        <p>Explore fundamental algorithms such as searching, sorting, and complexity analysis. You'll also implement classic algorithms like quicksort and merge sort.</p>
-    </li>
-    <li><strong>Module 08: Advanced Object-Oriented Programming</strong>
-        <p>This module covers more advanced OOP concepts like virtual functions, operator overloading, templates, and exception handling.</p>
-    </li>
-    <li><strong>Module 09: STL (Standard Template Library)</strong>
-        <p>Get to know the power of the STL in C++ for containers, iterators, algorithms, and function objects. You'll learn to leverage built-in data structures like vectors, maps, and sets.</p>
-    </li>
-    <li><strong>Module 10: File Handling</strong>
-        <p>Learn how to read and write data to files, process files efficiently, and manipulate file pointers using the fstream library.</p>
-    </li>
-    <li><strong>Module 11: Multi-threading and Concurrency</strong>
-        <p>This module introduces you to concurrency in C++ where you'll learn how to handle multi-threading using threads, mutexes, and condition variables.</p>
-    </li>
-    <li><strong>Module 12: Networking and Sockets</strong>
-        <p>Learn how to implement basic network communication using sockets. This module introduces concepts like client-server architecture and socket programming.</p>
-    </li>
+         <li><strong>Module 00: Basics of C++ and OOP</strong>
+            <p>This module introduces the basics of C++ syntax and programming structures. You'll learn how to work with basic data types, control structures, and how to implement simple Object-Oriented Programming concepts like **classes**, **objects**, and **encapsulation**. This is your first step into understanding how C++ programs are structured and how to define and interact with simple classes and objects.</p>
+        </li>
+        <li><strong>Module 01: Memory Management, Static and Dynamic Allocation, and File Handling</strong>
+            <p>This module covers fundamental memory management concepts in C++, including static and dynamic memory allocation. You'll learn how to allocate memory for objects and manage object lifecycles to prevent memory leaks. Additionally, this module introduces **file handling** in C++, where you’ll learn how to read from and write to files using file streams (`ifstream`, `ofstream`) and basic error handling techniques.</p>
+        </li>
+        <li><strong>Module 02: Fixed Point and Floating Point Arithmetic</strong>
+            <p>This module explores working with fixed point and floating point numbers. While it doesn't directly focus on OOP, it is critical for understanding how numerical values are represented and manipulated within C++ programs, which can be important when implementing more complex object behaviors in later modules.</p>
+        </li>
+        <li><strong>Module 03: Inheritance</strong>
+            <p>In this module, you'll delve deep into **inheritance**, a key concept of OOP. You'll learn how derived classes inherit behaviors and properties from base classes, enabling code reuse, and how to manage access control and constructor initialization in an OOP context.</p>
+        </li>
+        <li><strong>Module 04: Polymorphism</strong>
+            <p>This module covers **polymorphism**, one of the core OOP principles. You'll learn how to use **virtual functions**, enabling derived classes to override base class functions, and how to achieve dynamic binding to support polymorphic behavior.</p>
+        </li>
 </ol>
 
 <h2>Learning Approach</h2>
