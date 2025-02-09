@@ -1,5 +1,5 @@
 <h1>C++ 42 Modules</h1>
-<img src="./Syntax-of-C.webp" alt="c++_logo">
+<img src="./Syntax-of-C.webp" alt="">
 <p>Welcome to the 42 C++ Modules! This is a set of learning modules created to help you master the C++ programming language. Each module is designed to focus on specific concepts and gradually guide you through various fundamental and advanced topics in C++.</p>
 
 <h2>Modules Overview</h2>
