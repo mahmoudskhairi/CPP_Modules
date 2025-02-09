@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:49:03 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/02/08 16:32:12 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/02/08 17:46:08 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ Fixed &Fixed::operator=(const Fixed &fixed)
 }
 Fixed Fixed::operator+(const Fixed &fixed)
 {
+    std::cout << fixed.getRawBits() << "  +\n";
     return (Fixed(this->toFloat() + fixed.toFloat()));
 }
 Fixed Fixed::operator-(const Fixed &fixed)
@@ -122,10 +123,10 @@ Fixed &Fixed::operator++(void)
 Fixed Fixed::operator++(int)
 {
     Fixed tmp(*this);
-    std::cout << "after" << _FixedPoint << std::endl;
+    // std::cout << "after" << _FixedPoint << std::endl;
     this->_FixedPoint++;
-    std::cout << "before" << _FixedPoint << std::endl;
-    std::cout << "before" << (toInt()) << std::endl;
+    // std::cout << "before" << _FixedPoint << std::endl;
+    // std::cout << "before" << (toInt()) << std::endl;
     return (tmp);
 }
 

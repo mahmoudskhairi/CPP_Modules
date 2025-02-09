@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:48:22 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/02/07 19:22:56 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/02/08 17:50:06 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@ Point::Point() : _X(0), _Y(0)
 
 Point::Point(const float x, const float y) : _X(x), _Y(y)
 {
-    // std::cout << "##\n";
-    // std::cout << "x " << x << std::endl;
-    // std::cout << "y " << y << std::endl;
-    // std::cout << "_x " << _X << std::endl;
-    // std::cout << "_y " << _Y << std::endl;
-    // std::cout << "##\n";
 }
 
 Point::Point(Point &point) : _X(point.GetX()), _Y(point.GetY())
