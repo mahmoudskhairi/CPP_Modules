@@ -13,12 +13,12 @@ public:
     Animal(std::string Type);
     Animal(Animal &Copied);
     Animal &operator=(Animal &Assigned);
-    ~Animal();
+    virtual ~Animal();
     /* getters and setters */
-    std::string GetType();
+    std::string GetType() const;
     void SetType(std::string Type);
     /* sound method */
-    void makeSound();
+    virtual void makeSound() const;
 };
 
 #endif

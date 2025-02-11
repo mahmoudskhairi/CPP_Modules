@@ -10,7 +10,7 @@ public:
     Dog(Dog &New);
     Dog &operator=(Dog &New);
     ~Dog();
-    void makeSound(void);
+    void makeSound(void) const;
 };
 
 #endif

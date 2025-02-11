@@ -1,15 +1,15 @@
-#include "../includes/Dog.hpp"
+#include "../includes/WrongDog.hpp"
 
-Dog::Dog() : Animal()
+WrongDog::WrongDog() : WrongAnimal()
 {
     std::cout << this->GetType() << ": Default constructor called" << std::endl;
 }
-Dog::Dog(std::string Type) : Animal(Type)
+WrongDog::WrongDog(std::string Type) : WrongAnimal(Type)
 {
     std::cout << this->GetType() << ": parameterized constructor called" << std::endl;
 }
 /* unnecessary usage*/
-Dog &Dog::operator=(Dog &New)
+WrongDog &WrongDog::operator=(WrongDog &New)
 {
     if (this != &New)
     {
@@ -18,17 +18,17 @@ Dog &Dog::operator=(Dog &New)
     return (*this);
 }
 
-void Dog::makeSound(void) const
+void WrongDog::makeSound(void) const
 {
-    std::cout << "🐶: Dooog soundddddd!" << std::endl;
+    std::cout << "🐶: Wrong Dooog soundddddd!" << std::endl;
 }
 
-Dog::Dog(Dog &New) : Animal(New)
+WrongDog::WrongDog(WrongDog &New) : WrongAnimal(New)
 {
     /* unnecessary usage of // *this = New;// double initialization of ClapTrap data members */
 }
 
-Dog::~Dog()
+WrongDog::~WrongDog()
 {
     std::cout << this->GetType() << ": destructor called" << std::endl;
 }

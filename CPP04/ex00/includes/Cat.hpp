@@ -10,6 +10,6 @@ public:
     Cat(Cat &New);
     Cat &operator=(Cat &New);
     ~Cat();
-    void makeSound(void);
+    void makeSound(void) const;
 };
 #endif
