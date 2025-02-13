@@ -11,6 +11,8 @@ private:
 public:
     Brain();
     Brain(Brain &New);
+    std::string GetIdea(size_t i) const;
+    void SetIdea(std::string Myidea, size_t i);
     Brain &operator=(Brain &New);
     ~Brain();
 };

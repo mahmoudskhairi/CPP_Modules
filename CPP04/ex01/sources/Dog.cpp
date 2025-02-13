@@ -8,13 +8,16 @@ Dog::Dog() : Animal(), _BrainPtr(new Brain())
 Dog::Dog(std::string Type) : Animal(Type)
 {
     std::cout << this->GetType() << ": parameterized constructor called" << std::endl;
+    this->_BrainPtr = new Brain();
 }
 /* unnecessary usage*/
 Dog &Dog::operator=(Dog &New)
 {
     if (this != &New)
     {
+        delete (this->_BrainPtr);
         this->SetType(New.GetType());
+        this->_BrainPtr = new Brain(*New._BrainPtr);
     }
     return (*this);
 }
@@ -26,6 +29,7 @@ void Dog::makeSound(void) const
 
 Dog::Dog(Dog &New) : Animal(New)
 {
+    this->_BrainPtr = new Brain(*New._BrainPtr);
     /* unnecessary usage of // *this = New;// double initialization of ClapTrap data members */
 }
 

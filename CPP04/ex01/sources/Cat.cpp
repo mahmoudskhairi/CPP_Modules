@@ -9,6 +9,7 @@ Cat::Cat() : Animal(), _BrainPtr(new Brain())
 Cat::Cat(std::string Type) : Animal(Type)
 {
     std::cout << this->GetType() << ": parameterized constructor called" << std::endl;
+    this->_BrainPtr = new Brain();
 }
 /* unnecessary usage*/
 Cat &Cat::operator=(Cat &New)
@@ -27,6 +28,7 @@ void Cat::makeSound(void) const
 
 Cat::Cat(Cat &New) : Animal(New)
 {
+    this->_BrainPtr = new Brain(*New._BrainPtr);
     /* unnecessary usage of // *this = New;// double initialization of ClapTrap data members */
 }
 
