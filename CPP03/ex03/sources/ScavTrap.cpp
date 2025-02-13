@@ -14,7 +14,10 @@ ScavTrap::ScavTrap(std::string Name) : ClapTrap(Name)
 void ScavTrap::guardGate()
 {
     if (!this->GetEnergie() || !this->GetHealth())
+    {
         std::cout << "<Scav> : " << this->_Name << " is already died" << std::endl;
+        return;
+    }
     std::cout << "<Scav> : " << this->_Name << " is now in Gate keeper mode" << std::endl;
 }
 
