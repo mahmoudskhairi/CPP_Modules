@@ -24,11 +24,6 @@ Animal &Animal::operator=(Animal &Assigned)
     return (*this);
 }
 
-void Animal::makeSound() const
-{
-    std::cout << "🤷: i am Animaaaaal!!" << std::endl;
-}
-
 /* getters and setters */
 void Animal::SetType(std::string Type)
 {
