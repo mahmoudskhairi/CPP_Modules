@@ -12,6 +12,7 @@ public:
     Cat();
     Cat(std::string Type);
     Cat(Cat &New);
+    Brain *GetBrain();
     Cat &operator=(Cat &New);
     ~Cat();
     void makeSound(void) const;

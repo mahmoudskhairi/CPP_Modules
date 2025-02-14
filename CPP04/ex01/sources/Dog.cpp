@@ -3,16 +3,15 @@
 Dog::Dog() : Animal(), _BrainPtr(new Brain())
 {
     std::cout << this->GetType() << ": Default constructor called" << std::endl;
-    this->_BrainPtr = new Brain();
 }
-Dog::Dog(std::string Type) : Animal(Type)
+Dog::Dog(std::string Type) : Animal(Type), _BrainPtr(new Brain())
 {
     std::cout << this->GetType() << ": parameterized constructor called" << std::endl;
-    this->_BrainPtr = new Brain();
 }
 /* unnecessary usage*/
 Dog &Dog::operator=(Dog &New)
 {
+    std::cout << "Dog: assignment operator" << std::endl;
     if (this != &New)
     {
         delete (this->_BrainPtr);
@@ -31,6 +30,11 @@ Dog::Dog(Dog &New) : Animal(New)
 {
     this->_BrainPtr = new Brain(*New._BrainPtr);
     /* unnecessary usage of // *this = New;// double initialization of ClapTrap data members */
+}
+
+Brain *Dog::GetBrain()
+{
+    return (this->_BrainPtr);
 }
 
 Dog::~Dog()

@@ -12,6 +12,7 @@ public:
     Dog();
     Dog(std::string Type);
     Dog(Dog &New);
+    Brain *GetBrain();
     Dog &operator=(Dog &New);
     ~Dog();
     void makeSound(void) const;
