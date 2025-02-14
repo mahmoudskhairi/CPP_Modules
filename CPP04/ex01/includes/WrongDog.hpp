@@ -1,5 +1,5 @@
 #ifndef _WRONGDOG_HPP_
-#define _WRONGDog_HPP_
+#define _WRONGDOG_HPP_
 #include "WrongAnimal.hpp"
 
 class WrongDog : public WrongAnimal
