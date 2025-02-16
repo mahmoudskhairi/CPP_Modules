@@ -1,17 +1,23 @@
 #include "../includes/Character.hpp"
 
-Character::ICharacter::~ICharacter()
+Character::Character()
 {
 }
-std::string const &Character::ICharacter::getName() const
+Character::Character(Character &Other)
 {
 }
-void Character::ICharacter::equip(AMateria *m)
+Character::~Character()
 {
 }
-void Character::ICharacter::unequip(int idx)
+std::string const &Character::getName() const
 {
 }
-void Character::ICharacter::use(int idx, ICharacter &target)
+void Character::equip(AMateria *m)
+{
+}
+void Character::unequip(int idx)
+{
+}
+void Character::use(int idx, ICharacter &target)
 {
 }
