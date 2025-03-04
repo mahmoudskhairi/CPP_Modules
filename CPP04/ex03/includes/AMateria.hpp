@@ -3,7 +3,8 @@
 #include <iostream>
 #include "ICharacter.hpp"
 
-class AMateria
+#define PRINTINGMODE 1
+class AMateria // abstruct class is an uncomplete class, so we cannot instantiated
 {
 protected:
     std::string _type;
@@ -11,8 +12,9 @@ protected:
 public:
     AMateria();
     AMateria(std::string const &type);
+    AMateria::AMateria(const AMateria &Obj);
     //[...]
-    AMateria &operator=(AMateria &copied);
+    AMateria &operator=(const AMateria &Obj);
     std::string const &getType() const; // Returns the materia type
     void AMateria::setType(std::string type);
     virtual AMateria *clone() const = 0;

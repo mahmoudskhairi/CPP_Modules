@@ -47,5 +47,5 @@ void DiamondTrap::whoAmI()
 }
 DiamondTrap::~DiamondTrap()
 {
-    std::cout << "#Diamond# :" << this->GetName() << "destructor called" << std::endl;
+    std::cout << "#Diamond# :" << this->_Name << " destructor called" << std::endl;
 }

@@ -1,15 +1,31 @@
 #include "../includes/AMateria.hpp"
 
-AMateria::AMateria(void)
+AMateria::AMateria(void) : _type("unkown_type")
 {
-    std::cout << "Default constructor called!" << std::endl;
+    if (PRINTINGMODE)
+        std::cout << "Materia Default constructor called!" << std::endl;
 }
 
 AMateria::AMateria(std::string const &type) : _type(type)
 {
-    std::cout << "Copy constructor called!" << std::endl;
+    if (PRINTINGMODE)
+        std::cout << "Materia parameterized constructor called!" << std::endl;
 }
 
+AMateria::AMateria(const AMateria &Obj)
+{
+    if (PRINTINGMODE)
+        std::cout << "Materia Copy constructor called!" << std::endl;
+    (void)Obj;
+}
+
+AMateria &AMateria::operator=(const AMateria &Obj)
+{
+    if (PRINTINGMODE)
+        std::cout << "Materia Copy Assignment operator called!" << std::endl;
+    (void)Obj;
+    return (*this);
+}
 std::string const &AMateria::getType() const
 {
     return (this->_type);
@@ -22,10 +38,11 @@ void AMateria::setType(std::string type)
 
 void AMateria::use(ICharacter &target)
 {
-    std::cout << "* uses some unknown materia on " << target.getName() << "*" << std::endl;
+    std::cout << "* uses some unknown materia on the character named " << target.getName() << "*" << std::endl;
 }
 
 AMateria::~AMateria(void)
 {
-    std::cout << "Destructor called!" << std::endl;
+    if (PRINTINGMODE)
+        std::cout << "Destructor called!" << std::endl;
 }

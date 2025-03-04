@@ -4,9 +4,9 @@ NAME = Brain
 RM = rm -rf
 SRCDIR = sources
 INCDIR = includes
-SOURCES = $(addprefix $(SRCDIR)/,main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp WrongDog.cpp Brain.cpp)
+SOURCES = $(addprefix $(SRCDIR)/,main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp)
 OBJECTS = ${SOURCES:.cpp=.o}
-Headers = $(addprefix $(INCDIR)/,Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp WrongDog.hpp Brain.hpp)
+Headers = $(addprefix $(INCDIR)/,AMateria.hpp Ice.hpp Cure.hpp Character.hpp MateriaSource.hpp)
 
 all: $(NAME)
 
