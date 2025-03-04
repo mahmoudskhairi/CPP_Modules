@@ -29,7 +29,7 @@ ICharacter &Character::operator=(const Character &character)
 {
     if (PRINTINGMODE)
         std::cout << "Character Copy assignment operator called!" << std::endl;
-    if (this != &character)
+    if (this != &character) // if character equal NULL!
     {
         this->_Name = character.getName();
         for (size_t i = 0; i < 4; i++)
@@ -58,22 +58,27 @@ void Character::setName(std::string name)
 }
 void Character::equip(AMateria *m)
 {
-    int i = 0;
-    for (size_t i = 0; i < 4; i++)
+    if (m)
     {
-        if (this->_Inventory[i])
+        int i = 0;
+        for (size_t i = 0; i < 4; i++)
         {
-            this->_Inventory[i] = m;
-            break;
+            if (this->_Inventory[i])
+            {
+                this->_Inventory[i] = m;
+                break;
+            }
         }
+        return;
     }
+    // print error
 }
 void Character::unequip(int idx)
 {
     if (idx >= 0 && idx <= 3)
     {
         static int i = 0;
-        static AMateria *tmp[1024];
+        static AMateria *tmp[1024]; // linked list ! && leaks
         tmp[i++] = this->_Inventory[idx];
         this->_Inventory[idx] = NULL;
         return;
