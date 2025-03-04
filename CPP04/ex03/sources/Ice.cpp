@@ -5,7 +5,7 @@ Ice::Ice() : AMateria("ice")
     if (PRINTINGMODE)
         std::cout << "Ice Default constructor called!" << std::endl;
 }
-Ice::Ice(std::string type) : AMateria(type)
+Ice::Ice(std::string type) : AMateria(type) // what about type value is different on ice
 {
     if (PRINTINGMODE)
         std::cout << "Ice parameterized constructor called!" << std::endl;

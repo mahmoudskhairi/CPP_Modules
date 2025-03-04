@@ -1,16 +1,16 @@
 #include "../includes/Cure.hpp"
 
-Cure::Cure(): AMateria("Cure")
+Cure::Cure() : AMateria("Cure")
 {
     if (PRINTINGMODE)
         std::cout << "Cure Default constructor called!" << std::endl;
 }
-Cure::Cure(std::string type): AMateria(type)
+Cure::Cure(std::string type) : AMateria(type) // what about type value is different on cure
 {
     if (PRINTINGMODE)
         std::cout << "Cure parameterized constructor called!" << std::endl;
 }
-Cure::Cure(const Cure &cure): AMateria(cure.getType())
+Cure::Cure(const Cure &cure) : AMateria(cure.getType())
 {
     if (PRINTINGMODE)
         std::cout << "Cure Copy constructor called!" << std::endl;
@@ -19,7 +19,7 @@ Cure &Cure::operator=(const Cure &cure)
 {
     if (PRINTINGMODE)
         std::cout << "Cure Copy Assignment operator called!" << std::endl;
-    return(*this);
+    return (*this);
 }
 Cure *Cure::clone() const
 {
