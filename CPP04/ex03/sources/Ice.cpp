@@ -5,11 +5,6 @@ Ice::Ice() : AMateria("ice")
     if (PRINTINGMODE)
         std::cout << "Ice Default constructor called!" << std::endl;
 }
-Ice::Ice(std::string type) : AMateria(type) // what about type value is different on ice
-{
-    if (PRINTINGMODE)
-        std::cout << "Ice parameterized constructor called!" << std::endl;
-}
 Ice::Ice(const Ice &ice) : AMateria(ice.getType())
 {
     if (PRINTINGMODE)
@@ -23,7 +18,7 @@ Ice &Ice::operator=(const Ice &ice)
 }
 Ice *Ice::clone() const
 {
-    return (new Ice("ice"));
+    return (new Ice());
 }
 void Ice::use(ICharacter &target)
 {

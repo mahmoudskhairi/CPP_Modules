@@ -5,11 +5,6 @@ Cure::Cure() : AMateria("Cure")
     if (PRINTINGMODE)
         std::cout << "Cure Default constructor called!" << std::endl;
 }
-Cure::Cure(std::string type) : AMateria(type) // what about type value is different on cure
-{
-    if (PRINTINGMODE)
-        std::cout << "Cure parameterized constructor called!" << std::endl;
-}
 Cure::Cure(const Cure &cure) : AMateria(cure.getType())
 {
     if (PRINTINGMODE)

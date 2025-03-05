@@ -11,19 +11,29 @@ MateriaSource::MateriaSource(MateriaSource const &obj)
 {
     if (PRINTINGMODE)
         std::cout << "AmateriaSource copy constructor called!" << std::endl;
-    // copy the content of inventory !
+    // copy the content of obj inventory !
+    for (size_t i = 0; i < 4; i++)
+        this->_Inventory[i] = obj._Inventory[i];
 }
 MateriaSource &MateriaSource::operator=(MateriaSource const &obj)
 {
     if (PRINTINGMODE)
         std::cout << "AmateriaSource copy assignment operator called!" << std::endl;
-    // copy the content of inventory !
+    // Assign the content of obj inventory !
+    for (size_t i = 0; i < 4; i++)
+    {
+        if (this->_Inventory[i])
+            delete (this->_Inventory[i]);
+        this->_Inventory[i] = obj._Inventory[i];
+    }
     return (*this);
 }
 MateriaSource::~MateriaSource()
 {
     if (PRINTINGMODE)
         std::cout << "AmateriaSource  destructor called!" << std::endl;
+    for (size_t i = 0; i < 4; i++)
+        delete (this->_Inventory[i]);
 }
 void MateriaSource::learnMateria(AMateria *obj)
 {
@@ -35,21 +45,18 @@ void MateriaSource::learnMateria(AMateria *obj)
             return;
         }
     }
-    std::cout << "no space left in the MateriaSource to store your Materia" << std::endl;
+    std::cerr << "no space left in the MateriaSource to store your Materia" << std::endl;
 }
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
     if (type.compare("ice") || type.compare("cure"))
     {
-        std::cout << "Creation Of Materias Is Impossible!" << std::endl;
+        std::cerr << "Creation Of Materias Is Impossible!" << std::endl;
         return NULL;
     }
-    bool flag = 0;
-    if (!type.compare("ice"))
-        flag = 1;
-    if (flag)
+    for (size_t i = 0; i < 3; i++)
     {
-        return (new Ice("ice"));
+        if (!(this->_Inventory[i]->getType()).compare(type))
+            return (this->_Inventory[i]->clone());
     }
-    return (new Cure("cure"));
 }

@@ -11,6 +11,8 @@ Character::Character(std::string name) : _Name(name)
 {
     if (PRINTINGMODE)
         std::cout << "Character parameterized constructor called!" << std::endl;
+    for (size_t i = 0; i < 4; i++)
+        this->_Inventory[i] = NULL;
 }
 Character::Character(const Character &character)
 {
@@ -47,6 +49,8 @@ Character::~Character()
 {
     if (PRINTINGMODE)
         std::cout << "Character Destructor called!" << std::endl;
+    for (size_t i = 0; i < 4; i++)
+        delete this->_Inventory[i];
 }
 std::string const &Character::getName() const
 {
@@ -58,6 +62,9 @@ void Character::setName(std::string name)
 }
 void Character::equip(AMateria *m)
 {
+    uintptr_t f = 871235872357858;
+    reinterpret_cast<int *>(f);
+    // static_cast<int>(f);
     if (m)
     {
         int i = 0;
@@ -75,7 +82,8 @@ void Character::equip(AMateria *m)
 }
 void Character::unequip(int idx)
 {
-    if (idx >= 0 && idx <= 3)
+
+    if (idx >= 0 && idx <= 3 && this->_Inventory[idx])
     {
         static int i = 0;
         static AMateria *tmp[1024]; // linked list ! && leaks
