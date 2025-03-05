@@ -14,6 +14,7 @@ Ice &Ice::operator=(const Ice &ice)
 {
     if (PRINTINGMODE)
         std::cout << "Ice Copy Assignment operator called!" << std::endl;
+    (void)ice;
     return (*this);
 }
 Ice *Ice::clone() const

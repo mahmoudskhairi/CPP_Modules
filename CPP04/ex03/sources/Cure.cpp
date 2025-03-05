@@ -14,11 +14,12 @@ Cure &Cure::operator=(const Cure &cure)
 {
     if (PRINTINGMODE)
         std::cout << "Cure Copy Assignment operator called!" << std::endl;
+    (void)cure;
     return (*this);
 }
 Cure *Cure::clone() const
 {
-    return (new Cure("cure"));
+    return (new Cure());
 }
 void Cure::use(ICharacter &target)
 {

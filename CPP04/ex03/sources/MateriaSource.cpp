@@ -49,14 +49,11 @@ void MateriaSource::learnMateria(AMateria *obj)
 }
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
-    if (type.compare("ice") || type.compare("cure"))
-    {
-        std::cerr << "Creation Of Materias Is Impossible!" << std::endl;
-        return NULL;
-    }
     for (size_t i = 0; i < 3; i++)
     {
-        if (!(this->_Inventory[i]->getType()).compare(type))
+        if (this->_Inventory[i] && !(this->_Inventory[i]->getType()).compare(type))
             return (this->_Inventory[i]->clone());
     }
+    std::cerr << "Creation Of Materias Is Impossible!" << std::endl;
+    return (NULL);
 }

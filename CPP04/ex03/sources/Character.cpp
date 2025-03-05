@@ -62,12 +62,8 @@ void Character::setName(std::string name)
 }
 void Character::equip(AMateria *m)
 {
-    uintptr_t f = 871235872357858;
-    reinterpret_cast<int *>(f);
-    // static_cast<int>(f);
     if (m)
     {
-        int i = 0;
         for (size_t i = 0; i < 4; i++)
         {
             if (this->_Inventory[i])

@@ -46,6 +46,7 @@ void Harl::complain(std::string level)
         (this->*methods[1])();
     case 2:
         (this->*methods[2])();
+        
     case 3:
         (this->*methods[3])();
         break;

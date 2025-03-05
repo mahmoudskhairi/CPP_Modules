@@ -12,11 +12,11 @@ protected:
 public:
     AMateria();
     AMateria(std::string const &type);
-    AMateria::AMateria(const AMateria &Obj);
+    AMateria(const AMateria &Obj);
     //[...]
     AMateria &operator=(const AMateria &Obj);
     std::string const &getType() const; // Returns the materia type
-    void AMateria::setType(std::string type);
+    void setType(std::string type);
     virtual AMateria *clone() const = 0;
     virtual void use(ICharacter &target);
     virtual ~AMateria();
