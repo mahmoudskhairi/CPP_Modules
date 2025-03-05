@@ -1,12 +1,10 @@
 #ifndef _IMATERIASOURCE_HPP_
 #define _IMATERIASOURCE_HPP_
-#include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 class IMateriaSource
 {
-private:
-    AMateria *_Inventory[4];
-
 public:
     virtual ~IMateriaSource() {}
     virtual void learnMateria(AMateria *) = 0;
