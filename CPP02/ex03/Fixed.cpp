@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:47:01 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/02/07 21:29:41 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/03/06 11:43:24 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int i = 0;
 int j = 0;
-int Fixed::_FractionnalBits = 8;
+int Fixed::_FractionnalBits = 16;
 /* Default constructor*/
 Fixed::Fixed() : _FixedPoint(0)
 {

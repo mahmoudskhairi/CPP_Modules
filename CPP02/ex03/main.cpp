@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:47:47 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/02/12 11:25:40 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/03/06 11:28:48 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(void)
     Point a(0, 0);
     Point b(2, 0);
     Point c(0, 2);
-    Point point(2, 2);
+    Point point(0.1f, 0.1f);
     bsp(a, b, c, point);
 
     return (0);

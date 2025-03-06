@@ -3,39 +3,23 @@
 
 element::element()
 {
+    if (PRINTINGMODE)
+        std::cout << "element  destructor called!" << std::endl;
 }
-element::element(const element &New)
-{
-}
-// element &element::operator=(const element &New)
-// {
-//     if (PRINTINGMODE)
-//         std::cout << "element  destructor called!" << std::endl;
-//     if (this != &New)
-//     {
-//         if (this->_materia)
-//             delete this->_materia;
-//         this->_materia = New._materia;
-//     }
-// }
+
 element::~element()
 {
     if (PRINTINGMODE)
         std::cout << "element  destructor called!" << std::endl;
 }
 
-// list class implementation
+// list struct implementation
 list::list()
 {
     if (PRINTINGMODE)
         std::cout << "List constructor called!" << std::endl;
 }
-// list::list(list &list)
-// {
-//     if (PRINTINGMODE)
-//         std::cout << "List copy constructor called!" << std::endl;
-//     this->listptr = list.listptr;
-// }
+
 list::~list()
 {
     if (PRINTINGMODE)
