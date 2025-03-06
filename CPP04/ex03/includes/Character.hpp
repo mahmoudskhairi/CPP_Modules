@@ -7,6 +7,7 @@ class Character : public ICharacter
 {
 private:
     std::string _Name;
+    list *ToList;
     AMateria *_Inventory[4];
 
 public:

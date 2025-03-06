@@ -1,4 +1,5 @@
 #include "../includes/Character.hpp"
+#include "../includes/List.hpp"
 
 Character::Character() : _Name("unkown_character")
 {
@@ -66,28 +67,30 @@ void Character::equip(AMateria *m)
     {
         for (size_t i = 0; i < 4; i++)
         {
-            if (this->_Inventory[i])
+            if (!this->_Inventory[i])
             {
                 this->_Inventory[i] = m;
-                break;
+                return;
             }
+            std::cerr << "sorry, no space left to equip your materia!" << std::endl;
         }
-        return;
     }
-    // print error
+    std::cerr << "enter another valid materia please!" << std::endl;
 }
 void Character::unequip(int idx)
 {
-
+    list TmpMaterias;
     if (idx >= 0 && idx <= 3 && this->_Inventory[idx])
     {
-        static int i = 0;
-        static AMateria *tmp[1024]; // linked list ! && leaks
-        tmp[i++] = this->_Inventory[idx];
+        // this->ToList->AddElement(this->_Inventory[idx]);
+        // list static int i = 0;
+        // static AMateria *tmp[1024]; // linked list ! && leaks
+        // tmp[i++] = this->_Inventory[idx];
+        TmpMaterias.AddElement(this->_Inventory[idx]);
         this->_Inventory[idx] = NULL;
         return;
     }
-    // print error
+    std::cerr << "try again, there is an issue with you input!" << std::endl;
 }
 
 void Character::use(int idx, ICharacter &target)
@@ -97,5 +100,5 @@ void Character::use(int idx, ICharacter &target)
         this->_Inventory[idx]->use(target);
         return;
     }
-    // print error
+    std::cerr << "enter a valid index please!" << std::endl;
 }

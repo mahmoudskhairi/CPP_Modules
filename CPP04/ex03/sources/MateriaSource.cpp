@@ -45,7 +45,7 @@ void MateriaSource::learnMateria(AMateria *obj)
             return;
         }
     }
-    std::cerr << "no space left in the MateriaSource to store your Materia" << std::endl;
+    std::cerr << "no space left in the MateriaSource to store your Materia!" << std::endl;
 }
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
