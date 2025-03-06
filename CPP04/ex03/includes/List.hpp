@@ -2,16 +2,18 @@
 #define _LIST_HPP_
 
 #include "AMateria.hpp"
-struct element
+class element
 {
+    public:
     element *_next;
     AMateria *_materia;
     element();
     ~element();
 };
 
-struct list
+class list : public element
 {
+    public:
     element *listptr;
     list();
     ~list();

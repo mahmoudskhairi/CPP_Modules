@@ -3,11 +3,11 @@
 int main()
 {
     std::cout << "\n----------------------------------------------------------------------" << std::endl;
-    DiamondTrap Diamond("mahmoud");
+    DiamondTrap Diamond("Me");
     std::cout << "----------------------------------------------------------------------" << std::endl;
 
     for (int i = 0; i < 8; i++)
-        Diamond.attack("maamoun");
+        Diamond.attack("zombie");
     // Diamond.takeDamage(100);
     // Diamond.takeDamage(1);
     // Diamond.highFivesGuys();

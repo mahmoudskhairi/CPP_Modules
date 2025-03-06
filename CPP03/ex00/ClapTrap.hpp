@@ -12,6 +12,7 @@ private:
     unsigned int _DamagePoints;
 
 public:
+    ClapTrap();
     ClapTrap(std::string Name);
     ClapTrap(ClapTrap &target);
     ~ClapTrap();

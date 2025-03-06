@@ -1,5 +1,8 @@
 #include "../includes/FragTrap.hpp"
 
+FragTrap::FragTrap(): ClapTrap() 
+{
+}
 FragTrap::FragTrap(std::string Name) : ClapTrap(Name)
 {
     std::cout << "<Frag> : " << this->GetName() << " is here!" << std::endl;

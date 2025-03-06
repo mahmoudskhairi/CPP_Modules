@@ -1,14 +1,14 @@
 #include "../includes/DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap(): ClapTrap(), ScavTrap(), FragTrap()
 {
 }
 DiamondTrap::DiamondTrap(std::string Name) : ClapTrap(Name + "_clap_name"), ScavTrap(Name + "_clap_name"), FragTrap(Name + "_clap_name"), _Name(Name)
 {
     // this->_Name = Name;
-    this->_Health = 100;
-    this->_Energie = 50;
-    this->_DamagePoints = 60;
+    this->_Health = FragTrap::GetHealth();
+    this->_Energie = ScavTrap::GetEnergie();
+    this->_DamagePoints = FragTrap::GetDamage();
 }
 
 /* necessary usage is this case ,because FragTrap have its own data members*/
@@ -47,5 +47,5 @@ void DiamondTrap::whoAmI()
 }
 DiamondTrap::~DiamondTrap()
 {
-    std::cout << "#Diamond# :" << this->_Name << " destructor called" << std::endl;
+    std::cout << "#Diamond# :" << this->GetName() << "destructor called" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:49:03 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/03/05 15:03:26 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/02/11 12:57:55 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ Fixed::Fixed(const Fixed &CopiedFixed)
 /* conversion methods */
 float Fixed::toFloat(void) const
 {
-    // std::cout << "*" << (int)(1 << this->_FractionnalBits) << std::endl;
     return ((float)this->_FixedPoint / (1 << this->_FractionnalBits));
 }
 
@@ -71,7 +70,6 @@ Fixed &Fixed::operator=(const Fixed &fixed)
 }
 Fixed Fixed::operator+(const Fixed &fixed)
 {
-    std::cout << fixed.getRawBits() << "  +\n";
     return (Fixed(this->toFloat() + fixed.toFloat()));
 }
 Fixed Fixed::operator-(const Fixed &fixed)
@@ -123,10 +121,7 @@ Fixed &Fixed::operator++(void)
 Fixed Fixed::operator++(int)
 {
     Fixed tmp(*this);
-    // std::cout << "after" << _FixedPoint << std::endl;
     this->_FixedPoint++;
-    // std::cout << "before" << _FixedPoint << std::endl;
-    // std::cout << "before" << (toInt()) << std::endl;
     return (tmp);
 }
 
