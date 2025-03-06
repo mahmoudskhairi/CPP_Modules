@@ -1,4 +1,30 @@
 #include "../includes/List.hpp"
+// element struct implementation
+
+element::element()
+{
+}
+element::element(const element &New)
+{
+}
+element &element::operator=(const element &New)
+{
+    if (PRINTINGMODE)
+        std::cout << "element  destructor called!" << std::endl;
+    if (this != &New)
+    {
+        if (this->_materia)
+            delete this->_materia;
+        this->_materia = New._materia;
+    }
+}
+element::~element()
+{
+    if (PRINTINGMODE)
+        std::cout << "element  destructor called!" << std::endl;
+}
+
+// list class implementation
 list::list()
 {
     if (PRINTINGMODE)
@@ -6,15 +32,39 @@ list::list()
 }
 list::list(list &list)
 {
-    std::cout << "List copy constructor called!" << std::endl;
+    if (PRINTINGMODE)
+        std::cout << "List copy constructor called!" << std::endl;
+    this->listptr = list.listptr;
 }
 list::~list()
 {
-    std::cout << "List destructor called!" << std::endl;
+    if (PRINTINGMODE)
+        std::cout << "List destructor called!" << std::endl;
+    for (; listptr; listptr = listptr->_next)
+    {
+        delete listptr->_materia; // assigning of NULL
+        delete listptr;
+    }
 }
-list &list::operator=(list const &list)
+list &list::operator=(list const &List)
 {
-    std::cout << "List copy assignment operator called!" << std::endl;
+    if (PRINTINGMODE)
+        std::cout << "List copy assignment operator called!" << std::endl;
+    if (this != &List)
+    {
+        if (this->listptr)
+        {
+            this->DeleteList();
+            delete this->listptr;
+            this->listptr = NULL;
+        }
+        // sallow cpy
+        //  this->listptr = list.listptr;
+        // deep copy
+        element &tmpl = *List.listptr; // check the behaviour
+        this->listptr->operator=(tmpl);
+        this->listptr = List.listptr;
+    }
 }
 void list::AddElement(AMateria *New)
 {
@@ -32,5 +82,14 @@ void list::AddElement(AMateria *New)
     {
         if (!tmp)
             tmp->_materia = New;
+    }
+}
+
+void list::DeleteList()
+{
+    element *tmp = this->listptr;
+    for (; tmp; tmp = tmp->_next)
+    {
+        delete tmp->~element(); // assigning of NULL
     }
 }
