@@ -22,7 +22,7 @@ Character::Character(const Character &character)
     if (PRINTINGMODE)
         std::cout << "Character Copy constructor called!" << std::endl;
     this->_Name = character.getName();
-    // this->TmpMaterias = character.TmpMaterias;
+    this->TmpMaterias = character.TmpMaterias;
     for (size_t i = 0; i < 4; i++)
     {
         if (character._Inventory[i])
@@ -35,8 +35,8 @@ ICharacter &Character::operator=(const Character &character)
 {
     if (PRINTINGMODE)
         std::cout << "Character Copy assignment operator called!" << std::endl;
-        if (this->TmpMaterias)
-            delete TmpMaterias;
+    if (this->TmpMaterias)
+        delete TmpMaterias;
     this->TmpMaterias = character.TmpMaterias;
     if (this != &character)
     {

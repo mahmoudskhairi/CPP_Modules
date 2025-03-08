@@ -2,7 +2,7 @@
 #define _LIST_HPP_
 
 #include "AMateria.hpp"
-struct element
+struct  element
 {
     public:
     element *_next;

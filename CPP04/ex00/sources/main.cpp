@@ -3,8 +3,14 @@
 #include "../includes/WrongCat.hpp"
 #include "../includes/WrongDog.hpp"
 
-int main()
+// void    ll()
+// {
+//     system("leaks -q Animal");
+// }
+
+int main(void)
 {
+    // atexit(ll);
     std::cout << "========================================" << std::endl;
     std::cout << "# Right Animals tests #" << std::endl;
     Animal *animal = new Animal();
@@ -28,4 +34,5 @@ int main()
     delete Wronganimal;
     delete Wrongcat;
     delete Wrongdog;
+    std::cout << "========================================" << std::endl;
 }

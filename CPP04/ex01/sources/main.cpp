@@ -17,18 +17,18 @@ void deepcopyTesting()
     delete dog2;
 }
 
-// void    ll()
-// {
-//     system("leaks -q Brain");
-// }
+void    ll()
+{
+    system("leaks -q Brain");
+}
 
 int main()
 {
+    atexit(ll);
     size_t count = 4;
     Animal *obj[count];
     size_t i = 0;
     deepcopyTesting();
-    // atexit(ll);
     std::cout << "---------[main test for Brains:]--------" << std::endl;
     for (; i < count / 2; i++)
         obj[i] = new Cat("cat");
@@ -43,4 +43,5 @@ int main()
         obj[i]->makeSound();
     for (i = 0; i < count; i++)
         delete obj[i];
+    std::cout << "=========================================" << std::endl;
 }
