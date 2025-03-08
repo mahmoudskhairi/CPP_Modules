@@ -6,9 +6,9 @@ DiamondTrap::DiamondTrap(): ClapTrap(), ScavTrap(), FragTrap()
 DiamondTrap::DiamondTrap(std::string Name) : ClapTrap(Name + "_clap_name"), ScavTrap(Name + "_clap_name"), FragTrap(Name + "_clap_name"), _Name(Name)
 {
     // this->_Name = Name;
-    this->_Health = FragTrap::GetHealth();
-    this->_Energie = ScavTrap::GetEnergie();
-    this->_DamagePoints = FragTrap::GetDamage();
+    this->_Health = 100;
+    this->_Energie = 50;
+    this->_DamagePoints = 60;
 }
 
 /* necessary usage is this case ,because FragTrap have its own data members*/
