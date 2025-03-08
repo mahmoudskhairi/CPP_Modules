@@ -3,7 +3,9 @@
 #include <iostream>
 #include "ICharacter.hpp"
 
+#ifndef PRINTINGMODE
 #define PRINTINGMODE 1
+#endif
 class AMateria // abstruct class is an uncomplete class, so we cannot instantiated
 {
 protected:

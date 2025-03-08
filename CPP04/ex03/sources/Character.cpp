@@ -32,7 +32,7 @@ ICharacter &Character::operator=(const Character &character)
 {
     if (PRINTINGMODE)
         std::cout << "Character Copy assignment operator called!" << std::endl;
-    if (this != &character) // if character equal NULL!
+    if (this != &character)
     {
         this->_Name = character.getName();
         for (size_t i = 0; i < 4; i++)
@@ -48,10 +48,23 @@ ICharacter &Character::operator=(const Character &character)
 }
 Character::~Character()
 {
-    if (PRINTINGMODE)
+    // if (PRINTINGMODE)
         std::cout << "Character Destructor called!" << std::endl;
+                        //test
+        std::cout << "=================================\n";
+        element * tmp =  this->TmpMaterias->listptr;
+        while(tmp)
+        {
+            std::cout << "element :  " << tmp->_materia->getType() << std::endl;
+            tmp = tmp->_next;
+        }
+        std::cout << "=================================\n";
     for (size_t i = 0; i < 4; i++)
-        delete this->_Inventory[i];
+    {
+            delete this->_Inventory[i];
+            this->_Inventory[i] = NULL;
+    }
+    delete this->TmpMaterias;
 }
 std::string const &Character::getName() const
 {
@@ -69,36 +82,37 @@ void Character::equip(AMateria *m)
         {
             if (!this->_Inventory[i])
             {
+                std::cout << m->getType() << std::endl;
                 this->_Inventory[i] = m;
                 return;
             }
-            std::cerr << "sorry, no space left to equip your materia!" << std::endl;
         }
+        std::cerr << "sorry, no space left to equip your materia!" << std::endl;
     }
-    std::cerr << "enter another valid materia please!" << std::endl;
+    std::cerr << "equip error: enter another valid materia please!" << std::endl;
 }
 void Character::unequip(int idx)
 {
-    list TmpMaterias;
     if (idx >= 0 && idx <= 3 && this->_Inventory[idx])
     {
-        // this->ToList->AddElement(this->_Inventory[idx]);
-        // list static int i = 0;
-        // static AMateria *tmp[1024]; // linked list ! && leaks
-        // tmp[i++] = this->_Inventory[idx];
-        TmpMaterias.AddElement(this->_Inventory[idx]);
+        //test
+        std::cout << "inventory i: " << idx << " type: " << this->_Inventory[idx]->getType() << std::endl;
+        std::cout << "materia address i: " << idx << " type: " << this->_Inventory[idx] << std::endl;
+        //
+        this->TmpMaterias->AddElement(this->_Inventory[idx]);
         this->_Inventory[idx] = NULL;
+
         return;
     }
-    std::cerr << "try again, there is an issue with you input!" << std::endl;
+    std::cerr << "unequip error: try again, there is an issue with you input!" << std::endl;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
-    if (idx >= 0 && idx <= 3)
+    if (idx >= 0 && idx <= 3 && this->_Inventory[idx])
     {
         this->_Inventory[idx]->use(target);
         return;
     }
-    std::cerr << "enter a valid index please!" << std::endl;
+    std::cerr << "use error: try again, there is an issue with you input!" << std::endl;
 }

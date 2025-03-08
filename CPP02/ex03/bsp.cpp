@@ -20,6 +20,10 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
     Fixed area1 = abs(area(a, b, point)) / 2;
     Fixed area2 = abs(area(a, point, c)) / 2;
     Fixed area3 = abs(area(point, b, c)) / 2;
+    std::cout << "T: (" << areaT << ")" << std::endl;
+    std::cout << "1: (" << area1 << ")" << std::endl;
+    std::cout << "2: (" << area2 << ")" << std::endl;
+    std::cout << "3: (" << area3 << ")" << std::endl;
     if (area1 == 0 || area2 == 0 || area3 == 0)
         flag = 0;
     if (!flag || areaT != (area1 + area2 + area3))

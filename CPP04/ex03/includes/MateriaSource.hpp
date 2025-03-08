@@ -3,7 +3,7 @@
 class MateriaSource : public IMateriaSource
 {
 private:
-    AMateria *_Inventory[4];
+    AMateria *_Inventorys[4];
 
 public:
     MateriaSource();

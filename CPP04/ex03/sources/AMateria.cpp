@@ -44,5 +44,5 @@ void AMateria::use(ICharacter &target)
 AMateria::~AMateria(void)
 {
     if (PRINTINGMODE)
-        std::cout << "Destructor called!" << std::endl;
+        std::cout << "Materia Destructor called!" << std::endl;
 }

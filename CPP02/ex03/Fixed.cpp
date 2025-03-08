@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:47:01 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/03/06 11:43:24 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:23:38 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ Fixed Fixed::operator-(const Fixed &fixed) const
 }
 Fixed Fixed::operator*(const Fixed &fixed) const
 {
-
     // std::cout << "me: " << this->toFloat() << std::endl;
     // std::cout << "other: " << fixed.toFloat() << std::endl;
     // std::cout << "*: " << ((this->toFloat() * fixed.toFloat())) << std::endl;

@@ -2,7 +2,7 @@
 #define _LIST_HPP_
 
 #include "AMateria.hpp"
-class element
+struct element
 {
     public:
     element *_next;
@@ -11,13 +11,13 @@ class element
     ~element();
 };
 
-class list : public element
+struct list
 {
-    public:
     element *listptr;
+    public:
     list();
     ~list();
-    void AddElement(AMateria *New);
+    void    AddElement(AMateria *New);
     void DeleteList();
 };
 

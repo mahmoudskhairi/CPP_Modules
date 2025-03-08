@@ -1,26 +1,26 @@
 CC = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = Brain
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -D PRINTINGMODE=0 #-fsanitize=address
+NAME = MagicWorld
 RM = rm -rf
 SRCDIR = sources
 INCDIR = includes
-SOURCES = $(addprefix $(SRCDIR)/,main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp)
+SOURCES = $(addprefix $(SRCDIR)/,main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp List.cpp)
 OBJECTS = ${SOURCES:.cpp=.o}
-Headers = $(addprefix $(INCDIR)/,AMateria.hpp Ice.hpp Cure.hpp Character.hpp MateriaSource.hpp)
+Headers = $(addprefix $(INCDIR)/,AMateria.hpp Ice.hpp Cure.hpp Character.hpp MateriaSource.hpp List.hpp)
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	$(CC) $(CPPFLAGS) $(SHADOWFLAGS) $(OBJECTS) -o $(NAME)
+	@ $(CC) $(CPPFLAGS) $(SHADOWFLAGS) $(OBJECTS) -o $(NAME)
 
 
 %.o: %.cpp $(HEADERS)
-	$(CC) -c $(CPPFLAGS) $(SHADOWFLAGS) $< -o $@
+	@ $(CC) -c $(CPPFLAGS) $(SHADOWFLAGS) $< -o $@
 
 clean:
-	$(RM) $(OBJECTS)
+	@ $(RM) $(OBJECTS)
 
 fclean: clean
-	$(RM) $(NAME)
+	@ $(RM) $(NAME)
 
 re: fclean all

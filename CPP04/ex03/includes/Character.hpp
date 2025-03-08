@@ -2,15 +2,16 @@
 #define _CHARACTER_HPP_
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
+#include "List.hpp"
 
 class Character : public ICharacter
 {
 private:
     std::string _Name;
-    list *ToList;
     AMateria *_Inventory[4];
-
+    //list
 public:
+    list *TmpMaterias;
     Character();
     Character(std::string name);
     Character(const Character &character);

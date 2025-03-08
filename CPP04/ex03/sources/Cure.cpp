@@ -1,6 +1,6 @@
 #include "../includes/Cure.hpp"
 
-Cure::Cure() : AMateria("Cure")
+Cure::Cure() : AMateria("cure")
 {
     if (PRINTINGMODE)
         std::cout << "Cure Default constructor called!" << std::endl;
