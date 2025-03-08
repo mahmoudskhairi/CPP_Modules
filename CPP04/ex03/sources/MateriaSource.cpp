@@ -30,15 +30,12 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &obj)
 }
 MateriaSource::~MateriaSource()
 {
+    if (PRINTINGMODE)
         std::cout << "AmateriaSource  destructor called!" << std::endl;
-    // if (PRINTINGMODE)
     for (size_t i = 0; i < 4; i++)
     {
-        // std::cout << "deleting of " << i<< std::endl;
-        // std::cout << "i: " << i<< " address before: "<<this->_Inventorys[i] << std::endl;
         delete this->_Inventorys[i];
         this->_Inventorys[i] = NULL;
-        // std::cout << "i: " << i<< " address after: "<<this->_Inventorys[i] << std::endl;
     }
 }
 void MateriaSource::learnMateria(AMateria *obj)
@@ -57,13 +54,6 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 {
     for (size_t i = 0; i < 4; i++)
     {
-        //just for debugging
-        // if (this->_Inventorys[i])
-        // {
-        //     // std::cout << i << ": " << this->_Inventorys[i]->getType() << std::endl;
-        //     // std::cout << i  << type << std::endl;
-        //     // std::cout << "return:"  << (this->_Inventorys[i]->getType()).compare(type) << std::endl;
-        // }
         if (this->_Inventorys[i] && !(this->_Inventorys[i]->getType()).compare(type))
                 return (this->_Inventorys[i]->clone());
     }

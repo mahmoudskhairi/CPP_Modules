@@ -11,7 +11,6 @@ Animal::Animal(std::string Type) : _Type(Type)
 
 Animal::Animal(Animal &target)
 {
-
     std::cout << "Animal: Copy constructor called" << std::endl;
     *this = target;
 }

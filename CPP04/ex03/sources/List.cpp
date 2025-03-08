@@ -5,6 +5,8 @@ element::element()
 {
     if (PRINTINGMODE)
         std::cout << "element  constructor called!" << std::endl;
+    this->_materia = NULL;
+    this->_next = NULL;
 }
 
 element::~element()
@@ -12,6 +14,7 @@ element::~element()
     if (PRINTINGMODE)
         std::cout << "element  destructor called!" << std::endl;
     delete this->_materia;
+    this->_materia = NULL;
 }
 
 // list struct implementation
@@ -24,7 +27,7 @@ list::list()
 
 list::~list()
 {
-    // if (PRINTINGMODE)
+    if (PRINTINGMODE)
         std::cout << "List destructor called!" << std::endl;
     element *tmp;
     while (this->listptr)
@@ -36,17 +39,13 @@ list::~list()
 }
 void list::AddElement(AMateria *New)
 {
-    std::cout << "start list call --------------------\n";
     if (!this->listptr)
     {
         this->listptr = new (element);
-        std::cout <<  "#add element 1111" << std::endl;
         listptr->_materia = New;
-        listptr->_next = NULL;
     }
     else
     {
-        std::cout <<  "#add element 2222" << std::endl;
         element *tmp = this->listptr;
         while (tmp)
         {
@@ -54,21 +53,9 @@ void list::AddElement(AMateria *New)
             {
                 tmp->_next = new (element);
                 tmp->_next->_materia = New;
-                tmp->_next->_next = NULL;
                 break;
             }
             tmp = tmp->_next;
         }
     }
-    std::cout << "end list call --------------------\n";
 }
-// }
-
-// void list::DeleteList()
-// {
-//     element *tmp = this->listptr;
-//     for (; tmp; tmp = tmp->_next)
-//     {
-//         delete tmp->~element(); // assigning of NULL
-//     }
-// }

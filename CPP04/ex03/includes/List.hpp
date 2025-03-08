@@ -18,7 +18,6 @@ struct list
     list();
     ~list();
     void    AddElement(AMateria *New);
-    void DeleteList();
 };
 
 #endif

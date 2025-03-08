@@ -7,6 +7,7 @@ Character::Character() : _Name("unkown_character")
         std::cout << "Character Default constructor called!" << std::endl;
     for (size_t i = 0; i < 4; i++)
         this->_Inventory[i] = NULL;
+    this->TmpMaterias = new list();
 }
 Character::Character(std::string name) : _Name(name)
 {
@@ -14,12 +15,14 @@ Character::Character(std::string name) : _Name(name)
         std::cout << "Character parameterized constructor called!" << std::endl;
     for (size_t i = 0; i < 4; i++)
         this->_Inventory[i] = NULL;
+    this->TmpMaterias = new list();
 }
 Character::Character(const Character &character)
 {
     if (PRINTINGMODE)
         std::cout << "Character Copy constructor called!" << std::endl;
     this->_Name = character.getName();
+    // this->TmpMaterias = character.TmpMaterias;
     for (size_t i = 0; i < 4; i++)
     {
         if (character._Inventory[i])
@@ -32,6 +35,9 @@ ICharacter &Character::operator=(const Character &character)
 {
     if (PRINTINGMODE)
         std::cout << "Character Copy assignment operator called!" << std::endl;
+        if (this->TmpMaterias)
+            delete TmpMaterias;
+    this->TmpMaterias = character.TmpMaterias;
     if (this != &character)
     {
         this->_Name = character.getName();
@@ -48,23 +54,15 @@ ICharacter &Character::operator=(const Character &character)
 }
 Character::~Character()
 {
-    // if (PRINTINGMODE)
+    if (PRINTINGMODE)
         std::cout << "Character Destructor called!" << std::endl;
-                        //test
-        std::cout << "=================================\n";
-        element * tmp =  this->TmpMaterias->listptr;
-        while(tmp)
-        {
-            std::cout << "element :  " << tmp->_materia->getType() << std::endl;
-            tmp = tmp->_next;
-        }
-        std::cout << "=================================\n";
     for (size_t i = 0; i < 4; i++)
     {
             delete this->_Inventory[i];
             this->_Inventory[i] = NULL;
     }
     delete this->TmpMaterias;
+    this->TmpMaterias = NULL;
 }
 std::string const &Character::getName() const
 {
@@ -82,7 +80,6 @@ void Character::equip(AMateria *m)
         {
             if (!this->_Inventory[i])
             {
-                std::cout << m->getType() << std::endl;
                 this->_Inventory[i] = m;
                 return;
             }
@@ -95,10 +92,6 @@ void Character::unequip(int idx)
 {
     if (idx >= 0 && idx <= 3 && this->_Inventory[idx])
     {
-        //test
-        std::cout << "inventory i: " << idx << " type: " << this->_Inventory[idx]->getType() << std::endl;
-        std::cout << "materia address i: " << idx << " type: " << this->_Inventory[idx] << std::endl;
-        //
         this->TmpMaterias->AddElement(this->_Inventory[idx]);
         this->_Inventory[idx] = NULL;
 
