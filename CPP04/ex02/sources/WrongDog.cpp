@@ -25,7 +25,7 @@ void WrongDog::makeSound(void) const
 
 WrongDog::WrongDog(WrongDog &New) : WrongAnimal(New)
 {
-    /* unnecessary usage of // *this = New;// double initialization of ClapTrap data members */
+     
 }
 
 WrongDog::~WrongDog()

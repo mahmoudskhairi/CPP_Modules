@@ -18,7 +18,7 @@ void	subjectTest(){
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
-	me->use(0, *bob); 
+	me->use(0, *bob);
 	me->use(1, *bob);
 
 	delete bob;
@@ -29,7 +29,7 @@ void magic()
 {
 	std::cout << "\n--------------------------------*( magic world test )*\n" << std::endl;
 	IMateriaSource *magicBook = new MateriaSource;
-    Character *me = new Character();
+    ICharacter *me = new Character();
     magicBook->learnMateria(new Ice());
     magicBook->learnMateria(new Cure());
 
@@ -65,7 +65,7 @@ int main(void)
 {
     // atexit(ll);
 	std::cout << "\n|--------------[ Welcome to our magic world ]------------------|\n" << std::endl;
-	subjectTest();
+	// subjectTest();
 	magic();
 	std::cout << "\n|--------------------------------------------------------------|\n" << std::endl;
 	return 0;

@@ -9,7 +9,6 @@ class Character : public ICharacter
 private:
     std::string _Name;
     AMateria *_Inventory[4];
-    //list
 public:
     list *TmpMaterias;
     Character();

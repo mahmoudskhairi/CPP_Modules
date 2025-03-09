@@ -26,7 +26,7 @@ void Cat::makeSound(void) const
 
 Cat::Cat(Cat &New) : Animal(New)
 {
-    /* unnecessary usage of // *this = New;// double initialization of ClapTrap data members */
+     
 }
 
 Cat::~Cat()

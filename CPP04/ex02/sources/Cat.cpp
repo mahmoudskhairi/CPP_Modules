@@ -34,7 +34,7 @@ void Cat::makeSound(void) const
 Cat::Cat(Cat &New) : Animal(New)
 {
     this->_BrainPtr = new Brain(*New._BrainPtr);
-    /* unnecessary usage of // *this = New;// double initialization of ClapTrap data members */
+     
 }
 
 Cat::~Cat()

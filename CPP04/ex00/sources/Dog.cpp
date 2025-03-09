@@ -25,7 +25,7 @@ void Dog::makeSound(void) const
 
 Dog::Dog(Dog &New) : Animal(New)
 {
-    /* unnecessary usage of // *this = New;// double initialization of ClapTrap data members */
+     
 }
 
 Dog::~Dog()

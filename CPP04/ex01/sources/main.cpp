@@ -17,14 +17,14 @@ void deepcopyTesting()
     delete dog2;
 }
 
-void    ll()
-{
-    system("leaks -q Brain");
-}
+// void    ll()
+// {
+//     system("leaks -q Brain");
+// }
 
 int main()
 {
-    atexit(ll);
+    // atexit(ll);
     size_t count = 4;
     Animal *obj[count];
     size_t i = 0;

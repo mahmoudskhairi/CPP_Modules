@@ -26,7 +26,7 @@ void WrongCat::makeSound(void) const
 
 WrongCat::WrongCat(WrongCat &New) : WrongAnimal(New)
 {
-    /* unnecessary usage of // *this = New;// double initialization of ClapTrap data members */
+     
 }
 
 WrongCat::~WrongCat()

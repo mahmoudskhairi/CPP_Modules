@@ -43,4 +43,5 @@ int main()
         obj[i]->makeSound();
     for (i = 0; i < count; i++)
         delete obj[i];
+    std::cout << "========================================" << std::endl;
 }

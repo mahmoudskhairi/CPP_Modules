@@ -4,7 +4,6 @@
 #include "AMateria.hpp"
 struct  element
 {
-    public:
     element *_next;
     AMateria *_materia;
     element();
@@ -14,7 +13,6 @@ struct  element
 struct list
 {
     element *listptr;
-    public:
     list();
     ~list();
     void    AddElement(AMateria *New);
