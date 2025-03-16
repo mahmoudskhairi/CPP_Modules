@@ -6,16 +6,16 @@ SRCDIR = sources
 INCDIR = includes
 SOURCES = $(addprefix $(SRCDIR)/,main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp WrongDog.cpp)
 OBJECTS = ${SOURCES:.cpp=.o}
-Headers = $(addprefix $(INCDIR)/,Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp WrongDog.hpp)
+HEADERS = $(addprefix $(INCDIR)/,Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp WrongDog.hpp)
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	$(CC) $(CPPFLAGS) $(SHADOWFLAGS) $(OBJECTS) -o $(NAME)
+	$(CC) $(CPPFLAGS) $(OBJECTS) -o $(NAME)
 
 
 %.o: %.cpp $(HEADERS)
-	$(CC) -c $(CPPFLAGS) $(SHADOWFLAGS) $< -o $@
+	$(CC) -c $(CPPFLAGS) $< -o $@
 
 clean:
 	$(RM) $(OBJECTS)

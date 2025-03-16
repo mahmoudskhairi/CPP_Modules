@@ -4,36 +4,32 @@
 #include <iostream>
 #include <stdexcept>
 
+#ifndef PRINTINGMODE 1
+#define PRINTINGMODE
+#endif
+
 class bureaucrat
 {
 private:
-    /* data */
-    std::string _name;
-    int _grade;
-    bureaucrat(/* args */);
+    const int _Grade;
+    const std::string _Name;
 
 public:
-    bureaucrat(std::string name, int grade);
-    int getGrade();
-    void setGrade(int grade); //
-    std::string getName();
-    void setname(std::string name); //
-    ~bureaucrat();
+    bureaucrat(/* args */);
+    bureaucrat(std::string const name, const int grade);
+    bureaucrat(bureaucrat &another);
+    bureaucrat &operator=(bureaucrat &another);
     void increment();
     void decrement();
-
+    ~bureaucrat();
     class GradeTooHighException : public std::exception
     {
-    public:
         const char *what() const throw();
     };
     class GradeTooLowException : public std::exception
     {
-    public:
         const char *what() const throw();
     };
 };
-
-std::ostream &operator<<(std::ostream &output, bureaucrat &br);
 
 #endif

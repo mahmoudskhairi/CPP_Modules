@@ -7,7 +7,7 @@ SRCDIR = sources
 INCDIR = includes
 SOURCES = $(addprefix $(SRCDIR)/,main.cpp ScavTrap.cpp ClapTrap.cpp FragTrap.cpp DiamondTrap.cpp)
 OBJECTS = ${SOURCES:.cpp=.o}
-Headers = $(addprefix $(INCDIR)/,ScavTrap.hpp ClapTrap.hpp FragTrap.hpp DiamondTrap.hpp)
+HEADERS = $(addprefix $(INCDIR)/,ScavTrap.hpp ClapTrap.hpp FragTrap.hpp DiamondTrap.hpp)
 
 all: $(NAME)
 
