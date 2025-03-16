@@ -1,7 +1,8 @@
 #ifndef _BUREAUCRAT_HPP_
 #define _BUREAUCRAT_HPP_
 #include <iostream>
-#include <stdexcept>
+// #include <stdexcept>
+#include <exception>
 
 #ifndef PRINTINGMODE
 #define PRINTINGMODE 1

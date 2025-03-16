@@ -1,5 +1,5 @@
-CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-D PRINTINGMODE=0 -fsanitize=address
+CC = c++
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -D PRINTINGMODE=1 #-fsanitize=address
 NAME = bureaucrat
 SOURCES = main.cpp bureaucrat.cpp
 OBJECTS = ${SOURCES:.cpp=.o}
