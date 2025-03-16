@@ -53,8 +53,8 @@ bureaucrat::~bureaucrat()
     if (PRINTINGMODE)
         std::cout << "Destructor Called!" << std::endl;
 }
-const char *bureaucrat::GradeTooHighException::what() const throw() { return ("Too High grade Exception"); }
-const char *bureaucrat::GradeTooLowException::what() const throw() { return ("Too Low grade Exception"); }
+const char *bureaucrat::GradeTooHighException::what() const throw() { return ("* Too High grade Exception!"); }
+const char *bureaucrat::GradeTooLowException::what() const throw() { return ("* Too Low grade Exception!"); }
 
 std::ostream &operator<<(std::ostream &output, bureaucrat &bur_)
 {
