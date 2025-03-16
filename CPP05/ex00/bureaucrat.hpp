@@ -1,18 +1,17 @@
 #ifndef _BUREAUCRAT_HPP_
 #define _BUREAUCRAT_HPP_
-
 #include <iostream>
 #include <stdexcept>
 
-#ifndef PRINTINGMODE 1
-#define PRINTINGMODE
+#ifndef PRINTINGMODE
+#define PRINTINGMODE 1
 #endif
 
 class bureaucrat
 {
 private:
-    const int _Grade;
-    const std::string _Name;
+    std::string _Name;
+    int _Grade;
 
 public:
     bureaucrat(/* args */);
@@ -21,13 +20,17 @@ public:
     bureaucrat &operator=(bureaucrat &another);
     void increment();
     void decrement();
+    int GetGrade();
+    std::string GetName();
     ~bureaucrat();
     class GradeTooHighException : public std::exception
     {
+    public:
         const char *what() const throw();
     };
     class GradeTooLowException : public std::exception
     {
+    public:
         const char *what() const throw();
     };
 };
