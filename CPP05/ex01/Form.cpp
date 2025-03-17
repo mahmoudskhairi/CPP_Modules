@@ -10,10 +10,6 @@ Form::Form(const std::string Name, int SignGrade, int ExecuteGrade) : _Name(Name
 {
     if (PRINTINGMODE)
         std::cout << "Form Parameterized constructor called!" << std::endl;
-    if (this->_SignGrade > 150 || this->_ExecuteGrade > 150)
-        throw GradeTooLowException();
-    else if (this->_SignGrade < 1 || this->_ExecuteGrade < 1)
-        throw GradeTooHighException();
 }
 Form::Form(Form &New) : _Name(New._Name), _SignGrade(New._SignGrade), _ExecuteGrade(New._ExecuteGrade), _IsSigned(New._IsSigned)
 {
@@ -46,17 +42,17 @@ int Form::GetExecuteGrade() const { return this->_ExecuteGrade; }
 /*form member functions*/
 void Form::beSigned(bureaucrat &bur_)
 {
-    if (this->GetSignGrade() <= bur_.GetGrade())
+    if (bur_.GetGrade() <= this->GetSignGrade())
         this->_IsSigned = true;
     else
         throw GradeTooLowException();
 }
 /* overridding of what of base exception class */
-const char *Form::GradeTooHighException::what() const throw() { return ("* Too High grade Exception!"); }
-const char *Form::GradeTooLowException::what() const throw() { return ("* Too Low grade Exception!"); }
+const char *Form::GradeTooHighException::what() const throw() { return ("* Too High <Form> grade Exception!"); }
+const char *Form::GradeTooLowException::what() const throw() { return ("* Too Low <Form> grade Exception!"); }
 
 /*insertion operator*/
 std::ostream &operator<<(std::ostream &output, Form &form)
 {
-    return output << form.GetName() << " , Sign Grade: " << form.GetSignGrade() << " , Execute Grade: " << form.GetExecuteGrade() << " , Signed: " << form.GetIsSigned() << std::endl;
+    return output << form.GetName() << "'s Sign_Grade is: " << form.GetSignGrade() << " , And his Execute_Grade is: " << form.GetExecuteGrade() << " , Signed status is: " << form.GetIsSigned() << std::endl;
 }

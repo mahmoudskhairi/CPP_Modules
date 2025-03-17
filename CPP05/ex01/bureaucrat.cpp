@@ -28,7 +28,7 @@ bureaucrat &bureaucrat::operator=(bureaucrat &another)
         this->_Grade = another._Grade;
     return (*this);
 }
-/*increment and decrement member functions*/
+/* increment and decrement member functions */
 void bureaucrat::increment()
 {
     if (this->_Grade > 1)
@@ -53,8 +53,8 @@ bureaucrat::~bureaucrat()
 }
 
 /* overridding of what of base exception class */
-const char *bureaucrat::GradeTooHighException::what() const throw() { return ("* Too High grade Exception!"); }
-const char *bureaucrat::GradeTooLowException::what() const throw() { return ("* Too Low grade Exception!"); }
+const char *bureaucrat::GradeTooHighException::what() const throw() { return ("* Too High <bureaucrat> grade Exception!"); }
+const char *bureaucrat::GradeTooLowException::what() const throw() { return ("* Too Low <bureaucrat> grade Exception!"); }
 
 /*insertion operator*/
 std::ostream &operator<<(std::ostream &output, bureaucrat &bur_)

@@ -1,37 +1,40 @@
 #include "Form.hpp"
 
-void TooLowTest()
+void Correct()
 {
-    bureaucrat bur_("#me#", 145);
-    for (size_t i = 0; i < 10; i++)
-    {
-        std::cout << bur_ << std::endl;
-        bur_.decrement();
-    }
+    std::cout << "\n# ------------------- correct test ------------------- #" << std::endl;
+    bureaucrat bur_("*bur", 3);
+    Form form("*form", 5, 5);
+    std::cout << "\n############ form informations ############" << std::endl;
+    std::cout << form;
+    std::cout << "\n############ form informations ############" << std::endl;
+    std::cout << bur_;
+    std::cout << "###########################################" << std::endl;
+    form.beSigned(bur_);
+    std::cout << "----------------------------------------------" << std::endl;
 }
-void TooHighTest()
+void Wrong()
 {
-    bureaucrat bur_("#me#", 4);
-    for (size_t i = 0; i < 5; i++)
-    {
-        std::cout << bur_ << std::endl;
-        bur_.increment();
-    }
+    std::cout << "\n# ------------------- Wrong test ------------------- #" << std::endl;
+    bureaucrat bur_("*bur", 7);
+    Form form("*form", 5, 5);
+    std::cout << "\n############ form informations ############" << std::endl;
+    std::cout << form;
+    std::cout << "\n############ form informations ############" << std::endl;
+    std::cout << bur_;
+    std::cout << "###########################################" << std::endl;
+    form.beSigned(bur_);
+    std::cout << "----------------------------------------------" << std::endl;
 }
 int main()
 {
-    // try
-    // {
-    //     TooLowTest();
-    //     TooHighTest();
-    // }
-    // catch (std::exception &e)
-    // {
-    //     std::cerr << e.what() << '\n';
-    // }
-    Form form("lacarte", 5, 5);
-    std::cout << "name: " << form.GetName() << std::endl;
-    std::cout << "SignGrade: " << form.GetSignGrade() << std::endl;
-    std::cout << "ExecuteSignGrade: " << form.GetExecuteGrade() << std::endl;
-    std::cout << "IsSigned: " << form.GetIsSigned() << std::endl;
+    try
+    {
+      Correct();
+      Wrong();
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
