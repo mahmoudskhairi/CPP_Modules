@@ -1,13 +1,15 @@
 #ifndef _BUREAUCRAT_HPP_
 #define _BUREAUCRAT_HPP_
 #include <iostream>
-// #include <stdexcept>
 #include <exception>
 
 #ifndef PRINTINGMODE
 #define PRINTINGMODE 1
 #endif
-
+class Form
+{
+};
+#include "Form.hpp"
 class bureaucrat
 {
 private:
@@ -21,8 +23,9 @@ public:
     bureaucrat &operator=(bureaucrat &another);
     void increment();
     void decrement();
-    int GetGrade() const;
-    std::string GetName() const;
+    int GetGrade();
+    void signForm(Form &form); // must call Form::beSigned() , then will print "<bureaucrat> signed <form>" or ..
+    std::string GetName();
     ~bureaucrat();
     class GradeTooHighException : public std::exception
     {

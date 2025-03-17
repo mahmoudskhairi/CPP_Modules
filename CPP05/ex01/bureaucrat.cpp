@@ -45,18 +45,28 @@ void bureaucrat::decrement()
     else
         throw GradeTooLowException();
 }
-/** getters /
-std::string bureaucrat::GetName() const { return this->_Name; }
-int bureaucrat::GetGrade() const { return this->_Grade; }
+
+std::string bureaucrat::GetName() { return this->_Name; }
+int bureaucrat::GetGrade() { return this->_Grade; }
 bureaucrat::~bureaucrat()
 {
     if (PRINTINGMODE)
         std::cout << "Destructor Called!" << std::endl;
+}
+
+void bureaucrat::signForm(Form &form)
+{
+    if (this->_Grade <= form.GetSignGrade())
+    {
+        form.beSigned();
+    }
+    else
+        throw GradeTooLowException();
 }
 const char *bureaucrat::GradeTooHighException::what() const throw() { return ("* Too High grade Exception!"); }
 const char *bureaucrat::GradeTooLowException::what() const throw() { return ("* Too Low grade Exception!"); }
 
 std::ostream &operator<<(std::ostream &output, bureaucrat &bur_)
 {
-   return     output << bur_.GetName() << " bureaucrat grade " << bur_.GetGrade() << "." << std::endl; 
+    return output << bur_.GetName() << " bureaucrat grade " << bur_.GetGrade() << "." << std::endl;
 }
