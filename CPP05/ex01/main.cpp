@@ -7,7 +7,7 @@ void Correct()
     Form form("*form", 5, 5);
     std::cout << "\n############ form informations ############" << std::endl;
     std::cout << form;
-    std::cout << "\n############ form informations ############" << std::endl;
+    std::cout << "\n############ bureaucrat informations ############" << std::endl;
     std::cout << bur_;
     std::cout << "###########################################" << std::endl;
     form.beSigned(bur_);
@@ -18,23 +18,24 @@ void Wrong()
     std::cout << "\n# ------------------- Wrong test ------------------- #" << std::endl;
     bureaucrat bur_("*bur", 7);
     Form form("*form", 5, 5);
-    std::cout << "\n############ form informations ############" << std::endl;
-    std::cout << form;
-    std::cout << "\n############ form informations ############" << std::endl;
-    std::cout << bur_;
-    std::cout << "###########################################" << std::endl;
-    form.beSigned(bur_);
+    // std::cout << "\n############ form informations ############" << std::endl;
+    // std::cout << form;
+    // std::cout << "\n############ bureaucrat informations ############" << std::endl;
+    // std::cout << bur_;
+    // std::cout << "###########################################" << std::endl;
+    // form.beSigned(bur_);
+    bur_.signForm(form);
     std::cout << "----------------------------------------------" << std::endl;
 }
 int main()
 {
     try
     {
-      Correct();
+    //   Correct();
       Wrong();
     }
     catch (std::exception &e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr <<  e.what() << '\n';
     }
 }

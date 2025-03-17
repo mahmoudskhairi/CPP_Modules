@@ -70,9 +70,9 @@ void bureaucrat::signForm(Form &form)
         form.beSigned(*this);
         std::cout << this->GetName() << " signed " << form.GetName() << std::endl;
     }
-    catch (const std::exception &e)
+    catch (...)
     {
-        std::cerr << e.what() << std::endl;
         std::cout << this->GetName() << " couldn’t sign " << form.GetName() << " because his grade is not enough" << std::endl;
+        throw;
     }
 }

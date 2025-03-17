@@ -1,5 +1,5 @@
 CC = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -D PRINTINGMODE=1 #-fsanitize=address
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -D PRINTINGMODE=0 #-fsanitize=address
 NAME = Form
 SOURCES = main.cpp bureaucrat.cpp Form.cpp
 OBJECTS = ${SOURCES:.cpp=.o}
