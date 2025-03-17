@@ -13,9 +13,9 @@ class bureaucrat
 private:
     std::string _Name;
     int _Grade;
+    bureaucrat(/* args */);
 
 public:
-    bureaucrat(/* args */);
     bureaucrat(std::string const name, const int grade);
     bureaucrat(bureaucrat &another);
     bureaucrat &operator=(bureaucrat &another);
@@ -24,6 +24,7 @@ public:
     int GetGrade() const;
     std::string GetName() const;
     ~bureaucrat();
+    /*custom exception classes*/
     class GradeTooHighException : public std::exception
     {
     public:

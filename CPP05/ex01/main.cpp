@@ -1,4 +1,4 @@
-#include "bureaucrat.hpp"
+#include "Form.hpp"
 
 void TooLowTest()
 {
@@ -20,13 +20,18 @@ void TooHighTest()
 }
 int main()
 {
-    try
-    {
-        TooLowTest();
-        TooHighTest();
-    }
-    catch (std::exception &e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    // try
+    // {
+    //     TooLowTest();
+    //     TooHighTest();
+    // }
+    // catch (std::exception &e)
+    // {
+    //     std::cerr << e.what() << '\n';
+    // }
+    Form form("lacarte", 5, 5);
+    std::cout << "name: " << form.GetName() << std::endl;
+    std::cout << "SignGrade: " << form.GetSignGrade() << std::endl;
+    std::cout << "ExecuteSignGrade: " << form.GetExecuteGrade() << std::endl;
+    std::cout << "IsSigned: " << form.GetIsSigned() << std::endl;
 }

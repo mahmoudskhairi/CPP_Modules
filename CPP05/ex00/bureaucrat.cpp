@@ -1,13 +1,10 @@
 #include "bureaucrat.hpp"
 
-bureaucrat::bureaucrat(/* args */) : _Name("unknown:name"), _Grade(1)
+/*canonical member functions*/
+bureaucrat::bureaucrat(/* args */)
 {
     if (PRINTINGMODE)
         std::cout << "Constructor Called!" << std::endl;
-    if (this->_Grade > 150)
-        throw GradeTooLowException();
-    else if (this->_Grade < 1)
-        throw GradeTooHighException();
 }
 bureaucrat::bureaucrat(std::string const name, const int grade) : _Name(name), _Grade(grade)
 {
@@ -31,6 +28,7 @@ bureaucrat &bureaucrat::operator=(bureaucrat &another)
         this->_Grade = another._Grade;
     return (*this);
 }
+/*increment and decrement member functions*/
 void bureaucrat::increment()
 {
     if (this->_Grade > 1)
@@ -45,7 +43,7 @@ void bureaucrat::decrement()
     else
         throw GradeTooLowException();
 }
-/** getters /
+/* getters */
 std::string bureaucrat::GetName() const { return this->_Name; }
 int bureaucrat::GetGrade() const { return this->_Grade; }
 bureaucrat::~bureaucrat()
@@ -53,10 +51,13 @@ bureaucrat::~bureaucrat()
     if (PRINTINGMODE)
         std::cout << "Destructor Called!" << std::endl;
 }
+
+/* overridding of what of base exception class */
 const char *bureaucrat::GradeTooHighException::what() const throw() { return ("* Too High grade Exception!"); }
 const char *bureaucrat::GradeTooLowException::what() const throw() { return ("* Too Low grade Exception!"); }
 
+/*insertion operator*/
 std::ostream &operator<<(std::ostream &output, bureaucrat &bur_)
 {
-   return     output << bur_.GetName() << " bureaucrat grade " << bur_.GetGrade() << "." << std::endl; 
+    return output << bur_.GetName() << " bureaucrat grade " << bur_.GetGrade() << "." << std::endl;
 }

@@ -1,18 +1,15 @@
 #include "bureaucrat.hpp"
 
-bureaucrat::bureaucrat(/* args */) : _Name("unknown:name"), _Grade(1)
+/*canonical member functions*/
+bureaucrat::bureaucrat(/* args */)
 {
     if (PRINTINGMODE)
-        std::cout << "Constructor Called!" << std::endl;
-    if (this->_Grade > 150)
-        throw GradeTooLowException();
-    else if (this->_Grade < 1)
-        throw GradeTooHighException();
+        std::cout << "Bureaucrat Constructor Called!" << std::endl;
 }
 bureaucrat::bureaucrat(std::string const name, const int grade) : _Name(name), _Grade(grade)
 {
     if (PRINTINGMODE)
-        std::cout << "Parameterized Constructor Called!" << std::endl;
+        std::cout << "Bureaucrat Parameterized Constructor Called!" << std::endl;
     if (this->_Grade > 150)
         throw GradeTooLowException();
     else if (this->_Grade < 1)
@@ -21,16 +18,17 @@ bureaucrat::bureaucrat(std::string const name, const int grade) : _Name(name), _
 bureaucrat::bureaucrat(bureaucrat &another) : _Name(another._Name), _Grade(another._Grade)
 {
     if (PRINTINGMODE)
-        std::cout << "Copy Constructor Called!" << std::endl;
+        std::cout << "Bureaucrat Copy Constructor Called!" << std::endl;
 }
 bureaucrat &bureaucrat::operator=(bureaucrat &another)
 {
     if (PRINTINGMODE)
-        std::cout << "Copy Assignment Operator Called!" << std::endl;
+        std::cout << "Bureaucrat Copy Assignment Operator Called!" << std::endl;
     if (this != &another)
         this->_Grade = another._Grade;
     return (*this);
 }
+/*increment and decrement member functions*/
 void bureaucrat::increment()
 {
     if (this->_Grade > 1)
@@ -45,28 +43,36 @@ void bureaucrat::decrement()
     else
         throw GradeTooLowException();
 }
-
-std::string bureaucrat::GetName() { return this->_Name; }
-int bureaucrat::GetGrade() { return this->_Grade; }
+/* getters */
+std::string bureaucrat::GetName() const { return this->_Name; }
+int bureaucrat::GetGrade() const { return this->_Grade; }
 bureaucrat::~bureaucrat()
 {
     if (PRINTINGMODE)
-        std::cout << "Destructor Called!" << std::endl;
+        std::cout << "Bureaucrat Destructor Called!" << std::endl;
 }
 
-void bureaucrat::signForm(Form &form)
-{
-    if (this->_Grade <= form.GetSignGrade())
-    {
-        form.beSigned();
-    }
-    else
-        throw GradeTooLowException();
-}
+/* overridding of what of base exception class */
 const char *bureaucrat::GradeTooHighException::what() const throw() { return ("* Too High grade Exception!"); }
 const char *bureaucrat::GradeTooLowException::what() const throw() { return ("* Too Low grade Exception!"); }
 
+/*insertion operator*/
 std::ostream &operator<<(std::ostream &output, bureaucrat &bur_)
 {
     return output << bur_.GetName() << " bureaucrat grade " << bur_.GetGrade() << "." << std::endl;
+}
+
+/*signe form*/
+void bureaucrat::signForm(Form &form)
+{
+    try
+    {
+        form.beSigned(*this);
+        std::cout << this->GetName() << " signed " << form.GetName() << std::endl;
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+        std::cout << this->GetName() << " couldn’t sign " << form.GetName() << " because his grade is not enough" << std::endl;
+    }
 }
