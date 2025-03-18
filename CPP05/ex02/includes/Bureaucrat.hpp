@@ -37,6 +37,8 @@ public:
     public:
         const char *what() const throw();
     };
+    //
+    void executeForm(AForm const &form);
 };
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat &bur_);

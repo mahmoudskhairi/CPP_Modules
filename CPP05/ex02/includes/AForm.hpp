@@ -10,9 +10,9 @@ private:
     int _SignGrade;
     int _ExecuteGrade;
     bool _IsSigned;
-    AForm(/* args */);
 
 public:
+    AForm(/* args */);
     AForm(const std::string Name, int SignGrade, int ExecuteGrade);
     AForm(AForm &New);
     AForm &operator=(AForm &New);
@@ -35,6 +35,9 @@ public:
     public:
         const char *what() const throw();
     };
+    // pure member function
+    void execute(Bureaucrat const &executor) const;
+    virtual void ExecuteAction() const = 0;
 };
 
 std::ostream &operator<<(std::ostream &output, AForm &form);

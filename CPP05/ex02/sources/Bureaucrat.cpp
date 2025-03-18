@@ -1,4 +1,4 @@
-#include "Bureaucrat.hpp"
+#include "../includes/Bureaucrat.hpp"
 
 /*canonical member functions*/
 Bureaucrat::Bureaucrat(/* args */)
@@ -75,4 +75,12 @@ void Bureaucrat::signForm(AForm &form)
         std::cout << this->GetName() << " couldn’t sign " << form.GetName() << " because his grade is not enough" << std::endl;
         throw;
     }
+}
+
+void Bureaucrat::executeForm(AForm const &form)
+{
+    if (form.GetIsSigned())
+        form.execute(*this);
+    else
+        Bureaucrat::GradeTooLowException;
 }

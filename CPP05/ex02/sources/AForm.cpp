@@ -1,7 +1,7 @@
-#include "AForm.hpp"
+#include "../includes/AForm.hpp"
 
 /* Canonical methods */
-AForm::AForm(/* args */)
+AForm::AForm(/* args */) : _Name(""), _SignGrade(1), _ExecuteGrade(1), _IsSigned(false)
 {
     if (PRINTINGMODE)
         std::cout << "Form Default constructor called!" << std::endl;
@@ -55,4 +55,12 @@ const char *AForm::GradeTooLowException::what() const throw() { return ("* Too L
 std::ostream &operator<<(std::ostream &output, AForm &AForm)
 {
     return output << AForm.GetName() << "'s Sign_Grade is: " << AForm.GetSignGrade() << " , And his Execute_Grade is: " << AForm.GetExecuteGrade() << " , Signed status is: " << AForm.GetIsSigned() << std::endl;
+}
+
+void AForm::execute(Bureaucrat const &executor) const
+{
+    if (executor.GetGrade() <= this->GetExecuteGrade())
+        this->ExecuteAction();
+    else
+        AForm::GradeTooLowException();
 }
