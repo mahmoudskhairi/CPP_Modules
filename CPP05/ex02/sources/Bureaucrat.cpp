@@ -1,12 +1,12 @@
-#include "bureaucrat.hpp"
+#include "Bureaucrat.hpp"
 
 /*canonical member functions*/
-bureaucrat::bureaucrat(/* args */)
+Bureaucrat::Bureaucrat(/* args */)
 {
     if (PRINTINGMODE)
         std::cout << "Bureaucrat Constructor Called!" << std::endl;
 }
-bureaucrat::bureaucrat(std::string const name, const int grade) : _Name(name), _Grade(grade)
+Bureaucrat::Bureaucrat(std::string const name, const int grade) : _Name(name), _Grade(grade)
 {
     if (PRINTINGMODE)
         std::cout << "Bureaucrat Parameterized Constructor Called!" << std::endl;
@@ -15,12 +15,12 @@ bureaucrat::bureaucrat(std::string const name, const int grade) : _Name(name), _
     else if (this->_Grade < 1)
         throw GradeTooHighException();
 }
-bureaucrat::bureaucrat(bureaucrat &another) : _Name(another._Name), _Grade(another._Grade)
+Bureaucrat::Bureaucrat(Bureaucrat &another) : _Name(another._Name), _Grade(another._Grade)
 {
     if (PRINTINGMODE)
         std::cout << "Bureaucrat Copy Constructor Called!" << std::endl;
 }
-bureaucrat &bureaucrat::operator=(bureaucrat &another)
+Bureaucrat &Bureaucrat::operator=(Bureaucrat &another)
 {
     if (PRINTINGMODE)
         std::cout << "Bureaucrat Copy Assignment Operator Called!" << std::endl;
@@ -29,14 +29,14 @@ bureaucrat &bureaucrat::operator=(bureaucrat &another)
     return (*this);
 }
 /* increment and decrement member functions */
-void bureaucrat::increment()
+void Bureaucrat::increment()
 {
     if (this->_Grade > 1)
         this->_Grade--;
     else
         throw GradeTooHighException();
 }
-void bureaucrat::decrement()
+void Bureaucrat::decrement()
 {
     if (this->_Grade < 150)
         this->_Grade++;
@@ -44,26 +44,26 @@ void bureaucrat::decrement()
         throw GradeTooLowException();
 }
 /* getters */
-std::string bureaucrat::GetName() const { return this->_Name; }
-int bureaucrat::GetGrade() const { return this->_Grade; }
-bureaucrat::~bureaucrat()
+std::string Bureaucrat::GetName() const { return this->_Name; }
+int Bureaucrat::GetGrade() const { return this->_Grade; }
+Bureaucrat::~Bureaucrat()
 {
     if (PRINTINGMODE)
         std::cout << "Bureaucrat Destructor Called!" << std::endl;
 }
 
 /* overridding of what of base exception class */
-const char *bureaucrat::GradeTooHighException::what() const throw() { return ("* Too High <bureaucrat> grade Exception!"); }
-const char *bureaucrat::GradeTooLowException::what() const throw() { return ("* Too Low <bureaucrat> grade Exception!"); }
+const char *Bureaucrat::GradeTooHighException::what() const throw() { return ("* Too High <Bureaucrat> grade Exception!"); }
+const char *Bureaucrat::GradeTooLowException::what() const throw() { return ("* Too Low <Bureaucrat> grade Exception!"); }
 
 /*insertion operator*/
-std::ostream &operator<<(std::ostream &output, bureaucrat &bur_)
+std::ostream &operator<<(std::ostream &output, Bureaucrat &bur_)
 {
-    return output << bur_.GetName() << " bureaucrat grade " << bur_.GetGrade() << "." << std::endl;
+    return output << bur_.GetName() << " Bureaucrat grade " << bur_.GetGrade() << "." << std::endl;
 }
 
 /*signe form*/
-void bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
     try
     {

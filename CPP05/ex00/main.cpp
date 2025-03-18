@@ -1,8 +1,8 @@
-#include "bureaucrat.hpp"
+#include "Bureaucrat.hpp"
 
 void TooLowTest()
 {
-    bureaucrat bur_("#me#", 145);
+    Bureaucrat bur_("#me#", 145);
     for (size_t i = 0; i < 10; i++)
     {
         std::cout << bur_ << std::endl;
@@ -11,7 +11,7 @@ void TooLowTest()
 }
 void TooHighTest()
 {
-    bureaucrat bur_("#me#", 4);
+    Bureaucrat bur_("#me#", 4);
     for (size_t i = 0; i < 5; i++)
     {
         std::cout << bur_ << std::endl;

@@ -40,7 +40,7 @@ int Form::GetSignGrade() const { return this->_SignGrade; }
 int Form::GetExecuteGrade() const { return this->_ExecuteGrade; }
 
 /*form member functions*/
-void Form::beSigned(bureaucrat &bur_)
+void Form::beSigned(Bureaucrat &bur_)
 {
     if (bur_.GetGrade() <= this->GetSignGrade())
         this->_IsSigned = true;

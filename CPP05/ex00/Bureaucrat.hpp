@@ -8,22 +8,22 @@
 #define PRINTINGMODE 1
 #endif
 
-class bureaucrat
+class Bureaucrat
 {
 private:
     std::string _Name;
     int _Grade;
-    bureaucrat(/* args */);
+    Bureaucrat(/* args */);
 
 public:
-    bureaucrat(std::string const name, const int grade);
-    bureaucrat(bureaucrat &another);
-    bureaucrat &operator=(bureaucrat &another);
+    Bureaucrat(std::string const name, const int grade);
+    Bureaucrat(Bureaucrat &another);
+    Bureaucrat &operator=(Bureaucrat &another);
     void increment();
     void decrement();
     int GetGrade() const;
     std::string GetName() const;
-    ~bureaucrat();
+    ~Bureaucrat();
     /*custom exception classes*/
     class GradeTooHighException : public std::exception
     {
@@ -37,6 +37,6 @@ public:
     };
 };
 
-std::ostream &operator<<(std::ostream &output, bureaucrat &bur_);
+std::ostream &operator<<(std::ostream &output, Bureaucrat &bur_);
 
 #endif

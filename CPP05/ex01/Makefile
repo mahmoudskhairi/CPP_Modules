@@ -1,9 +1,9 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -D PRINTINGMODE=0 #-fsanitize=address
 NAME = Form
-SOURCES = main.cpp bureaucrat.cpp Form.cpp
+SOURCES = main.cpp Bureaucrat.cpp Form.cpp
 OBJECTS = ${SOURCES:.cpp=.o}
-HEADERS = bureaucrat.hpp Form.hpp
+HEADERS = Bureaucrat.hpp Form.hpp
 
 all: $(NAME)
 

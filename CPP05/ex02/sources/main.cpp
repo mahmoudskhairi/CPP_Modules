@@ -1,10 +1,10 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
 void Correct()
 {
     std::cout << "\n# ------------------- correct test ------------------- #" << std::endl;
     Bureaucrat bur_("*bur", 3);
-    Form form("*form", 5, 5);
+    AForm form("*form", 5, 5);
     std::cout << "\n############ form informations ############" << std::endl;
     std::cout << form;
     std::cout << "\n############ Bureaucrat informations ############" << std::endl;
@@ -17,7 +17,7 @@ void Wrong()
 {
     std::cout << "\n# ------------------- Wrong test ------------------- #" << std::endl;
     Bureaucrat bur_("*bur", 7);
-    Form form("*form", 5, 5);
+    AForm form("*form", 5, 5);
     // std::cout << "\n############ form informations ############" << std::endl;
     // std::cout << form;
     // std::cout << "\n############ Bureaucrat informations ############" << std::endl;
