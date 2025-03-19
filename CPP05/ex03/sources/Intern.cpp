@@ -1,42 +1,61 @@
 #include "../includes/Intern.hpp"
-
-
+/* canonical form*/
 Intern::Intern(/* args */)
 {
-        if (PRINTINGMODE)
-            std::cout << "Intern Default Constructor Called!" << std::endl;
+    if (PRINTINGMODE)
+        std::cout << "Intern Default Constructor Called!" << std::endl;
 }
-
-PresidentialPardonForm Intern::presidential(std::string target)
+Intern::Intern(Intern &New)
 {
-    return(PresidentialPardonForm(target));
+    if (PRINTINGMODE)
+        std::cout << "Intern Copy constructor Called!" << std::endl;
+    (void)New;
 }
-RobotomyRequestForm Intern::robotomy(std::string target)
+Intern &Intern::operator=(const Intern &New)
 {
-    return(RobotomyRequestForm(target));
+    if (PRINTINGMODE)
+        std::cout << "Intern Assignement Operator Called!" << std::endl;
+    (void)New;
+    return (*this);
 }
-ShrubberyCreationForm Intern::shrubbery(std::string target)
+Intern::~Intern()
 {
-    return(ShrubberyCreationForm(target));   
+    if (PRINTINGMODE)
+        std::cout << "Intern Destructor Called!" << std::endl;
 }
-AForm &Intern::makeForm(std::string name, std::string target)
+// make AForm functions
+AForm *Intern::presidential(std::string target)
+{
+    return (new PresidentialPardonForm(target));
+}
+AForm *Intern::robotomy(std::string target)
+{
+    return (new RobotomyRequestForm(target));
+}
+AForm *Intern::shrubbery(std::string target)
+{
+    return (new ShrubberyCreationForm(target));
+}
+AForm *Intern::makeForm(std::string name, std::string target)
 {
     std::string keywords[3] = {"presidential pardonform", "robotomy requestform", "shrubbery creation form"};
     ptrMethod methods[3] = {&Intern::presidential, &Intern::robotomy, &Intern::shrubbery};
     if (name.compare("presidential pardonform") && name.compare("robotomy requestform") && name.compare("shrubbery creation form"))
-        std::cerr << "Invalid Target!" << std::endl;
-    for (int i = 0; i < 4; i++)
+        throw InternInvalidInput();
+    AForm *ptr;
+    for (int i = 0; i < 3; i++)
     {
-        if (!target.compare(keywords[i]))
+        if (!name.compare(keywords[i]))
         {
-            (this->*methods[i])(target);
+            ptr = (this->*methods[i])(target);
             break;
         }
     }
+    return (ptr);
 }
 
-Intern::~Intern()
+// InternInvalidInput exception
+const char *Intern::InternInvalidInput::what() const throw()
 {
-        if (PRINTINGMODE)
-            std::cout << "Intern Destructor Called!" << std::endl;
+    return ("<Intern>: invalid input exception, try again!");
 }

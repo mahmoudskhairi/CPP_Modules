@@ -53,9 +53,9 @@ Bureaucrat::~Bureaucrat()
 }
 
 /* overridding of what of base exception class */
-const char *Bureaucrat::GradeTooHighException::what() const throw() { return ("* Too High <Bureaucrat> grade Exception!"); }
-const char *Bureaucrat::GradeTooLowException::what() const throw() { return ("* Too Low <Bureaucrat> grade Exception!"); }
-const char *Bureaucrat::ShouldntSigned::what() const throw() { return ("* <Bureaucrat> Shouldn't Signed Exception!!"); }
+const char *Bureaucrat::GradeTooHighException::what() const throw() { return ("* <Bureaucrat>: Too High grade Exception!"); }
+const char *Bureaucrat::GradeTooLowException::what() const throw() { return ("* <Bureaucrat>: Too Low grade Exception!"); }
+const char *Bureaucrat::ShouldntSigned::what() const throw() { return ("* <Bureaucrat>: Shouldn't Signed Exception!!"); }
 
 /*insertion operator*/
 std::ostream &operator<<(std::ostream &output, Bureaucrat &bur_)

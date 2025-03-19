@@ -1,6 +1,6 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -D PRINTINGMODE=0 #-fsanitize=address
-NAME = Bureaucrat
+NAME = Intern
 RM = rm -rf
 SRCDIR = sources
 INCDIR = includes

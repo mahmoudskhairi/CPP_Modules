@@ -11,7 +11,7 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("Robo
     if (PRINTINGMODE)
         std::cout << "RobotomyRequestForm Parameterized constructor called!" << std::endl;
 }
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &New) : AForm(New.GetName(), New.GetSignGrade()(), New.GetExecuteGrade())
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &New) : AForm(New.GetName(), New.GetSignGrade(), New.GetExecuteGrade())
 {
     if (PRINTINGMODE)
         std::cout << "RobotomyRequestForm Copy constructor called!" << std::endl;

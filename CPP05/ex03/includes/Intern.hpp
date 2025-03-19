@@ -10,16 +10,24 @@ class Intern
 {
 private:
 public:
+    // canonical
     Intern(/* args */);
-    PresidentialPardonForm presidential(std::string target);
-    RobotomyRequestForm robotomy(std::string target);
-    ShrubberyCreationForm shrubbery(std::string target);
-    AForm &makeForm(std::string name, std::string target);
+    Intern(Intern &New);
+    Intern &operator=(const Intern &New);
     ~Intern();
-
+    // make AForms
+    AForm *presidential(std::string target);
+    AForm *robotomy(std::string target);
+    AForm *shrubbery(std::string target);
+    AForm *makeForm(std::string name, std::string target);
+    // InternInvalidInput exception
+    class InternInvalidInput : public std::exception
+    {
+    public:
+        const char *what() const throw();
+    };
 };
 
-typedef void (AForm::*ptrMethod)(std::string target);
-
+typedef AForm *(Intern::*ptrMethod)(std::string);
 
 #endif
