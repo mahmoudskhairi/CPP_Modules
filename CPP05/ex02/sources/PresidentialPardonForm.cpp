@@ -1,11 +1,11 @@
 #include "../includes/PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(/* args */)
+PresidentialPardonForm::PresidentialPardonForm(/* args */) : AForm("PresidentialPardonForm", 25, 5), _Target("")
 {
     if (PRINTINGMODE)
         std::cout << "PresidentialPardonForm Default constructor called!" << std::endl;
 }
-PresidentialPardonForm::PresidentialPardonForm(const std::string target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm("PresidentialPardonForm", 25, 5), _Target(target)
 {
     if (PRINTINGMODE)
         std::cout << "PresidentialPardonForm Parameterized constructor called!" << std::endl;

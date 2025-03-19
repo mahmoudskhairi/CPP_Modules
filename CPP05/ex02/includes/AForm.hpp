@@ -10,9 +10,9 @@ private:
     int _SignGrade;
     int _ExecuteGrade;
     bool _IsSigned;
+    AForm(/* args */);
 
 public:
-    AForm(/* args */);
     AForm(const std::string Name, int SignGrade, int ExecuteGrade);
     AForm(AForm &New);
     AForm &operator=(AForm &New);

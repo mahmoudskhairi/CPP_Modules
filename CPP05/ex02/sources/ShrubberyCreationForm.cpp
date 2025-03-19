@@ -1,6 +1,6 @@
 #include "../includes/ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(/* args */)
+ShrubberyCreationForm::ShrubberyCreationForm(/* args */) : AForm("PresidentialPardonForm", 25, 5), _Target("")
 {
     if (PRINTINGMODE)
         std::cout << "ShrubberyCreationForm Default constructor called!" << std::endl;

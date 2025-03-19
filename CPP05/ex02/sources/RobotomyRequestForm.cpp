@@ -1,12 +1,12 @@
 #include "../includes/RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(/* args */)
+RobotomyRequestForm::RobotomyRequestForm(/* args */) : AForm("RobotomyRequestForm", 25, 5), _Target("")
 {
     if (PRINTINGMODE)
         std::cout << "RobotomyRequestForm Default constructor called!" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string target)
+RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("RobotomyRequestForm", 25, 5), _Target(Target)
 {
     if (PRINTINGMODE)
         std::cout << "RobotomyRequestForm Parameterized constructor called!" << std::endl;

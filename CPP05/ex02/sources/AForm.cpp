@@ -1,11 +1,11 @@
 #include "../includes/AForm.hpp"
 
 /* Canonical methods */
-AForm::AForm(/* args */) : _Name(""), _SignGrade(1), _ExecuteGrade(1), _IsSigned(false)
-{
-    if (PRINTINGMODE)
-        std::cout << "Form Default constructor called!" << std::endl;
-}
+// AForm::AForm(/* args */) : _Name(""), _SignGrade(1), _ExecuteGrade(1), _IsSigned(false)
+// {
+//     if (PRINTINGMODE)
+//         std::cout << "Form Default constructor called!" << std::endl;
+// }
 AForm::AForm(const std::string Name, int SignGrade, int ExecuteGrade) : _Name(Name), _SignGrade(SignGrade), _ExecuteGrade(ExecuteGrade), _IsSigned(false)
 {
     if (PRINTINGMODE)
