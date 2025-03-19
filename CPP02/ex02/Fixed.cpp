@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:49:03 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/02/11 12:57:55 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/03/19 10:49:24 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,21 @@ Fixed &Fixed::operator=(const Fixed &fixed)
 }
 Fixed Fixed::operator+(const Fixed &fixed)
 {
-    return (Fixed(this->toFloat() + fixed.toFloat()));
+    return (Fixed((this->_FixedPoint + fixed._FixedPoint)));
 }
 Fixed Fixed::operator-(const Fixed &fixed)
 {
-    return (Fixed(this->toFloat() - fixed.toFloat()));
+    return (Fixed((this->_FixedPoint - fixed._FixedPoint)));
 }
 Fixed Fixed::operator*(const Fixed &fixed)
 {
-    return (Fixed(this->toFloat() * fixed.toFloat()));
+    return (Fixed((this->_FixedPoint * fixed._FixedPoint  / ((1 << 8) * (1 << 8)))));
 }
 
 Fixed Fixed::operator/(const Fixed &fixed)
 {
-    return (Fixed(this->toFloat() / fixed.toFloat()));
-}
+    return (Fixed(((this->_FixedPoint / fixed._FixedPoint))));
+}  return (Fixed(this->toFloat() / fixed.toFloat()));
 
 /* Comparison Operators*/
 bool Fixed::operator>(const Fixed ComparedFixed)
