@@ -16,6 +16,10 @@ AForm::AForm(AForm &New) : _Name(New._Name), _SignGrade(New._SignGrade), _Execut
     if (PRINTINGMODE)
         std::cout << "Form Copy constructor called!" << std::endl;
 }
+void AForm::SetSignature(bool signature)
+{
+    this->_IsSigned = signature;
+}
 AForm &AForm::operator=(AForm &New)
 {
     if (PRINTINGMODE)

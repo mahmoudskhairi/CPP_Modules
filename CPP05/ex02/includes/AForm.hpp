@@ -1,6 +1,7 @@
 #ifndef _AFORM_HPP_
 #define _AFORM_HPP_
 #include "Bureaucrat.hpp"
+#include <fstream>
 class Bureaucrat;
 class AForm
 {
@@ -20,6 +21,7 @@ public:
     /* getters */
     const std::string GetName() const;
     bool GetIsSigned() const;
+    void SetSignature(bool signature);
     int GetSignGrade() const;
     int GetExecuteGrade() const;
     /*AForm member functions*/
