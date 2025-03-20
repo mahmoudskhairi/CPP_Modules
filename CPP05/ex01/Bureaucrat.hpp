@@ -1,12 +1,13 @@
-
 #ifndef _BUREAUCRAT_HPP_
 #define _BUREAUCRAT_HPP_
+
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
+
 #ifndef PRINTINGMODE
 #define PRINTINGMODE 1
 #endif
-#include "Form.hpp"
 
 class Form;
 class Bureaucrat

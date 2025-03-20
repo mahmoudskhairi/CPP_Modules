@@ -1,7 +1,7 @@
 #include "../includes/Bureaucrat.hpp"
 
 /*canonical member functions*/
-Bureaucrat::Bureaucrat(/* args */)
+Bureaucrat::Bureaucrat(/* args */): _Name("unknown"), _Grade(1)
 {
     if (PRINTINGMODE)
         std::cout << "Bureaucrat Constructor Called!" << std::endl;
@@ -55,6 +55,7 @@ Bureaucrat::~Bureaucrat()
 /* overridding of what of base exception class */
 const char *Bureaucrat::GradeTooHighException::what() const throw() { return ("* Too High <Bureaucrat> grade Exception!"); }
 const char *Bureaucrat::GradeTooLowException::what() const throw() { return ("* Too Low <Bureaucrat> grade Exception!"); }
+const char *Bureaucrat::ShouldntSigned::what() const throw() { return ("* <Bureaucrat> Shouldn't Signed Exception!!"); }
 
 /*insertion operator*/
 std::ostream &operator<<(std::ostream &output, Bureaucrat &bur_)
@@ -82,5 +83,5 @@ void Bureaucrat::executeForm(AForm const &form)
     if (form.GetIsSigned())
         form.execute(*this);
     else
-        Bureaucrat::GradeTooLowException;
+        throw ShouldntSigned();
 }

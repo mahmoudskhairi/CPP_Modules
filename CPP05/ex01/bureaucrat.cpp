@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 
 /*canonical member functions*/
-Bureaucrat::Bureaucrat(/* args */)
+Bureaucrat::Bureaucrat(/* args */): _Name("unknown"), _Grade(1)
 {
     if (PRINTINGMODE)
         std::cout << "Bureaucrat Constructor Called!" << std::endl;

@@ -1,7 +1,7 @@
 #include "Form.hpp"
 
 /* Canonical methods */
-Form::Form(/* args */)
+Form::Form(/* args */): _Name("unknown"), _SignGrade(1), _ExecuteGrade(1), _IsSigned(false)
 {
     if (PRINTINGMODE)
         std::cout << "Form Default constructor called!" << std::endl;

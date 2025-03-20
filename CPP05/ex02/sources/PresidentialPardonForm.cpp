@@ -1,6 +1,6 @@
 #include "../includes/PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(/* args */) : AForm("PresidentialPardonForm", 25, 5), _Target("")
+PresidentialPardonForm::PresidentialPardonForm(/* args */) : AForm("PresidentialPardonForm", 25, 5), _Target("unknown")
 {
     if (PRINTINGMODE)
         std::cout << "PresidentialPardonForm Default constructor called!" << std::endl;
@@ -10,7 +10,7 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm
     if (PRINTINGMODE)
         std::cout << "PresidentialPardonForm Parameterized constructor called!" << std::endl;
 }
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &New) : AForm(New.GetName(), New.GetSignGrade(), New.GetExecuteGrade())
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &New) : AForm(New.GetName(), New.GetSignGrade(), New.GetExecuteGrade()),  _Target(New._Target)
 {
     if (PRINTINGMODE)
         std::cout << "PresidentialPardonForm Copy constructor called!" << std::endl;
@@ -21,7 +21,10 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm
     if (PRINTINGMODE)
         std::cout << "PresidentialPardonForm Assignementoperator called!" << std::endl;
     if (this != &New)
+    {
+        this->_Target = New._Target;
         this->SetSignature(New.GetIsSigned());
+    }
     return (*this);
 }
 void PresidentialPardonForm::ExecuteAction() const

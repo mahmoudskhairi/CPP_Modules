@@ -1,7 +1,7 @@
 #include "../includes/AForm.hpp"
 
 /* Canonical methods */
-AForm::AForm(/* args */) : _Name(""), _SignGrade(1), _ExecuteGrade(1), _IsSigned(false)
+AForm::AForm(/* args */) : _Name("unknown"), _SignGrade(1), _ExecuteGrade(1), _IsSigned(false)
 {
     if (PRINTINGMODE)
         std::cout << "Form Default constructor called!" << std::endl;

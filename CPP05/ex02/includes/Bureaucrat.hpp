@@ -37,6 +37,11 @@ public:
     public:
         const char *what() const throw();
     };
+    class ShouldntSigned : public std::exception
+    {
+    public:
+        const char *what() const throw();
+    };
     //
     void executeForm(AForm const &form);
 };
