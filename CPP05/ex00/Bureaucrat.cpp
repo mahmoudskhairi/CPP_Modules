@@ -5,6 +5,10 @@ Bureaucrat::Bureaucrat(/* args */): _Name("unknown"), _Grade(1)
 {
     if (PRINTINGMODE)
         std::cout << "Constructor Called!" << std::endl;
+    if (this->_Grade > 150)
+        throw GradeTooLowException();
+    else if (this->_Grade < 1)
+        throw GradeTooHighException();
 }
 Bureaucrat::Bureaucrat(std::string const name, const int grade) : _Name(name), _Grade(grade)
 {

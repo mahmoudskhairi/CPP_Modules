@@ -19,7 +19,7 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &New) : AF
 PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm &New)
 {
     if (PRINTINGMODE)
-        std::cout << "PresidentialPardonForm Assignementoperator called!" << std::endl;
+        std::cout << "PresidentialPardonForm Assignement operator called!" << std::endl;
     if (this != &New)
     {
         this->_Target = New._Target;

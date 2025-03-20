@@ -38,15 +38,16 @@ AForm *Intern::shrubbery(std::string target)
 }
 AForm *Intern::makeForm(std::string name, std::string target)
 {
-    std::string keywords[3] = {"presidential pardonform", "robotomy requestform", "shrubbery creation form"};
+    std::string keywords[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
     ptrMethod methods[3] = {&Intern::presidential, &Intern::robotomy, &Intern::shrubbery};
-    if (name.compare("presidential pardonform") && name.compare("robotomy requestform") && name.compare("shrubbery creation form"))
+    if (name.compare("presidential pardon") && name.compare("robotomy request") && name.compare("shrubbery creation"))
         throw InternInvalidInput();
-    AForm *ptr;
+    AForm *ptr = NULL;
     for (int i = 0; i < 3; i++)
     {
         if (!name.compare(keywords[i]))
         {
+            std::cout << "=====\n";
             ptr = (this->*methods[i])(target);
             break;
         }

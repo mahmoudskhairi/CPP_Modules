@@ -5,11 +5,19 @@ Form::Form(/* args */): _Name("unknown"), _SignGrade(1), _ExecuteGrade(1), _IsSi
 {
     if (PRINTINGMODE)
         std::cout << "Form Default constructor called!" << std::endl;
+    if (this->_SignGrade > 150 || this->_ExecuteGrade > 150)
+        throw GradeTooLowException();
+    else if (this->_SignGrade < 1 || this->_ExecuteGrade < 1)
+        throw GradeTooHighException();
 }
 Form::Form(const std::string Name, int SignGrade, int ExecuteGrade) : _Name(Name), _SignGrade(SignGrade), _ExecuteGrade(ExecuteGrade), _IsSigned(false)
 {
     if (PRINTINGMODE)
         std::cout << "Form Parameterized constructor called!" << std::endl;
+    if (this->_SignGrade > 150 || this->_ExecuteGrade > 150)
+        throw GradeTooLowException();
+    else if (this->_SignGrade < 1 || this->_ExecuteGrade < 1)
+        throw GradeTooHighException();
 }
 Form::Form(Form &New) : _Name(New._Name), _SignGrade(New._SignGrade), _ExecuteGrade(New._ExecuteGrade), _IsSigned(New._IsSigned)
 {

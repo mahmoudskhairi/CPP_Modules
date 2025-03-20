@@ -5,6 +5,10 @@ AForm::AForm(/* args */) : _Name("unknown"), _SignGrade(1), _ExecuteGrade(1), _I
 {
     if (PRINTINGMODE)
         std::cout << "Form Default constructor called!" << std::endl;
+    if (this->_SignGrade > 150 || this->_ExecuteGrade > 150)
+        throw GradeTooLowException();
+    else if (this->_SignGrade < 1 || this->_ExecuteGrade < 1)
+        throw GradeTooHighException();
 }
 AForm::AForm(const std::string Name, int SignGrade, int ExecuteGrade) : _Name(Name), _SignGrade(SignGrade), _ExecuteGrade(ExecuteGrade), _IsSigned(false)
 {

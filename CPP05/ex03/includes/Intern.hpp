@@ -10,8 +10,8 @@ class Intern
 {
 private:
 public:
-    // canonical
     Intern(/* args */);
+    // canonical
     Intern(Intern &New);
     Intern &operator=(const Intern &New);
     ~Intern();

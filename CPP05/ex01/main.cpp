@@ -4,7 +4,7 @@ void Correct()
 {
     std::cout << "\n# ------------------- correct test ------------------- #" << std::endl;
     Bureaucrat bur_("*bur", 3);
-    Form form("*form", 5, 5);
+    Form form("*form", 0, 5);
     std::cout << "\n############ form informations ############" << std::endl;
     std::cout << form << std::endl;
     std::cout << "\n############ Bureaucrat informations ############" << std::endl;

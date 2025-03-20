@@ -20,7 +20,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &New) : AForm
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm &New)
 {
     if (PRINTINGMODE)
-        std::cout << "ShrubberyCreationForm Assignementoperator called!" << std::endl;
+        std::cout << "ShrubberyCreationForm Assignement operator called!" << std::endl;
     if (this != &New)
     {
         this->_Target = New._Target;
