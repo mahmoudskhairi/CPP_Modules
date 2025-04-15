@@ -32,4 +32,9 @@ public:
     };
 };
 
+bool    isInt(std::string &input);
+bool    isFloat(std::string &input);
+bool    isDouble(std::string &input);
+bool    isImpossible(std::string input);
+
 #endif

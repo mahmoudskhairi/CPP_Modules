@@ -1,9 +1,8 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -D PRINTINGMODE=1 #-fsanitize=address
-NAME = Bureaucrat
-SOURCES = main.cpp
+NAME = ScalarConverter
+SOURCES = main.cpp ScalarConverter.cpp AnalyseData.cpp
 OBJECTS = ${SOURCES:.cpp=.o}
-#HEADERS = Bureaucrat.hpp
 
 all: $(NAME)
 
@@ -11,7 +10,7 @@ $(NAME): $(OBJECTS)
 	$(CC) $(CPPFLAGS) $(OBJECTS) -o $(NAME)
 
 
-%.o: %.cpp #$(HEADERS)
+%.o: %.cpp ScalarConverter.hpp
 	$(CC) -c $(CPPFLAGS) $< -o $@
 
 clean:

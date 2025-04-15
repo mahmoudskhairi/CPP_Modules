@@ -1,4 +1,18 @@
-#include <iostream>
+#include "ScalarConverter.hpp"
+bool    isImpossible(std::string input)
+{
+    if (input == "nan" || input == "nanf" || input == "+inf" || input == "+inff" || input == "-inf" || input == "-inff")
+    {
+        if (input == "nanf" || input.size() > 4)
+            input.pop_back();
+        std::cout << "char  : " << "impossible" << std::endl;
+        std::cout << "int   : " << "impossible" << std::endl;
+        std::cout << "float : " << input << "f" << std::endl;
+        std::cout << "double: " << input << std::endl;    
+        return 1;
+    } 
+    return 0;
+}
 bool    isDouble(std::string &input)
 {
     int i = 0;
@@ -17,7 +31,7 @@ bool    isDouble(std::string &input)
         std::cout << input.at(i) << std::endl;
         i++;
     }
-    if (i < input.size() && (input.at(i) == '.' && isdigit(input.at(i - 1)) && i + 1 < input.size() && isdigit(input.at(i + 1))))
+    if ((input.at(i) == '.' && isdigit(input.at(i - 1)) && i + 1 < input.size() && isdigit(input.at(i + 1))))
     {
         std::cout << "hello" << std::endl;
         DecimalPoint = 1;
@@ -40,7 +54,7 @@ bool    isDouble(std::string &input)
     }
     return 1;
 }
-
+// is Int
 bool    isInt(std::string &input)
 {
     int i = 0;
@@ -61,6 +75,9 @@ bool    isInt(std::string &input)
     }
     return 1;
 }
+
+// is Float
+
 bool    isFloat(std::string &input)
 {
     int i = 0;
@@ -107,50 +124,3 @@ bool    isFloat(std::string &input)
     }
     return 0;
 }
-
-
-bool    isImpossible(std::string input)
-{
-    // std::cout << "input: " << input << std::endl;
-    if (input == "nan" || input == "nanf" || input == "+inf" || input == "+inff" || input == "-inf" || input == "-inff")
-    {
-        if (input == "nanf" || input.size() > 4)
-            input.pop_back();
-        std::cout << "char  : " << "impossible" << std::endl;
-        std::cout << "int   : " << "impossible" << std::endl;
-        std::cout << "float : " << input << "f" << std::endl;
-        std::cout << "double: " << input << std::endl;    
-        return 1;
-    } 
-    return 0;
-}
-
-int main(int ac, char *av[])
-{
-    std::string str = "-";
-    // std::cout << isDouble(str) << std::endl;
-    std::cout << isImpossible(str) << std::endl;
-}
-// while (i < input.size())
-// {
-//     std::cout << input.at(i) << std::endl;
-//     if (input.at(i) == '.' && !flag)
-//     {
-//         if (!isdigit(input.at(i - 1)) || i + 1 == input.size() || !isdigit(input.at(i + 1)))
-//             return 0;
-//             flag = 1;
-//     }
-//     else if (!isdigit(input.at(i)))
-//     {
-//         if (input.at(i) == 'f' && flag)
-//         {
-//             if (i + 1 == input.size())
-//                 return 1;
-//             else
-//                 return 0;
-//         }
-//         else
-//             return 0;
-//     }
-//     i++;
-// }
