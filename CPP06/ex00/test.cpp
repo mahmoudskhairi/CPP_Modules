@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 bool    isDouble(std::string &input)
 {
     int i = 0;
@@ -124,12 +125,53 @@ bool    isImpossible(std::string input)
     } 
     return 0;
 }
-
+struct data
+{
+    int Int;
+    double Double;
+    float Float;
+    char Char;
+};
+void    SetData(std::string input, std::string type, data *PrintedData)
+{
+    if (!type.compare("INT"))
+    {
+        PrintedData->Int = std::atoi(input.c_str());
+        PrintedData->Char = static_cast<char>(PrintedData->Int);
+        PrintedData->Float = static_cast<float>(PrintedData->Int);
+        PrintedData->Double = static_cast<double>(PrintedData->Int);
+    }
+    else if (!type.compare("FLOAT"))
+    {
+        PrintedData->Float = std::atof(input.c_str());
+        std::cout << "-->  " << PrintedData->Float << std::endl;
+        PrintedData->Int = static_cast<int>(PrintedData->Float);
+        PrintedData->Char = static_cast<char>(PrintedData->Float);
+        PrintedData->Double = static_cast<double>(PrintedData->Float);
+    }
+    else if (!type.compare("DOUBLE"))
+    {
+        PrintedData->Double = std::atof(input.c_str());
+        std::cout << "-->  " << PrintedData->Double << std::endl;
+        PrintedData->Int = static_cast<int>(PrintedData->Double);
+        PrintedData->Char = static_cast<char>(PrintedData->Double);
+        PrintedData->Float = static_cast<float>(PrintedData->Double);
+    }
+    if (PrintedData->Char >= 32 && PrintedData->Char <= 126)
+        std::cout << "char  : " << PrintedData->Char << std::endl;
+    else
+        std::cout << "char  : Non displayable" << std::endl;
+    std::cout << "int   : " << PrintedData->Int << std::endl;
+    std::cout << "float : " << std::fixed << std::setprecision(1) << PrintedData->Float << "f" << std::endl;
+    std::cout << "double: " << PrintedData->Double << std::endl; 
+}
 int main(int ac, char *av[])
 {
-    std::string str = "-";
+    data d;
+    std::string str = "+inff";
     // std::cout << isDouble(str) << std::endl;
-    std::cout << isImpossible(str) << std::endl;
+    // std::cout << isImpossible(str) << std::endl;
+    SetData("66.5f", "INT" ,&d);
 }
 // while (i < input.size())
 // {

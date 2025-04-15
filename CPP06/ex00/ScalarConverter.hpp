@@ -2,6 +2,7 @@
 #define SCALARCONVERTER_HPP
 #include <iostream>
 #include <exception>
+#include <iomanip>
 
 #ifndef PRINTINGMODE
 #define PRINTINGMODE 1
@@ -9,10 +10,10 @@
 
 struct data
 {
-    int I;
-    double D;
-    float F;
-    char C;
+    int Int;
+    double Double;
+    float Float;
+    char Char;
 };
 class  ScalarConverter
 {
