@@ -15,10 +15,9 @@ bool    isImpossible(std::string input)
 }
 bool    isDouble(std::string &input)
 {
-    int i = 0;
-    bool flag = 0;
-    bool DecimalPoint = 0;
-    std::cout << "size : " << input.size() << std::endl;
+    std::cout << "double##" << std::endl;
+    size_t i = 0;
+    // std::cout << "size : " << input.size() << std::endl;
     if (!input.size() || input.at(0) == '.')
     {
         std::cerr << "invalid input" << std::endl;
@@ -28,13 +27,11 @@ bool    isDouble(std::string &input)
         i++;
     while (i < input.size() && isdigit(input.at(i)))
     {
-        std::cout << input.at(i) << std::endl;
+        // std::cout << input.at(i) << std::endl;
         i++;
     }
     if ((input.at(i) == '.' && isdigit(input.at(i - 1)) && i + 1 < input.size() && isdigit(input.at(i + 1))))
     {
-        std::cout << "hello" << std::endl;
-        DecimalPoint = 1;
         i++;
     }
     else
@@ -44,7 +41,7 @@ bool    isDouble(std::string &input)
     }
     while (i < input.size())
     {
-        std::cout << input.at(i) << std::endl;
+        // std::cout << input.at(i) << std::endl;
         if (!isdigit(input.at(i)))
         {
         std::cerr << "invalid input" << std::endl;
@@ -57,8 +54,8 @@ bool    isDouble(std::string &input)
 // is Int
 bool    isInt(std::string &input)
 {
-    int i = 0;
-    std::cout << "size : " << input.size() << std::endl;
+    std::cout << "int##" << std::endl;
+    size_t i = 0;
     if (!input.size())
     {
         std::cerr << "invalid input" << std::endl;
@@ -68,7 +65,7 @@ bool    isInt(std::string &input)
         i++;
     while (i < input.size())
     {
-        std::cout << input.at(i) << std::endl;
+        // std::cout << input.at(i) << std::endl;
         if(!isdigit(input.at(i)))
             return 0;
         i++;
@@ -80,10 +77,9 @@ bool    isInt(std::string &input)
 
 bool    isFloat(std::string &input)
 {
-    int i = 0;
-    bool flag = 0;
-    bool DecimalPoint = 0;
-    std::cout << "size : " << input.size() << std::endl;
+    std::cout << "float##" << std::endl;
+    size_t i = 0;
+    // std::cout << "size : " << input.size() << std::endl;
     if (!input.size() || input.at(0) == '.')
     {
         std::cerr << "invalid input" << std::endl;
@@ -93,13 +89,10 @@ bool    isFloat(std::string &input)
         i++;
     while (i < input.size() && isdigit(input.at(i)))
     {
-        std::cout << input.at(i) << std::endl;
         i++;
     }
     if (i < input.size() && (input.at(i) == '.' && isdigit(input.at(i - 1)) && i + 1 < input.size() && isdigit(input.at(i + 1))))
     {
-        std::cout << "hello" << std::endl;
-        DecimalPoint = 1;
         i++;
     }
     else
