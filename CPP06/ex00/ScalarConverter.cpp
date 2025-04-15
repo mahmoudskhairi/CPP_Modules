@@ -36,7 +36,6 @@ void    SetData(std::string input, std::string type, data *PrintedData)
     }
     else if (!type.compare("FLOAT"))
     {
-        std::cout << "input:  " << input << std::endl;
         PrintedData->Float = std::atof(input.c_str());
         PrintedData->Int = static_cast<int>(PrintedData->Float);
         PrintedData->Char = static_cast<char>(PrintedData->Float);
@@ -49,14 +48,6 @@ void    SetData(std::string input, std::string type, data *PrintedData)
         PrintedData->Char = static_cast<char>(PrintedData->Double);
         PrintedData->Float = static_cast<float>(PrintedData->Double);
     }
-    if (PrintedData->Char >= 32 && PrintedData->Char <= 126)
-        std::cout << "char  : " << PrintedData->Char << std::endl;
-    else
-        std::cout << "char  : Non displayable" << std::endl;
-    std::cout << "int   : " << PrintedData->Int << std::endl;
-    std::cout << "float : " << std::fixed << std::setprecision(1) << PrintedData->Float << "f" << std::endl;
-    std::cout << "double: " << PrintedData->Double << std::endl;
-    std::cout << "----------------------------" << std::endl;
 }
 void    PrintData(data *PrintedData)
 {
@@ -74,19 +65,11 @@ void    ScalarConverter::convert(std::string &input)
     if (isImpossible(input))
         return;
     if (isInt(input))
-    {
-        SetData("INT", input ,&PrintedData);
-    }
+        SetData(input, "INT", &PrintedData);
     else if (isFloat(input))
-    {
-        std::cout << "input:  " << input << std::endl;
-        SetData("FLOAT", input ,&PrintedData);
-    }
+        SetData(input, "FLOAT", &PrintedData);
     else if (isDouble(input))
-    {
-        std::cout << "*****" << std::endl;
-        SetData("DOUBLE", input ,&PrintedData);
-    }
+        SetData(input ,"DOUBLE", &PrintedData);
     else
         throw ScalarConverter::InvalidInput();
     PrintData(&PrintedData);

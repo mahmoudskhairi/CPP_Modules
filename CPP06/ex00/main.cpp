@@ -13,9 +13,8 @@ int main(int ac, char *av[])
         catch(const std::exception& e)
         {
             std::cerr << e.what() << '\n';
-        }
-        
+        }   
     }
-    // int x = 9;
-    // std::cout << "float: " << static_cast<double>(x) << std::endl;
+    else
+        std::cout << "Please, Enter your input!" << std::endl;
 }

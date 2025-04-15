@@ -15,12 +15,11 @@ bool    isImpossible(std::string input)
 }
 bool    isDouble(std::string &input)
 {
-    std::cout << "double##" << std::endl;
     size_t i = 0;
     // std::cout << "size : " << input.size() << std::endl;
     if (!input.size() || input.at(0) == '.')
     {
-        std::cerr << "invalid input" << std::endl;
+        // std::cerr << "invalid input" << std::endl;
         return 0;
     }
     if (input.at(0) == '+' || input.at(0) == '-')
@@ -36,7 +35,7 @@ bool    isDouble(std::string &input)
     }
     else
     {
-        std::cerr << "invalid input" << std::endl;
+        // std::cerr << "invalid input" << std::endl;
         return 0;
     }
     while (i < input.size())
@@ -44,7 +43,7 @@ bool    isDouble(std::string &input)
         // std::cout << input.at(i) << std::endl;
         if (!isdigit(input.at(i)))
         {
-        std::cerr << "invalid input" << std::endl;
+        // std::cerr << "invalid input" << std::endl;
             return 0;
         }
         i++;
@@ -54,11 +53,10 @@ bool    isDouble(std::string &input)
 // is Int
 bool    isInt(std::string &input)
 {
-    std::cout << "int##" << std::endl;
     size_t i = 0;
     if (!input.size())
     {
-        std::cerr << "invalid input" << std::endl;
+        // std::cerr << "invalid input" << std::endl;
         return 0;
     }
     if (input.at(0) == '+' || input.at(0) == '-')
@@ -77,41 +75,25 @@ bool    isInt(std::string &input)
 
 bool    isFloat(std::string &input)
 {
-    std::cout << "float##" << std::endl;
     size_t i = 0;
-    // std::cout << "size : " << input.size() << std::endl;
     if (!input.size() || input.at(0) == '.')
-    {
-        std::cerr << "invalid input" << std::endl;
         return 0;
-    }
     if (input.at(0) == '+' || input.at(0) == '-')
         i++;
     while (i < input.size() && isdigit(input.at(i)))
-    {
         i++;
-    }
     if (i < input.size() && (input.at(i) == '.' && isdigit(input.at(i - 1)) && i + 1 < input.size() && isdigit(input.at(i + 1))))
-    {
         i++;
-    }
     else
-    {
-        std::cerr << "invalid input" << std::endl;
         return 0;
-    }
     while (i < input.size())
     {
-        std::cout << input.at(i) << std::endl;
         if (!isdigit(input.at(i)))
         {
             if (input.at(i) == 'f' && i + 1 == input.size())
                 return 1;
             else
-            {
-                std::cerr << "invalid input" << std::endl;
-                    return 0;
-            }
+                return 0;
         }
         i++;
     }
