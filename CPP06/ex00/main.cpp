@@ -5,9 +5,10 @@ int main(int ac, char *av[])
 {
     if (ac == 2)
     {
+    //c++98 flag
         // handling(error) of overflow and underflow  !
         // precision !!
-        /* 
+        /*
         - As this class doesn’t need to store anything at all, it must not be instantiable by users.
          Except for char parameters, only the decimal notation will be used.
         - review:
