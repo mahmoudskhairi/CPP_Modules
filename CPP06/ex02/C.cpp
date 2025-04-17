@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:31:09 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/04/16 15:34:26 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/04/17 12:40:10 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 C::~C(void)
 {
-	std::cout << "C Destructor called" << std::endl;
+    if (PRINTINGMODE)
+	    std::cout << "C Destructor called" << std::endl;
 }

@@ -6,19 +6,14 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:31:01 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/04/16 18:12:18 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/04/17 12:37:24 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef C_HPP
 #define C_HPP
 
-#ifndef PRINTINGMODE
-#define PRINTINGMODE 1
-#endif
-
 #include "Base.hpp"
-#include <iostream>
 
 class C : public Base
 {

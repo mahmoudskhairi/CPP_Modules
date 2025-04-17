@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:31:27 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/04/16 18:12:26 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/04/17 12:37:14 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #endif
 
 #include "Base.hpp"
-#include <iostream>
 
 class B : public Base
 {
