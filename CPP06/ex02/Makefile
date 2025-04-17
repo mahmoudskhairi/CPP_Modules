@@ -1,7 +1,7 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror  -D PRINTINGMODE=1 #-std=c++98 #-fsanitize=address
-NAME = Serializer
-SOURCES = main.cpp Serializer.cpp
+NAME = generate
+SOURCES = main.cpp Base.cpp A.cpp B.cpp C.cpp
 OBJECTS = ${SOURCES:.cpp=.o}
 
 all: $(NAME)
@@ -9,8 +9,7 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	$(CC) $(CPPFLAGS) $(OBJECTS) -o $(NAME)
 
-
-%.o: %.cpp Serializer.hpp
+%.o: %.cpp Base.hpp A.cpp B.cpp C.cpp
 	$(CC) -c $(CPPFLAGS) $< -o $@
 
 clean:

@@ -6,7 +6,13 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:31:19 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/04/16 15:31:21 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/04/16 15:33:52 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "B.hpp"
+
+B::~B(void)
+{
+	std::cout << "B Destructor called" << std::endl;
+}

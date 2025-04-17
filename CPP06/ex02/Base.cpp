@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:31:33 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/04/16 15:31:34 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/04/16 15:34:49 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 Base::~Base()
 {
     if (PRINTINGMODE)
-        std::cout << "Destructor called!" << std::endl;
+        std::cout << "Base Destructor called!" << std::endl;
 }

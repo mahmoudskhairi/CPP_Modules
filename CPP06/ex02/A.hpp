@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:31:16 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/04/16 15:31:17 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/04/16 18:12:32 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class A : public Base
 {
 private:
     /* data */
-    A();
 public:
     ~A();
 };
