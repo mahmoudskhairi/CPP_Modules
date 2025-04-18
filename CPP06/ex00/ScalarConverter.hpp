@@ -25,7 +25,7 @@ public:
     ScalarConverter(const ScalarConverter &other);
     ScalarConverter & operator=(const ScalarConverter &other);
     ~ScalarConverter();
-    //analyse data.
+    //others
     static void convert(std::string &input);
     class   InvalidInput : public std::exception
     {
@@ -33,6 +33,7 @@ public:
     };
 };
 
+//analyse data.
 bool    isInt(std::string &input);
 bool    isFloat(std::string &input);
 bool    isDouble(std::string &input);
