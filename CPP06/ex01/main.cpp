@@ -3,7 +3,6 @@
 int main()
 {
     // Serializer o;
-    //c++98 flag
     Data person1;
     person1.Id = 0;
     std::cout << "\n# ---- New Person Is Here ! ---- #" << std::endl;
