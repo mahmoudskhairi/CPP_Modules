@@ -19,12 +19,12 @@ class  ScalarConverter
 {
 private:
     std::string _Type;
+    ScalarConverter(/* args */);
 public:
     //canonical form.
-     ScalarConverter(/* args */);
     ScalarConverter(const ScalarConverter &other);
     ScalarConverter & operator=(const ScalarConverter &other);
-    ~ScalarConverter();
+    virtual ~ScalarConverter();
     //others
     static void convert(std::string &input);
     class   InvalidInput : public std::exception

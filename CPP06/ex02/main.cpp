@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:30:55 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/04/21 20:50:33 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/04/22 10:09:00 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,10 @@ int main()
     /*
     unknown type
         unknown *Un = new (unknown);
-    */
-   unknown *Un = new (unknown);
         identify(Un);
         identify(*Un);
-    // identify(ptr);
-    // identify(*ptr);
+    */
+    identify(ptr);
+    identify(*ptr);
     delete ptr;
 }
