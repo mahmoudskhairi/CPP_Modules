@@ -102,6 +102,7 @@
         "__hash_table": "cpp",
         "__node_handle": "cpp",
         "__split_buffer": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "*.tpp": "cpp"
     }
 }

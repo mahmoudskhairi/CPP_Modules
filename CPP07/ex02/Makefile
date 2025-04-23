@@ -1,5 +1,5 @@
 CC = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -D PRINTINGMODE=0  #-fsanitize=address
 NAME = iter
 SOURCES = main.cpp
 OBJECTS = ${SOURCES:.cpp=.o}
