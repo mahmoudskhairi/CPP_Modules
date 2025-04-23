@@ -3,7 +3,7 @@
 #include <iostream>
 #include <exception>
 
-#ifndef PRINTINGMODE 0
+#ifndef PRINTINGMODE
 #define PRINTINGMODE 0
 #endif
 
@@ -16,10 +16,11 @@ private:
 public:
     Array(/* args */);
     Array(unsigned int size);
-    Array(const Array<T> &another);
-    Array<T> &operator=(const Array<T> &another);
-    void    operator[](unsigned int n);
+    Array(const Array &another);
+    Array &operator=(const Array &another);
+    T    &operator[](size_t n);
     void    print();
+    size_t  size() const;
     ~Array();
 };
 

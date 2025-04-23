@@ -1,6 +1,6 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -D PRINTINGMODE=0  #-fsanitize=address
-NAME = iter
+NAME = Array
 SOURCES = main.cpp
 OBJECTS = ${SOURCES:.cpp=.o}
 
@@ -10,7 +10,7 @@ $(NAME): $(OBJECTS)
 	$(CC) $(CPPFLAGS) $(OBJECTS) -o $(NAME)
 
 
-%.o: %.cpp iter.hpp
+%.o: %.cpp Array.hpp
 	$(CC) -c $(CPPFLAGS) $< -o $@
 
 clean:
