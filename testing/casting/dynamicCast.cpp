@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 class base
 {
 private:
@@ -33,17 +33,7 @@ derived::derived(/* args */)
 derived::~derived()
 {
 }
-
 int main()
 {
-    // base * b = new base;
-   derived *bptr = new derived;
-//    base *dptr = bptr;//upcasting
-//     derived *d = b;//down casting
-int x = 4;
-int *x1 = &x;
-float *d = static_cast<float *>(x1);
-    // d-> = 111;
-    // std::cout << "i: " << d->i << std::endl;
-//    std::cout << "i: " << dptr-> << std::endl;
+    di
 }
