@@ -1,5 +1,5 @@
 CC = g++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -D PRINTINGMODE=0 -fsanitize=address
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -D PRINTINGMODE=0 #-fsanitize=address
 NAME = generate
 SOURCES = main.cpp Base.cpp A.cpp B.cpp C.cpp unknown.cpp
 OBJECTS = ${SOURCES:.cpp=.o}

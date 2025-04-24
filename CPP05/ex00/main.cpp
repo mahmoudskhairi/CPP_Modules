@@ -2,7 +2,8 @@
 
 void TooLowTest()
 {
-    Bureaucrat bur_("#me#", 145);
+    Bureaucrat bur_("#me#", -1);
+    Bureaucrat::a;
     for (size_t i = 0; i < 10; i++)
     {
         std::cout << bur_ << std::endl;
@@ -22,8 +23,9 @@ int main()
 {
     try
     {
+
         TooLowTest();
-        TooHighTest();
+        // TooHighTest();
     }
     catch (std::exception &e)
     {

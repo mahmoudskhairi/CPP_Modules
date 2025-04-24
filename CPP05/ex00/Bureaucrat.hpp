@@ -35,6 +35,15 @@ public:
     public:
         const char *what() const throw();
     };
+    class a : public GradeTooHighException
+    {
+    public:
+        const char *what() const throw()
+        {
+            std::cout << "hello\n";
+            return "hello";
+        }
+    };
 };
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat &bur_);

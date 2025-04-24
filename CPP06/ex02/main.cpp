@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:30:55 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/04/22 10:09:00 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/04/22 13:03:29 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,14 @@ void identify(Base& p)
         }
     }
 }
+
+void ll()
+{
+    system("leaks -q generate");
+}
 int main()
 {
+    atexit(ll);
     Base *ptr = generate();
     /*
     unknown type

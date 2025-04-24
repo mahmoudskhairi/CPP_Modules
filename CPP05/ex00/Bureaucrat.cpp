@@ -6,18 +6,18 @@ Bureaucrat::Bureaucrat(/* args */): _Name("unknown"), _Grade(1)
     if (PRINTINGMODE)
         std::cout << "Constructor Called!" << std::endl;
     if (this->_Grade > 150)
-        throw GradeTooLowException();
+        throw a();
     else if (this->_Grade < 1)
-        throw GradeTooHighException();
+        throw a();
 }
 Bureaucrat::Bureaucrat(std::string const name, const int grade) : _Name(name), _Grade(grade)
 {
     if (PRINTINGMODE)
         std::cout << "Parameterized Constructor Called!" << std::endl;
     if (this->_Grade > 150)
-        throw GradeTooLowException();
+        throw a();
     else if (this->_Grade < 1)
-        throw GradeTooHighException();
+        throw a();
 }
 Bureaucrat::Bureaucrat(Bureaucrat &another) : _Name(another._Name), _Grade(another._Grade)
 {

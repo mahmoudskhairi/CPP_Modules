@@ -48,7 +48,7 @@ T&    Array<T>::operator[](size_t n){
     if (PRINTINGMODE)
         std::cout << "the indexing[] operator called!" << std::endl;
     if (n >= this->_size)
-        throw std::runtime_error("Invalide Index Error!");    
+        throw std::out_of_range("Index out of bounds!"); 
     return this->_ArrPtr[n];
 }
 template <typename T>
