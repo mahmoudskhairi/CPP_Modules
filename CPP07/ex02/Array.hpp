@@ -18,7 +18,7 @@ public:
     Array(unsigned int size);
     Array(const Array &another);
     Array &operator=(const Array &another);
-    T    &operator[](size_t n);
+    T    &operator[](long n);
     void    print();
     size_t  size() const;
     ~Array();

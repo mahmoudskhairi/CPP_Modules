@@ -10,13 +10,13 @@ template <typename T>
 Array<T>::Array(unsigned int size): _size(size), _ArrPtr(new T[size])
 {    
     if (PRINTINGMODE)
-        std::cout << "Copy constructor called!" << std::endl;
+        std::cout << "Parameterized constructor called!" << std::endl;
 }
 template <typename T>
 Array<T>::Array(const Array<T> &another): _size(another._size), _ArrPtr(new T[another._size])
 {
     if (PRINTINGMODE)
-        std::cout << "Copy assignment operator called!" << std::endl;
+        std::cout << "Copy constructor called!" << std::endl;
     for (size_t i = 0; i < this->_size; i++)
         this->_ArrPtr[i] = another._ArrPtr[i];
 }
@@ -43,11 +43,11 @@ void    Array<T>::print()
         std::cout << "element [" << i << "], value: [" << this->_ArrPtr[i] << "]" << std::endl;
 }
 template <typename T>
-T&    Array<T>::operator[](size_t n){
+T&    Array<T>::operator[](long n){
     
     if (PRINTINGMODE)
-        std::cout << "the indexing[] operator called!" << std::endl;
-    if (n >= this->_size)
+        std::cout << "Indexing operator called!" << std::endl;
+    if (n >= static_cast<long>(this->_size) || n < 0)
         throw std::out_of_range("Index out of bounds!"); 
     return this->_ArrPtr[n];
 }
@@ -61,4 +61,5 @@ template <typename T>
 Array<T>::~Array(){
     if (PRINTINGMODE)
         std::cout << "Destructor called!" << std::endl;
+    delete[] this->_ArrPtr;
 }

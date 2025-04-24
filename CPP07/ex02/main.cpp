@@ -66,9 +66,13 @@ int SubjectTest()
     delete [] mirror;//
     return 0;
 }
-
+// void leaks()
+// {
+//     system("leaks -q Array");
+// }
 int main()
 {
+    // atexit(leaks);
     MyTest();
     SubjectTest();
 }
