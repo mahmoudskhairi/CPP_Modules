@@ -27,7 +27,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm &N
 }
 void ShrubberyCreationForm::ExecuteAction() const
 {
-    std::ofstream output(_Target + "_shrubbery");
+    std::ofstream output("_shrubbery");
     output << "                ,@@@@@@@,\n"
               "        ,,,.   ,@@@@@@/@@,  .oo8888o.\n"
               "        ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n"

@@ -28,17 +28,17 @@ void Wrong()
     delete form;
 }
 
-void leaks()
-{
-    system("leaks -q Intern");
-}
+// void leaks()
+// {
+//     system("leaks -q Intern");
+// }
 int main()
 {
-    atexit (leaks);
+    // atexit (leaks);
     try
     {
-        Correct();
-        // Wrong();
+        // Correct();
+        Wrong();
     }
     catch (std::exception &e)
     {
