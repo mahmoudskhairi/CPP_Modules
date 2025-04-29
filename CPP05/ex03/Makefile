@@ -10,9 +10,7 @@ HEADERS = $(addprefix $(INCDIR)/,Bureaucrat.hpp ShrubberyCreationForm.hpp AForm.
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	$(CC) $(CPPFLAGS)  $(OBJECTS) -o $(NAME)
-
-
+	$(CC) $(CPPFLAGS)  $(OBJECTS) -o $(NAME)iterat
 %.o: %.cpp $(HEADERS)
 	$(CC) -c $(CPPFLAGS)  $< -o $@
 
