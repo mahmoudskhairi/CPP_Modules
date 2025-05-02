@@ -39,12 +39,24 @@ void    Span::addNumber(int number)
         throw(std::out_of_range("adding of new elemets doesn't allowed !"));
     this->MyVect.push_back(number);
 }
-// size_t Span::shortestSpan()
-// {
-// }
+size_t Span::shortestSpan()
+{
+    if (MyVect.size() < 2)
+        throw std::logic_error("Sorry, the size of your vector must be more than one element !");
+    int min_diff = std::abs(MyVect[1] - MyVect[0]);
+    for (std::vector<int>::iterator it = MyVect.begin(); it != MyVect.end(); it++)
+    {
+        if (it + 1 != MyVect.end())
+            if(*(it + 1) - *it < min_diff)
+                min_diff = std::abs(*(it + 1) - *it);
+    }
+    return min_diff;
+}
 size_t Span::longestSpan()
 {
-    std::sort(MyVect.begin(), MyVect.end());
-    std::cout << "distance between " << MyVect.at(0) << " and " << MyVect[_N - 1] << " is : " << MyVect.size() - 2 << std::endl;
-    return (MyVect.size() - 2);
+    if (MyVect.size() < 2)
+        throw std::logic_error("Sorry, the size of your vector must be more than one element !");
+    int min = *std::min_element(MyVect.begin(), MyVect.end());
+    int max = *std::max_element(MyVect.begin(), MyVect.end());
+    return (max - min);
 }

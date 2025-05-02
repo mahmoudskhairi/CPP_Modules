@@ -20,7 +20,7 @@ public:
     Span &operator=(const Span &other);
     ~Span();
     void    addNumber(int number);
-    // size_t shortestSpan();
+    size_t shortestSpan(); 
     size_t longestSpan();
 };
 
