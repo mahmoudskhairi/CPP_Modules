@@ -60,3 +60,17 @@ size_t Span::longestSpan()
     int max = *std::max_element(MyVect.begin(), MyVect.end());
     return (max - min);
 }
+
+void    Span::fillVector(unsigned int size)
+{
+    if (size + MyVect.size() > _N)
+        throw(std::out_of_range("Sorry, no space left!"));
+    int num = 0;
+    std::srand(time(0));
+    for (unsigned int i = 0; i < size; i++)
+    {
+        num = std::rand();
+        // std::cout << "num: " << num << std::endl;
+        MyVect.push_back(num);
+    }
+}

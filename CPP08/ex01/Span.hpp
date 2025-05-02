@@ -22,6 +22,7 @@ public:
     void    addNumber(int number);
     size_t shortestSpan(); 
     size_t longestSpan();
+    void    fillVector(unsigned int size);
 };
 
 #endif
