@@ -5,6 +5,7 @@
 
 class Mutantstack : public std::stack
 {
+    
 };
 
  #endif
