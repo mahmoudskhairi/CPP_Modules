@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 23:51:47 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/05/03 23:51:50 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/05/04 00:04:45 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Mutantstack<T>::Mutantstack(){
 
 }
 template <typename T>
-Mutantstack<T>::Mutantstack(Mutantstack &other){
+Mutantstack<T>::Mutantstack(Mutantstack<T> &other){
 (void)other;
 }
 template <typename T>
