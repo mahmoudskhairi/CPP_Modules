@@ -1,21 +1,4 @@
 #include "easyfind.hpp"
-#include <list>
-template <typename T>
-typename T::iterator easyfind(T &container, int number)
-{
-    /* finding loop /
-    typename T::iterator it;
-     for (it = container.begin(); it != container.end(); it++)
-     {
-         if (*it == number)
-            break;
-    }*/
-    typename T::iterator it = std::find(container.begin(), container.end(), number);
-    if (it == container.end())
-        throw std::runtime_error("your number dosen't exists in the container!");
-    return (it);
-
-}
  
 int main() {
 
