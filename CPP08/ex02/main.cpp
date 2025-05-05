@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 23:51:53 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/05/05 16:58:15 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/05/05 17:01:23 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,3 @@ int main()
         std::cout << "*it: " << *it << std::endl;
     return 0; 
 }
-
-// Mutantstack<int> one;
-
-// one.push(1337);
-// one.push(-12);
-// one.push(0);
-// one.push(10);
-
-// std::deque<int>::iterator it = one.begin();
-
-// std::cout << "num :" << *it << std::endl;
