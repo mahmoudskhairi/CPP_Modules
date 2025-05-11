@@ -25,6 +25,38 @@
         <li><strong>Module 04: Polymorphism</strong>
             <p>This module covers **polymorphism**, one of the core OOP principles. You'll learn how to use **virtual functions**, enabling derived classes to override base class functions, and how to achieve dynamic binding to support polymorphic behavior.</p>
         </li>
+        <li><strong>Module 05: Exception Handling and Nested Classes</strong> <p>This module introduces **exception handling** in C++, a critical mechanism for managing runtime errors gracefully. You'll learn how to use <code>try</code>, <code>catch</code>, and <code>throw</code> blocks to handle exceptions, along with creating custom exception classes. Additionally, this module covers **nested classes**, exploring their use cases for encapsulation and organization within larger class structures. Key topics include:</p> <ul> <li>Standard exception classes (<code>std::exception</code>, <code>std::runtime_error</code>, etc.).</li> <li>Resource management during exceptions (RAII principle).</li> <li>Design patterns leveraging nested classes (e.g., iterator implementations).</li> </ul>
+        </li>
+        <li><strong>Module 06: C++ Casts and Type Conversion</strong>
+            <p>This module dives into **C++-style casts** and **type conversion** mechanisms, emphasizing type safety over C-style casts. You'll explore:</p>
+            <ul>
+                <li><code>static_cast</code> for implicit and well-defined conversions.</li>
+                <li><code>dynamic_cast</code> for safe downcasting in polymorphic hierarchies.</li>
+                <li><code>reinterpret_cast</code> for low-level, unsafe type reinterpreting.</li>
+                <li><code>const_cast</code> for modifying <code>const</code> or <code>volatile</code> qualifiers.</li>
+            </ul>
+        <p>Practical use cases include polymorphism checks, interface adaptations, and avoiding undefined behavior.</p>
+        </li>
+        <li><strong>Module 07: Templates and Generic Programming</strong>
+        <p>This module focuses on **templates**, enabling generic, reusable code. You'll learn:</p>
+        <ul>
+            <li><strong>Function templates</strong>: Writing type-agnostic functions.</li>
+            <li><strong>Class templates</strong>: Designing generic containers (e.g., custom arrays, lists).</li>
+            <li><strong>Template specialization</strong>: Optimizing behavior for specific types.</li>
+            <li><strong>STL introduction</strong>: How templates power the Standard Template Library.</li>
+        </ul>
+        <p>Examples include building a generic container and understanding compile-time polymorphism.</p>
+    </li>
+    <li><strong>Module 08: STL Containers, Iterators, and Algorithms</strong>
+    <p>This module explores the **Standard Template Library (STL)**, covering:</p>
+    <ul>
+        <li><strong>Containers</strong>: <code>vector</code>, <code>list</code>, <code>map</code>, <code>set</code>, and their use cases.</li>
+        <li><strong>Iterators</strong>: Navigating and manipulating container elements.</li>
+        <li><strong>Algorithms</strong>: Leveraging <code>&lt;algorithm&gt;</code> for sorting, searching, and transformations.</li>
+        <li><strong>Functor and lambda</strong>: Using callable objects with STL algorithms.</li>
+    </ul>
+    <p>You'll implement custom iterators and benchmark container performance.</p>
+    </li>
 </ol>
 
 <h2>Learning Approach</h2>
