@@ -73,6 +73,13 @@ int SubjectTest()
 int main()
 {
     // atexit(leaks);
-    MyTest();
-    SubjectTest();
+    try
+    {
+        MyTest();
+        // SubjectTest();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }

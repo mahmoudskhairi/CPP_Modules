@@ -6,27 +6,65 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 23:51:53 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/05/05 17:01:23 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/05/22 18:10:17 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
-#include <vector>
-int main()
+
+void    SubjectTest()
 {
     MutantStack<int> mstack;
-    mstack.push(0);
-    mstack.push(1);
-    mstack.push(2);
-    mstack.push(3);
-    std::cout << "top: " << mstack.top() << std::endl;
-    std::cout << "size: " << mstack.size() << std::endl;
+    mstack.push(5);
+    mstack.push(17);
+    std::cout << mstack.top() << std::endl;
     mstack.pop();
-    // std::cout << "top: " << mstack.top() << std::endl;
-    // std::cout << "size: " << mstack.size() << std::endl;
+    std::cout << mstack.size() << std::endl;
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    //[...]
+    mstack.push(0);
     MutantStack<int>::iterator it = mstack.begin();
     MutantStack<int>::iterator ite = mstack.end();
-    for(;it != ite;it++)    
-        std::cout << "*it: " << *it << std::endl;
+    ++it;
+    --it;
+    while (it != ite)
+    {
+        std::cout << *it << std::endl;
+        ++it;
+    }
+    std::stack<int> s(mstack);
+    return;
+}
+
+void    MyOwnTest()
+{
+    std::list<int> mstack;
+    mstack.push_back(5);
+    mstack.push_back(17);
+    std::cout << mstack.back() << std::endl;
+    mstack.pop_back();
+    std::cout << mstack.size() << std::endl;
+    mstack.push_back(3);
+    mstack.push_back(5);
+    mstack.push_back(737);
+    //[...]
+    mstack.push_back(0);
+    std::list<int>::iterator it = mstack.begin();
+    std::list<int>::iterator ite = mstack.end();
+    ++it;
+    --it;
+    while (it != ite)
+    {
+        std::cout << *it << std::endl;
+        ++it;
+    }
+    return;
+}
+int main()
+{
+    SubjectTest();
+    // MyOwnTest();
     return 0; 
 }

@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 23:52:17 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/05/05 15:46:24 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/05/22 18:10:02 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <stack>
 #include <iterator>
+#include <list>
 
 #ifndef  PRINTINGMODE
 #define  PRINTINGMODE 1

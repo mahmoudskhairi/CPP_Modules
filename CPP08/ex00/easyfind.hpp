@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 23:52:50 by mskhairi          #+#    #+#             */
-/*   Updated: 2025/05/03 23:54:16 by mskhairi         ###   ########.fr       */
+/*   Updated: 2025/05/22 15:37:11 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <algorithm>
 #include <list>
+#include <vector>
 
 template <typename T>
 typename T::iterator easyfind(T &container, int number);
