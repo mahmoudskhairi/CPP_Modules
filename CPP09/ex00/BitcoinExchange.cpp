@@ -16,15 +16,17 @@ void    BitcoinExchange::FillData(std::string key, std::string value)
     data mydata;
     mydata.btcValue = strtod(value.c_str(), NULL);
     // std::string date;
-    // int year, month, day;
+    std::string year, month, day;
     std::stringstream streamDate(key);
     
-    getline(streamDate, key, '-');
-    mydata.year = strtod(key.c_str(), NULL);
-    getline(streamDate, key, '-');
-    mydata.month = strtod(key.c_str(), NULL);
-    getline(streamDate, key, '-');
-    mydata.day = strtod(key.c_str(), NULL);
+    getline(streamDate, year, '-');
+    mydata.year = strtod(year.c_str(), NULL);
+    getline(streamDate, month, '-');
+    mydata.month = strtod(month.c_str(), NULL);
+    getline(streamDate, day, '-');
+    mydata.day = strtod(day.c_str(), NULL);
+    mydata.key = key;
+    mydata.value = value;
     this->_database.push_back(mydata);
 }
 void    BitcoinExchange::ParceData()
@@ -59,14 +61,17 @@ void    BitcoinExchange::printDataBase()
 {
     for (std::vector<data>::iterator it = this->_database.begin(); it != this->_database.end(); it++)
     {
+        std::cout << "#" << std::endl;
+        std::cout << "key: " << (*it).key << ", value: " << (*it).value << std::endl;
         std::cout << (*it).year << "-" << (*it).month << "-" << (*it).day << " , " << (*it).btcValue << std::endl;
+        std::cout << "#" << std::endl;
     }
 }
 
-bool    BitcoinExchange::is_validDate(std::vector<data>::iterator &it)
+bool    BitcoinExchange::is_validDate(data &Data)
 {
     // std::cout << "year: " << year << ", month: " << month << ", day: " << day << std::endl;
-    if ((*it).year > 2025 || !((*it).month >= 1 && (*it).month <= 12) || !((*it).day >= 1 && (*it).day <= 31))
+    if (Data.year > 2025 || !(Data.month >= 1 && Data.month <= 12) || !(Data.day >= 1 && Data.day <= 31) || Data.btcValue >  2147483647)
         return 0;
     return 1;
 }
@@ -74,21 +79,28 @@ bool    BitcoinExchange::is_validDate(std::vector<data>::iterator &it)
 void BitcoinExchange::FillUserData(data &userData, std::string key, std::string value)
 {
     userData.btcValue = strtod(value.c_str(), NULL);
-    // std::string date;
-    // int year, month, day;
+    std::string year, month, day;
     std::stringstream streamDate(key);
     
-    getline(streamDate, key, '-');
-    userData.year = strtod(key.c_str(), NULL);
-    getline(streamDate, key, '-');
-    userData.month = strtod(key.c_str(), NULL);
-    getline(streamDate, key, '-');
-    userData.day = strtod(key.c_str(), NULL);
+    getline(streamDate, year, '-');
+    userData.year = strtod(year.c_str(), NULL);
+    getline(streamDate, month, '-');
+    userData.month = strtod(month.c_str(), NULL);
+    getline(streamDate, day, '-');
+    userData.day = strtod(day.c_str(), NULL);
     userData.btcValue = strtod(value.c_str(), NULL);
+    userData.key = key;
+    userData.value = value;
 }
 
-void    BitcoinExchange::GetPreviousDate(std::vector<data>::iterator &it,data &userdata)
+void    BitcoinExchange::cleanData(data &userdata)
 {
+        userdata.key = "";
+        userdata.value = "";
+        userdata.year = 0;
+        userdata.month = 0;
+        userdata.day = 0;
+        userdata.btcValue = 0.0;
 }
 
 int     BitcoinExchange::Is_DateExist(std::vector<data>::iterator &it,data &userdata)
@@ -103,8 +115,10 @@ void    BitcoinExchange::AnalyseUserInput()
     data userdata;
     std::ifstream inputuserfile(this->_userfilename.c_str());
     std::getline(inputuserfile, line);
+    // std::cout << "user line: " << line << std::endl;
     while (std::getline(inputuserfile, line))
     {        
+        // std::cout << "user line: " << line << std::endl;
         std::stringstream strstream(line);
         std::getline(strstream, key, '|') && strstream >> value;
         //earase all spaces around key aand value.
@@ -114,30 +128,38 @@ void    BitcoinExchange::AnalyseUserInput()
         value.erase(0, value.find_first_not_of(" \t\r\n"));
         value.erase(value.find_last_not_of(" \t\r\n") + 1);
         FillUserData(userdata, key, value);
+        // std::cout << "key: [" << key << "]" <<  std::endl;
+        // std::cout << "value: [" << value << "]" <<  std::endl;
+        // std::cout << "key: [" << userdata.key << "]" <<  std::endl;
+        // std::cout << "value: [" << userdata.value << "]" <<  std::endl;
         for (std::vector<data>::iterator it = this->_database.begin(); it != this->_database.end(); it++)
         {
-            if (!is_validDate(it))
+            if (!is_validDate(userdata))
             {
-                std::cerr << "Error: bad input => " << key << std::endl;
-                continue;
+                if (userdata.btcValue >  2147483647)
+                    std::cerr << "Error: too large a number." << std::endl;
+                else
+                    std::cerr << "Error: bad input => " << key << std::endl;
+                break;
             }
             if (userdata.btcValue < 0)
             {
                 std::cerr << "Error: not a positive number." << std::endl;
-                continue;
+                break;
             }
             if (Is_DateExist(it, userdata))
             {
-                std::cout << (*it).key << " => " << (*it).value << " = " << (*it).btcValue * userdata.btcValue << std::endl;
+                std::cout << userdata.key << " => " << userdata.value << " = " << (*it).btcValue * userdata.btcValue << std::endl;
+                break;
             }
-            else if (GetPreviousDate(it, userdata) == -1)
+            else if (key.compare((*it).key) < 0)
             {
-                // incomplete implementation
                 it--;
-                std::cout << (*it).key << " => " << (*it).value << " = " << (*it).btcValue * userdata.btcValue << std::endl;
-            }    
-
+                std::cout << userdata.key << " => " << userdata.value << " = " << (*it).btcValue * userdata.btcValue << std::endl;
+                break;
+            }
         }
+        cleanData(userdata);
     }
 }
 
