@@ -11,7 +11,8 @@ int main(int ac, char*av[])
     try
     {
         std::string input(av[1]);
-        std::stack<int> &stack =  RPN(input);
+        std::stack<int> stack =  RPN(input);
+        std::cout << stack.top() << std::endl;
     }
     catch(const std::exception& e)
     {

@@ -5,6 +5,6 @@
 #include <iostream>
 #include <stack>
 
-std::stack<int>    &RPN(std::string &str);
+std::stack<int>    RPN(std::string &str);
 
 #endif
