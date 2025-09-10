@@ -10,8 +10,7 @@ int main(int ac, char *av[])
         }
         PmergeMe h;
         h.setInput(ac, av);
-        h.sortMe(); 
-        // h.printList();
+        h.sortMe();
     }
     catch(const std::exception& e)
     {

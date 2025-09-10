@@ -30,42 +30,42 @@ void    PmergeMe::printdeque(std::deque<int> &deq)
 {
     for (std::deque<int>::iterator it = deq.begin(); it != deq.end(); it++)
     {
-        std::cout << "num: " << (*it) << std::endl;   
+        std::cout << (*it) << " - ";   
     }
+    std::cout << std::endl;
 }
 void    PmergeMe::printvector(std::vector<int> &vect)
 {
     for (std::vector<int>::iterator it = vect.begin(); it != vect.end(); it++)
     {
-        std::cout << "num: " << (*it) << std::endl;   
+        std::cout << (*it) << " - ";   
     }
+    std::cout << std::endl;
 }
 
 void    PmergeMe::sortMe()
 {
     this->sort(_mysequence);
+    this->printdeque(this->_main);
 }
 void    PmergeMe::sort(std::deque<int> &sequence)
 {
+    std::cout << "------------ sort --------------" << std::endl;
     // loop on _main and divid it into paires
-    if (_mysequence.size() < 2)
-    {
-        // insert pen into main
-        return;
-    }
+    this->printdeque(sequence);
     std::deque<int> main;
     std::vector<int> pend;
+    int last = -1;
     if (sequence.size() % 2)
     {
-        int last = sequence.size() - 1;
-        _pend.push_back(sequence.at(last));
+        last = sequence.size() - 1;
+        last = sequence.at(last);
         sequence.pop_back();
     }
     std::deque<int>::iterator it1 = sequence.begin();
     std::deque<int>::iterator it2 = sequence.begin() + 1;
     int i = 2;
     int size = sequence.size();
-    std::map<int, int> mymap;
     while (1)
     {
         if (size - i >= 0)
@@ -74,18 +74,23 @@ void    PmergeMe::sort(std::deque<int> &sequence)
             {
                 std::swap(*it1, *it2);
             }
-            mymap[(*it1)] = (*it2);
+            if (!_flag)
+            {
+                _map[(*it1)] = (*it2);    
+            }
             it1 += 2;
             it2 += 2;
-            i += 2;                                             
+            i += 2;                                      
         }
         else
         {
             break;
         }
     }
-    this->printdeque(sequence);
-    std::cout << "----" << std::endl;
+    if (!_flag)
+    {
+        _flag = 1;        
+    }
     for (int i = 0; i < (int)sequence.size(); i++)
     {
         if (!(i % 2))
@@ -97,33 +102,59 @@ void    PmergeMe::sort(std::deque<int> &sequence)
             main.push_back(sequence.at(i));
         }
     }
-    this->printdeque(main);
-    std::cout << "----" << std::endl;
-    this->printvector(pend);
-    std::cout << "====" << std::endl;
-
-    if (main.size() < 2)
+    if (last >= 0)
+    {
+        pend.push_back(last);
+    }
+    // std::cout << "# main: " << std::endl;
+    // this->printdeque(main);
+    // std::cout << "# pend: " << std::endl;
+    // this->printvector(pend);
+    // std::cout << "# _main: " << std::endl;
+    // this->printdeque(_main);
+    if (main.size() > 2)
+    {
+        sort(main);
+    }
+    if (!_main.size())
     {
         this->_main = main;
-        insertPendElements(pend, mymap);
-        return;
     }
-    sort(_main);
-    // _main = sequence;
-    // loop on paires and push on _second
-    // call sort() with _main as a parameter
+    insertPendElements(pend);
+    std::cout << "--------------------------------" << std::endl;
 }
 
 
-        
-void    PmergeMe::insertPendElements(std::vector<int> &pend, std::map<int, int> &mymap)
+
+void    PmergeMe::insertPendElements(std::vector<int> &pend)
 {
-    _main.push_front(pend.at(0));
-    for (size_t i = 1; i < pend.size(); i++)
+    std::cout << "------------ insertion --------------" << std::endl;
+    std::cout << "#pend" << std::endl;
+    printvector(pend);
+    std::cout << "# _main: " << std::endl;
+    this->printdeque(_main);
+    for (size_t i = 0; i < pend.size(); i++)
     {
-                                                                                                                                                                                                                                                  
+        std::deque<int>::iterator pair;
+        std::cout << "" << std::endl;
+        if (_map[pend.at(i)])
+        {
+            pair = std::find(_main.begin(), _main.end(), _map[pend.at(i)]);
+        }
+        else
+        {
+            pair = _main.end();
+        }
+        std::deque<int>::iterator insertionIterator;
+        insertionIterator = std::lower_bound(_main.begin(), pair, pend.at(i));
+        
+        std::cout << "------------ before insert --------------" << std::endl;
+        printdeque(_main);
+        _main.insert(insertionIterator, pend.at(i));
+        std::cout << "------------ after insert --------------" << std::endl;
+        printdeque(_main);
     }
-    
+    std::cout << "------------- finishing of insertion -------------------" << std::endl;
 }
 PmergeMe::~PmergeMe()
 {

@@ -17,12 +17,15 @@ std::deque<int> _mysequence;
 std::set<int> _tmpsequence;
 std::deque<int> _main;
 std::vector<int> _pend;
+std::map<int, int> _map;
+bool _flag;
+
 public:
     PmergeMe();
     void    setInput(size_t ac, char **av);
     void    printdeque(std::deque<int> &deq);
     void    printvector(std::vector<int> &vect);
-    void    insertPendElements(std::vector<int> &pend, std::map<int, int> &mymap);
+    void    insertPendElements(std::vector<int> &pend);
     void    sortMe();
     void    sort(std::deque<int> &sequence);
     ~PmergeMe();
