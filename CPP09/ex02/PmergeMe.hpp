@@ -24,9 +24,10 @@ public:
     PmergeMe();
     void    setInput(size_t ac, char **av);
     void    printdeque(std::deque<int> &deq);
-    void    printvector(std::vector<int> &vect);
+    void    printvector(std::vector<int> &vect) const;
     void    insertPendElements(std::vector<int> &pend);
     void    sortMe();
+    void    sequenceState(const std::string &input);
     void    sort(std::deque<int> &sequence);
     ~PmergeMe();
 };

@@ -1,6 +1,6 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = RPN
+NAME = PmergeMe
 RM = rm -rf
 SOURCES = main.cpp PmergeMe.cpp
 OBJECTS = ${SOURCES:.cpp=.o}

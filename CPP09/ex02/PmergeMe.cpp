@@ -30,11 +30,15 @@ void    PmergeMe::printdeque(std::deque<int> &deq)
 {
     for (std::deque<int>::iterator it = deq.begin(); it != deq.end(); it++)
     {
-        std::cout << (*it) << " - ";   
+        std::cout << (*it);
+        if (it + 1 != deq.end())
+        {
+            std::cout << " ";
+        }
     }
     std::cout << std::endl;
 }
-void    PmergeMe::printvector(std::vector<int> &vect)
+void    PmergeMe::printvector(std::vector<int> &vect) const
 {
     for (std::vector<int>::iterator it = vect.begin(); it != vect.end(); it++)
     {
@@ -46,13 +50,13 @@ void    PmergeMe::printvector(std::vector<int> &vect)
 void    PmergeMe::sortMe()
 {
     this->sort(_mysequence);
-    this->printdeque(this->_main);
+    // this->printdeque(this->_main);
 }
 void    PmergeMe::sort(std::deque<int> &sequence)
 {
-    std::cout << "------------ sort --------------" << std::endl;
+    // std::cout << "------------ sort --------------" << std::endl;
     // loop on _main and divid it into paires
-    this->printdeque(sequence);
+    // this->printdeque(sequence);
     std::deque<int> main;
     std::vector<int> pend;
     int last = -1;
@@ -87,7 +91,7 @@ void    PmergeMe::sort(std::deque<int> &sequence)
             break;
         }
     }
-    if (!_flag)
+    if (!_flag)// must be chaned
     {
         _flag = 1;        
     }
@@ -102,16 +106,10 @@ void    PmergeMe::sort(std::deque<int> &sequence)
             main.push_back(sequence.at(i));
         }
     }
-    if (last >= 0)
+    if (last >= 0)// must be changed
     {
         pend.push_back(last);
     }
-    // std::cout << "# main: " << std::endl;
-    // this->printdeque(main);
-    // std::cout << "# pend: " << std::endl;
-    // this->printvector(pend);
-    // std::cout << "# _main: " << std::endl;
-    // this->printdeque(_main);
     if (main.size() > 2)
     {
         sort(main);
@@ -121,22 +119,33 @@ void    PmergeMe::sort(std::deque<int> &sequence)
         this->_main = main;
     }
     insertPendElements(pend);
-    std::cout << "--------------------------------" << std::endl;
+    // std::cout << "--------------------------------" << std::endl;
 }
 
-
+void    PmergeMe::sequenceState(const std::string &input)
+{
+        std::cout << input;
+        if (input == "before: ")
+        {
+            this->printdeque(_mysequence);                 
+        }
+        else if (input == "after: ")
+        {
+            this->printdeque(_main);                 
+        }
+}
 
 void    PmergeMe::insertPendElements(std::vector<int> &pend)
 {
-    std::cout << "------------ insertion --------------" << std::endl;
-    std::cout << "#pend" << std::endl;
-    printvector(pend);
-    std::cout << "# _main: " << std::endl;
-    this->printdeque(_main);
+    // std::cout << "------------ insertion --------------" << std::endl;
+    // std::cout << "#pend" << std::endl;
+    // printvector(pend);
+    // std::cout << "# _main: " << std::endl;
+    // this->printdeque(_main);
     for (size_t i = 0; i < pend.size(); i++)
     {
         std::deque<int>::iterator pair;
-        std::cout << "" << std::endl;
+        // std::cout << "" << std::endl;
         if (_map[pend.at(i)])
         {
             pair = std::find(_main.begin(), _main.end(), _map[pend.at(i)]);
@@ -148,13 +157,13 @@ void    PmergeMe::insertPendElements(std::vector<int> &pend)
         std::deque<int>::iterator insertionIterator;
         insertionIterator = std::lower_bound(_main.begin(), pair, pend.at(i));
         
-        std::cout << "------------ before insert --------------" << std::endl;
-        printdeque(_main);
+        // std::cout << "------------ before insert --------------" << std::endl;
+        // printdeque(_main);
         _main.insert(insertionIterator, pend.at(i));
-        std::cout << "------------ after insert --------------" << std::endl;
-        printdeque(_main);
+        // std::cout << "------------ after insert --------------" << std::endl;
+        // printdeque(_main);
     }
-    std::cout << "------------- finishing of insertion -------------------" << std::endl;
+    // std::cout << "------------- finishing of insertion -------------------" << std::endl;
 }
 PmergeMe::~PmergeMe()
 {

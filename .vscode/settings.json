@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.ejs": "html",
         "any": "cpp",
         "array": "cpp",
         "atomic": "cpp",
@@ -102,6 +103,11 @@
         "__tuple": "cpp",
         "ios": "cpp",
         "locale": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "expected": "cpp",
+        "format": "cpp",
+        "spanstream": "cpp",
+        "stacktrace": "cpp",
+        "stdfloat": "cpp"
     }
 }
