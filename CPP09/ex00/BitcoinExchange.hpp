@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <exception>
-#include <vector>
+#include <map>
 #include <fstream>
 #include <sstream>
 #include <cstdlib>
@@ -22,7 +22,7 @@ class BitcoinExchange
     private:
         std::string         _userfilename;
         std::string         _databasefilename;
-        std::vector<data>   _database;
+        std::multimap<std::string, data>   _database;
         BitcoinExchange(/* args */);
     public:
         BitcoinExchange(std::string userfilename);
@@ -32,7 +32,7 @@ class BitcoinExchange
         void                FillData(std::string key, std::string value);
         void                AnalyseUserInput();
         bool                is_validDate(data &Data);
-        int                 Is_DateExist(std::vector<data>::iterator &it,data &userdata);
+        int                 Is_DateExist(std::multimap<std::string, data>::iterator &it,data &userdata);
         void                cleanData(data &userdata);
         void                printDataBase();
         BitcoinExchange     &operator=(BitcoinExchange &other);

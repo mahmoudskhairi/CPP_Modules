@@ -27,7 +27,7 @@ void    BitcoinExchange::FillData(std::string key, std::string value)
     mydata.day = strtod(day.c_str(), NULL);
     mydata.key = key;
     mydata.value = value;
-    this->_database.push_back(mydata);
+    this->_database.insert(std::make_pair(key ,mydata));
 }
 void    BitcoinExchange::ParceData()
 {
@@ -37,14 +37,20 @@ void    BitcoinExchange::ParceData()
     // std::cout << "line: " << line << std::endl;
     while (std::getline(fs, line))
     {
-        if (line.empty()) 
-        continue;
+        if (line.empty())
+        {
+            continue;
+        }
         std::stringstream strstream(line);
 
         if (!std::getline(strstream, key, ','))
+        {
             continue;
+        }
         if (!std::getline(strstream, value, ','))
+        {
             continue;
+        }    
         //earase all spaces around key aand value.
         key.erase(0, key.find_first_not_of(" \t\r\n"));
         key.erase(key.find_last_not_of(" \t\r\n") + 1);
@@ -59,11 +65,11 @@ void    BitcoinExchange::ParceData()
 
 void    BitcoinExchange::printDataBase()
 {
-    for (std::vector<data>::iterator it = this->_database.begin(); it != this->_database.end(); it++)
+    for (std::multimap<std::string, data>::iterator it = this->_database.begin(); it != this->_database.end(); it++)
     {
         std::cout << "#" << std::endl;
-        std::cout << "key: " << (*it).key << ", value: " << (*it).value << std::endl;
-        std::cout << (*it).year << "-" << (*it).month << "-" << (*it).day << " , " << (*it).btcValue << std::endl;
+        std::cout << "key: " << (*it).second.key << ", value: " << (*it).second.value << std::endl;
+        std::cout << (*it).second.year << "-" << (*it).second.month << "-" << (*it).second.day << " , " << (*it).second.btcValue << std::endl;
         std::cout << "#" << std::endl;
     }
 }
@@ -103,9 +109,9 @@ void    BitcoinExchange::cleanData(data &userdata)
         userdata.btcValue = 0.0;
 }
 
-int     BitcoinExchange::Is_DateExist(std::vector<data>::iterator &it,data &userdata)
+int     BitcoinExchange::Is_DateExist(std::multimap<std::string, data>::iterator &it,data &userdata)
 {
-    if (!(*it).key.compare(userdata.key))
+    if (!(*it).second.key.compare(userdata.key))
         return 1;
     return 0;
 }
@@ -132,7 +138,7 @@ void    BitcoinExchange::AnalyseUserInput()
         // std::cout << "value: [" << value << "]" <<  std::endl;
         // std::cout << "key: [" << userdata.key << "]" <<  std::endl;
         // std::cout << "value: [" << userdata.value << "]" <<  std::endl;
-        for (std::vector<data>::iterator it = this->_database.begin(); it != this->_database.end(); it++)
+        for (std::multimap<std::string, data>::iterator it = this->_database.begin(); it != this->_database.end(); it++)
         {
             if (!is_validDate(userdata))
             {
@@ -149,13 +155,13 @@ void    BitcoinExchange::AnalyseUserInput()
             }
             if (Is_DateExist(it, userdata))
             {
-                std::cout << userdata.key << " => " << userdata.value << " = " << (*it).btcValue * userdata.btcValue << std::endl;
+                std::cout << userdata.key << " => " << userdata.value << " = " << (*it).second.btcValue * userdata.btcValue << std::endl;
                 break;
             }
-            else if (key.compare((*it).key) < 0)
+            else if (key.compare((*it).second.key) < 0)
             {
                 it--;
-                std::cout << userdata.key << " => " << userdata.value << " = " << (*it).btcValue * userdata.btcValue << std::endl;
+                std::cout << userdata.key << " => " << userdata.value << " = " << (*it).second.btcValue * userdata.btcValue << std::endl;
                 break;
             }
         }
