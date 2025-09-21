@@ -26,7 +26,7 @@ public:
     void    sequenceState(const std::string &input);
     void    Ford_Johnson();
     size_t  jacobsthal(size_t n);
-    void    JacobsthalOrder( std::vector<size_t> order, size_t size);
+    void    JacobsthalOrder( std::vector<size_t> &order, size_t size);
     // -------- for vector ------- //
     void    insertPendToVector(std::vector<int> &pend);
     void    MergeSortvect(std::vector<int> &sequence);
